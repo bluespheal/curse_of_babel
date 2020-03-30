@@ -7,9 +7,7 @@ public class Button : MonoBehaviour
 {
     public Saved_variables Svar;
     public void restart(){
-        Svar.progreso.nivelActual= Random.Range(0, 4);
-        Svar.Guardar();
-        SceneManager.LoadScene(Svar.progreso.nivelActual);
+        SceneManager.LoadScene("GameplayScene");
     }
 
     public void BackToTitle(){

@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{1A7F94C8-052E-C52D-22AA-1DEB1A22DF71}</ProjectGuid>
+    <ProjectGuid>{77B8CDAC-4172-78D4-01D6-BD99F2B9E310}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -64,42 +64,46 @@
   <ItemGroup>
     <Compile Include="Assets\enemies\bouncing enemy\bounce.cs" />
     <Compile Include="Assets\platforms\falling platform\falling_platform.cs" />
+    <Compile Include="Assets\platforms\semi-solid platform\semisolid_platform.cs" />
     <Compile Include="Assets\Scripts\Button.cs" />
+    <Compile Include="Assets\Scripts\camera_follow.cs" />
     <Compile Include="Assets\Scripts\enemy.cs" />
     <Compile Include="Assets\Scripts\floor_detector.cs" />
     <Compile Include="Assets\Scripts\Niebla.cs" />
     <Compile Include="Assets\Scripts\Personaje.cs" />
+    <Compile Include="Assets\Scripts\plataforma_movil.cs" />
     <Compile Include="Assets\Scripts\ReplaceWithPrefab.cs" />
     <Compile Include="Assets\Scripts\Saved_variables.cs" />
+    <Compile Include="Assets\Scripts\start_button.cs" />
     <Compile Include="Assets\Scripts\wander_behavior.cs" />
     <Compile Include="Assets\Scripts\WaypointInfo.cs" />
     <Compile Include="Assets\Scripts\WaypointSystem.cs" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/PAVILION/Documents/GitHub/curse_of_babel/Curse of Babel/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/PAVILION/Documents/GitHub/curse_of_babel/Curse_of_Babel/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/PAVILION/Documents/GitHub/curse_of_babel/Curse of Babel/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/PAVILION/Documents/GitHub/curse_of_babel/Curse_of_Babel/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/PAVILION/Documents/GitHub/curse_of_babel/Curse of Babel/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/PAVILION/Documents/GitHub/curse_of_babel/Curse_of_Babel/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/PAVILION/Documents/GitHub/curse_of_babel/Curse of Babel/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/PAVILION/Documents/GitHub/curse_of_babel/Curse_of_Babel/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/PAVILION/Documents/GitHub/curse_of_babel/Curse of Babel/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/PAVILION/Documents/GitHub/curse_of_babel/Curse_of_Babel/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/PAVILION/Documents/GitHub/curse_of_babel/Curse of Babel/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/PAVILION/Documents/GitHub/curse_of_babel/Curse_of_Babel/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/PAVILION/Documents/GitHub/curse_of_babel/Curse of Babel/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/PAVILION/Documents/GitHub/curse_of_babel/Curse_of_Babel/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/PAVILION/Documents/GitHub/curse_of_babel/Curse of Babel/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/PAVILION/Documents/GitHub/curse_of_babel/Curse_of_Babel/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/PAVILION/Documents/GitHub/curse_of_babel/Curse of Babel/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/PAVILION/Documents/GitHub/curse_of_babel/Curse_of_Babel/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
