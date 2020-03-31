@@ -33,6 +33,7 @@ public class Personaje : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        saved_variables.progreso.score = 0;
         saved_variables.Cargar();
         loadscenes(saved_variables.progreso.nivelActual);
         mist = GameObject.Find("Niebla");
@@ -61,7 +62,8 @@ public class Personaje : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F)) {
+        if (Input.GetKeyDown(KeyCode.R)) {
+            saved_variables.progreso.score = 0;
             saved_variables.progreso.hscore = 0;
         }
 
