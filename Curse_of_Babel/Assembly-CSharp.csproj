@@ -10,7 +10,12 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
+<<<<<<< Updated upstream
     <RootNamespace></RootNamespace>
+=======
+    <RootNamespace>
+    </RootNamespace>
+>>>>>>> Stashed changes
     <ProjectGuid>{77B8CDAC-4172-78D4-01D6-BD99F2B9E310}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
