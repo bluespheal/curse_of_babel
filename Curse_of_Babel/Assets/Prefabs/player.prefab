@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9026907870364505600}
   m_Layer: 2
   m_Name: hit point
-  m_TagString: Untagged
+  m_TagString: hit_point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9026907870364505606}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.569, z: 0}
-  m_LocalScale: {x: 1, y: 0.2, z: 0.9}
+  m_LocalPosition: {x: 0, y: -0.646, z: 0}
+  m_LocalScale: {x: 1, y: 0.3, z: 0.9}
   m_Children: []
   m_Father: {fileID: 9026907871140804197}
   m_RootOrder: 0
@@ -264,6 +264,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   progreso:
     nivelActual: 0
+    score: 0
+    hscore: 0
 --- !u!1 &9026907871517524749
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,7 +292,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9026907871517524749}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.54, y: 1.33, z: -10.73}
+  m_LocalPosition: {x: 3.92, y: 2.43, z: -15.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9026907871140804197}
@@ -322,8 +324,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 5.9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

@@ -53,6 +53,7 @@ public class Personaje : MonoBehaviour
 
     void OnApplicationQuit()
     {
+        saved_variables.progreso.score = 0;
         saved_variables.progreso.nivelActual = 0;
         saved_variables.Guardar();
     }
@@ -60,6 +61,10 @@ public class Personaje : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F)) {
+            saved_variables.progreso.hscore = 0;
+        }
+
         //print(isGrounded());
         //Checks if player is touching the ground
         if (isGrounded)
@@ -121,7 +126,6 @@ public class Personaje : MonoBehaviour
             }
             else
             {
-                print(dashTime);
                 if (!stopDashing)
                 {
                     dashTime -= Time.deltaTime;
@@ -264,7 +268,7 @@ public class Personaje : MonoBehaviour
         }
         if (other.name == "Puerta")
         {
-            print("cambio de nivel");
+            saved_variables.progreso.score += 100;
             saved_variables.Guardar();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
@@ -280,12 +284,15 @@ public class Personaje : MonoBehaviour
 
     void dead()
     {
-        print("muerto");
+        saved_variables.Guardar();
         Destroy(this.gameObject);
         SceneManager.LoadScene("GameOver");
     }
     void loadscenes(int scene)
     {
         Instantiate(levels[scene]);
+    }
+    public void score_up(int _score) {
+        saved_variables.progreso.score += _score;
     }
 }

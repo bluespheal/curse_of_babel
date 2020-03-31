@@ -8,13 +8,10 @@ public class floor_detector : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		print(other.tag);
 		if (other.CompareTag("enemy"))
 		{
-			print("bounce");
 			playerScript.bounce = true;
 			playerScript.canDash = true;
-
 		}
 		if (other.CompareTag("platform"))
 		{

@@ -23,10 +23,9 @@ public class falling_platform : MonoBehaviour
         falling = true;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player")) {
-            print("voy a caer");
+        if (other.gameObject.CompareTag("hit_point")) {
             Invoke("caer", fallingTime);
         }
     }

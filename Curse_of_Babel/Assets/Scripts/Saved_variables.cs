@@ -28,4 +28,6 @@ public class Saved_variables : MonoBehaviour
 public class SAVEDATACLASS
 {
     public int nivelActual;
+    public int score;
+    public int hscore;
 }
