@@ -9,11 +9,13 @@ public class semisolid_platform : MonoBehaviour
 
 		private void OnTriggerEnter(Collider other)// checks if player has landed
 		{
-			Physics.IgnoreCollision(player.GetComponent<Collider>(), platform.GetComponent<Collider>());
+            platform.transform.GetComponent<Collider>().isTrigger = true;
+			//Physics.IgnoreCollision(player.GetComponent<Collider>(), platform.GetComponent<Collider>());
 		}
 
 		private void OnTriggerExit(Collider other)// checks if player has landed
 		{
-			Physics.IgnoreCollision(player.GetComponent<Collider>(), platform.GetComponent<Collider>(), false);
+        platform.transform.GetComponent<Collider>().isTrigger = false;
+        //Physics.IgnoreCollision(player.GetComponent<Collider>(), platform.GetComponent<Collider>(), false);
 		}
 }

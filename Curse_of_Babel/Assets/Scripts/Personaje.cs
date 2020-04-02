@@ -170,7 +170,6 @@ public class Personaje : MonoBehaviour
 
         if (bounce == true)
         {
-            print("Should fucking bounce");
             jump();
             canDash = true;
             bounce = false;
@@ -196,7 +195,6 @@ public class Personaje : MonoBehaviour
             dashTime = startDashTime;
             direction = 0;
         }
-        print("jump!");
         rb.velocity = Vector3.up * salto;
     }
     public void groundPound()
@@ -268,7 +266,7 @@ public class Personaje : MonoBehaviour
         {
             dead();
         }
-        if (other.name == "Puerta")
+        if (other.CompareTag("door"))
         {
             saved_variables.progreso.score += 100;
             saved_variables.Guardar();
