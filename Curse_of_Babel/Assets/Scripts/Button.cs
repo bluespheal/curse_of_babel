@@ -13,6 +13,11 @@ public class Button : MonoBehaviour
 
     public void BackToTitle(){
         Svar.progreso.score = 0;
+        Svar.Guardar();
         SceneManager.LoadScene("TitleScreen");
+    }
+    public void settings()
+    {
+        SceneManager.LoadScene("settings");
     }
 }

@@ -30,4 +30,6 @@ public class SAVEDATACLASS
     public int nivelActual;
     public int score;
     public int hscore;
+    public float BGM_Volume;
+    public float SFX_Volume;
 }
