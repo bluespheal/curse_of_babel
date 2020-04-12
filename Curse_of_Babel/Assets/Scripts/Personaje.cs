@@ -30,6 +30,9 @@ public class Personaje : MonoBehaviour
     public float vel_rot;
     public Saved_variables saved_variables;
     public GameObject[] levels;
+
+    public Animator transitionAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -270,7 +273,7 @@ public class Personaje : MonoBehaviour
         {
             saved_variables.progreso.score += 100;
             saved_variables.Guardar();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            StartCoroutine(LoadScene());
         }
     }
 
@@ -282,17 +285,34 @@ public class Personaje : MonoBehaviour
         }
     }
 
+
     void dead()
     {
         saved_variables.Guardar();
-        Destroy(this.gameObject);
-        SceneManager.LoadScene("GameOver");
+        StartCoroutine(LoadGameOver());
     }
+
     void loadscenes(int scene)
     {
         Instantiate(levels[scene]);
     }
     public void score_up(int _score) {
         saved_variables.progreso.score += _score;
+    }
+
+    IEnumerator LoadScene(){
+      transitionAnim.SetTrigger("fade_out");
+      yield return new WaitForSeconds(0.5f);
+      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+    }
+
+    IEnumerator LoadGameOver(){
+      transitionAnim.SetTrigger("fade_out");
+      yield return new WaitForSeconds(3.0f);
+      print("yeah");
+      SceneManager.LoadScene("GameOver");
+      print("nah");
+      Destroy(this.gameObject);
     }
 }
