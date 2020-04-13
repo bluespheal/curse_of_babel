@@ -17,13 +17,13 @@ public class camera_follow : MonoBehaviour
     {
         pos_jugador = player.transform.position;
         // Temporary vector
-        if (stop_signal.position.y > pos_jugador.y )
-        {            
-            pos_jugador.x = 0;
+        // if (stop_signal.position.y > pos_jugador.y )
+        // {            
+            pos_jugador.x = -6.0f;
             pos_jugador.z = pos_jugador.z - 10.0f;
             // Assign value to Camera position
             transform.position = pos_jugador;
-        }
+        // }
     }
     //Camera.main.GetComponent<camera_follow>().New_Stop_Signal(transform_esfera);
     public void New_Stop_Signal(Transform T)
