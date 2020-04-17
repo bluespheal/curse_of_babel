@@ -309,7 +309,7 @@ public class Personaje : MonoBehaviour
 
     IEnumerator LoadGameOver(){
       transitionAnim.SetTrigger("fade_out");
-      yield return new WaitForSeconds(2.0f);
+      yield return new WaitForSeconds(0.8f);
       print("yeah");
       SceneManager.LoadScene("GameOver");
       print("nah");
