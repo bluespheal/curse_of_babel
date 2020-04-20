@@ -347,7 +347,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5754731549155630758
 Transform:
@@ -439,7 +439,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4127329674543474756
 Transform:
@@ -618,6 +618,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Lampost_01
       objectReference: {fileID: 0}
+    - target: {fileID: 104616, guid: 5e1d462ffd80d7444837984e9e18388b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 485100, guid: 5e1d462ffd80d7444837984e9e18388b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.39
@@ -685,6 +689,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Plataforma (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852191997288288594, guid: a3c1b6ed9ce0f074a95bdf75cd2111f2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3852191997288572534, guid: a3c1b6ed9ce0f074a95bdf75cd2111f2,
         type: 3}
@@ -769,6 +778,10 @@ PrefabInstance:
     - target: {fileID: 161448, guid: f0c4e90df1d6a824ebcb721e170afd4d, type: 3}
       propertyPath: m_Name
       value: SM_Wep_Shield_04 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 161448, guid: f0c4e90df1d6a824ebcb721e170afd4d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 422738, guid: f0c4e90df1d6a824ebcb721e170afd4d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -942,6 +955,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Castle_Wall_15 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 147672, guid: 77ad9661321c6e84280c8fbe32492c06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 446930, guid: 77ad9661321c6e84280c8fbe32492c06, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.519985
@@ -1006,6 +1023,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Plataforma (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852191997288288594, guid: a3c1b6ed9ce0f074a95bdf75cd2111f2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3852191997288572534, guid: a3c1b6ed9ce0f074a95bdf75cd2111f2,
         type: 3}
@@ -1090,6 +1112,10 @@ PrefabInstance:
     - target: {fileID: 147672, guid: 77ad9661321c6e84280c8fbe32492c06, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Castle_Wall_15 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 147672, guid: 77ad9661321c6e84280c8fbe32492c06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 446930, guid: 77ad9661321c6e84280c8fbe32492c06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1337,6 +1363,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Path_Stone_03 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 186288, guid: 8882443425560684dba932aaf44f3350, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 469676, guid: 8882443425560684dba932aaf44f3350, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.3500023
@@ -1499,6 +1529,10 @@ PrefabInstance:
     - target: {fileID: 139188, guid: 8a0ac44a0009f534c81764924bb79dcd, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Plinth_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 139188, guid: 8a0ac44a0009f534c81764924bb79dcd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 409502, guid: 8a0ac44a0009f534c81764924bb79dcd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1664,6 +1698,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Path_Stone_02
       objectReference: {fileID: 0}
+    - target: {fileID: 185296, guid: 079fa19ccd7a3484f933ea909821713f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 437562, guid: 079fa19ccd7a3484f933ea909821713f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.621006
@@ -1794,6 +1832,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Banner_03
       objectReference: {fileID: 0}
+    - target: {fileID: 189698, guid: c0b5622ce34bb094cb5eb8145c93566d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 418648, guid: c0b5622ce34bb094cb5eb8145c93566d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.88
@@ -1846,7 +1888,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 64932820979347286, guid: c0b5622ce34bb094cb5eb8145c93566d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c0b5622ce34bb094cb5eb8145c93566d, type: 3}
 --- !u!4 &2358646828270781608 stripped
 Transform:
@@ -1864,6 +1907,10 @@ PrefabInstance:
     - target: {fileID: 191442, guid: 20a79b55466cdb84da379ae63fc30867, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Brazier_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 191442, guid: 20a79b55466cdb84da379ae63fc30867, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 482004, guid: 20a79b55466cdb84da379ae63fc30867, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1934,6 +1981,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Statue_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 144138, guid: 015f23238a8ca9f4d80f824581484228, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 491164, guid: 015f23238a8ca9f4d80f824581484228, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.56
@@ -1999,6 +2050,10 @@ PrefabInstance:
     - target: {fileID: 134024, guid: 190d4c69c7643e94c8c3a81ad97ce81e, type: 3}
       propertyPath: m_Name
       value: SM_Prop_WaterWheel_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 134024, guid: 190d4c69c7643e94c8c3a81ad97ce81e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 443356, guid: 190d4c69c7643e94c8c3a81ad97ce81e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2076,6 +2131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Castle_Wall_15 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 147672, guid: 77ad9661321c6e84280c8fbe32492c06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 446930, guid: 77ad9661321c6e84280c8fbe32492c06, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.52
@@ -2139,6 +2198,10 @@ PrefabInstance:
     - target: {fileID: 131468, guid: f61def225eac3e247985f6679965a655, type: 3}
       propertyPath: m_Name
       value: SM_Wep_Broadsword_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 131468, guid: f61def225eac3e247985f6679965a655, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 465914, guid: f61def225eac3e247985f6679965a655, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2212,6 +2275,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Castle_Wall_15 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 147672, guid: 77ad9661321c6e84280c8fbe32492c06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 446930, guid: 77ad9661321c6e84280c8fbe32492c06, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.91
@@ -2284,6 +2351,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Brazier_01
       objectReference: {fileID: 0}
+    - target: {fileID: 191442, guid: 20a79b55466cdb84da379ae63fc30867, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 482004, guid: 20a79b55466cdb84da379ae63fc30867, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.484005
@@ -2352,6 +2423,10 @@ PrefabInstance:
     - target: {fileID: 147672, guid: 77ad9661321c6e84280c8fbe32492c06, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Castle_Wall_15
+      objectReference: {fileID: 0}
+    - target: {fileID: 147672, guid: 77ad9661321c6e84280c8fbe32492c06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 446930, guid: 77ad9661321c6e84280c8fbe32492c06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2425,6 +2500,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Plataforma (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852191997288288594, guid: a3c1b6ed9ce0f074a95bdf75cd2111f2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3852191997288572534, guid: a3c1b6ed9ce0f074a95bdf75cd2111f2,
         type: 3}
@@ -2509,6 +2589,10 @@ PrefabInstance:
     - target: {fileID: 104616, guid: 5e1d462ffd80d7444837984e9e18388b, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Lampost_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 104616, guid: 5e1d462ffd80d7444837984e9e18388b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 485100, guid: 5e1d462ffd80d7444837984e9e18388b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2657,6 +2741,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Brazier_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 191442, guid: 20a79b55466cdb84da379ae63fc30867, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 482004, guid: 20a79b55466cdb84da379ae63fc30867, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.67
@@ -2726,6 +2814,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Statue_01
       objectReference: {fileID: 0}
+    - target: {fileID: 144138, guid: 015f23238a8ca9f4d80f824581484228, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 491164, guid: 015f23238a8ca9f4d80f824581484228, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.1527596
@@ -2792,6 +2884,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Path_Stone_03 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 186288, guid: 8882443425560684dba932aaf44f3350, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 469676, guid: 8882443425560684dba932aaf44f3350, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.4999962
@@ -2855,6 +2951,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Wep_Shield_01
       objectReference: {fileID: 0}
+    - target: {fileID: 150774, guid: a7b97d24ba2370040ba159577de7b931, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 479192, guid: a7b97d24ba2370040ba159577de7b931, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.02
@@ -2907,7 +3007,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 64515489764113194, guid: a7b97d24ba2370040ba159577de7b931, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a7b97d24ba2370040ba159577de7b931, type: 3}
 --- !u!4 &5203298557484632139 stripped
 Transform:
@@ -2926,6 +3027,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Plataforma
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852191997288288594, guid: a3c1b6ed9ce0f074a95bdf75cd2111f2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3852191997288572534, guid: a3c1b6ed9ce0f074a95bdf75cd2111f2,
         type: 3}
@@ -3288,6 +3394,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Castle_Wall_15 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 147672, guid: 77ad9661321c6e84280c8fbe32492c06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 446930, guid: 77ad9661321c6e84280c8fbe32492c06, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -3359,6 +3469,10 @@ PrefabInstance:
     - target: {fileID: 147672, guid: 77ad9661321c6e84280c8fbe32492c06, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Castle_Wall_15 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 147672, guid: 77ad9661321c6e84280c8fbe32492c06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 446930, guid: 77ad9661321c6e84280c8fbe32492c06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3524,6 +3638,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Brazier_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 191442, guid: 20a79b55466cdb84da379ae63fc30867, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 482004, guid: 20a79b55466cdb84da379ae63fc30867, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.5700035
@@ -3593,6 +3711,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Plinth_01
       objectReference: {fileID: 0}
+    - target: {fileID: 139188, guid: 8a0ac44a0009f534c81764924bb79dcd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 409502, guid: 8a0ac44a0009f534c81764924bb79dcd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.5
@@ -3656,6 +3778,10 @@ PrefabInstance:
     - target: {fileID: 186288, guid: 8882443425560684dba932aaf44f3350, type: 3}
       propertyPath: m_Name
       value: SM_Env_Path_Stone_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 186288, guid: 8882443425560684dba932aaf44f3350, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 469676, guid: 8882443425560684dba932aaf44f3350, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3804,6 +3930,10 @@ PrefabInstance:
     - target: {fileID: 161448, guid: f0c4e90df1d6a824ebcb721e170afd4d, type: 3}
       propertyPath: m_Name
       value: SM_Wep_Shield_04 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 161448, guid: f0c4e90df1d6a824ebcb721e170afd4d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 422738, guid: f0c4e90df1d6a824ebcb721e170afd4d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4145,6 +4275,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Wep_Shield_02
       objectReference: {fileID: 0}
+    - target: {fileID: 142972, guid: 96ee4655900e0284ab57affcd8946c9d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 469804, guid: 96ee4655900e0284ab57affcd8946c9d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.03
@@ -4197,7 +4331,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 64721218874288380, guid: 96ee4655900e0284ab57affcd8946c9d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 96ee4655900e0284ab57affcd8946c9d, type: 3}
 --- !u!4 &8730805514773823376 stripped
 Transform:
@@ -4312,6 +4447,10 @@ PrefabInstance:
     - target: {fileID: 131468, guid: f61def225eac3e247985f6679965a655, type: 3}
       propertyPath: m_Name
       value: SM_Wep_Broadsword_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 131468, guid: f61def225eac3e247985f6679965a655, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 465914, guid: f61def225eac3e247985f6679965a655, type: 3}
       propertyPath: m_LocalPosition.x
