@@ -16,7 +16,7 @@ public class floor_detector : MonoBehaviour
 		if (other.CompareTag("platform"))
 		{
 			playerScript.isGrounded = true;
-
+			playerScript.Set_Landing();
 		}
 		//jump.en_suelo = true;
 	}

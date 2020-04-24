@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Personaje : MonoBehaviour
 {
+    public Animator behaviour;
     public float salto;
     public float fallMultiplier = 2.5f;
     public bool isGrounded = false;
@@ -189,8 +190,14 @@ public class Personaje : MonoBehaviour
 
         //rb.velocity = vel;
     }
+
+    public void Set_Landing()
+    {
+        behaviour.SetTrigger("landing");
+    }
     public void jump()
     {
+        behaviour.SetTrigger("jump");
         rb.velocity = Vector3.zero;
         if (direction > 0)
         {
