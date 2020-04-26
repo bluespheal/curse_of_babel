@@ -8,6 +8,7 @@ public class Button : MonoBehaviour
     public Saved_variables Svar;
     public void restart(){
         Svar.progreso.score = 0;
+        Svar.Guardar();
         SceneManager.LoadScene("GameplayScene");
     }
 

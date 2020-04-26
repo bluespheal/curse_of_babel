@@ -12,7 +12,7 @@ public class score_hscore : MonoBehaviour
     void Start()
     {
         var=GameObject.FindGameObjectWithTag("Player").GetComponent<Saved_variables>();
-        var.progreso.score = 0;
+        var.Cargar();
     }
 
     // Update is called once per frame

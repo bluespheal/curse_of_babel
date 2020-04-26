@@ -37,7 +37,7 @@ public class Personaje : MonoBehaviour
     void Start()
     {
         saved_variables.Cargar();
-        saved_variables.progreso.score = 0;
+        //saved_variables.progreso.score = 0;
         saved_variables.progreso.nivelActual = Random.Range(0, levels.Length-1);
         loadscenes(saved_variables.progreso.nivelActual);
         mist = GameObject.Find("Niebla");
