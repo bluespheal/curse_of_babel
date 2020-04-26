@@ -15,7 +15,7 @@ public class simple_oclusion : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("decoration") || other.gameObject.CompareTag("platform") || other.gameObject.CompareTag("mist"))
+        if (other.gameObject.CompareTag("decoration") || other.gameObject.CompareTag("platform"))
         {
             Renderer objeto = other.gameObject.GetComponent<Renderer>();
             MeshRenderer piel = other.gameObject.GetComponent<MeshRenderer>();
@@ -25,7 +25,7 @@ public class simple_oclusion : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("decoration") || other.gameObject.CompareTag("platform") || other.gameObject.CompareTag("mist"))
+        if (other.gameObject.CompareTag("decoration") || other.gameObject.CompareTag("platform"))
         {
             Renderer objeto = other.gameObject.GetComponent<Renderer>();
             MeshRenderer piel = other.gameObject.GetComponent<MeshRenderer>();
