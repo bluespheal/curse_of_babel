@@ -36,11 +36,12 @@ public class Personaje : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        saved_variables.progreso.score = 0;
         saved_variables.Cargar();
+        saved_variables.progreso.score = 0;
+        saved_variables.progreso.nivelActual = Random.Range(0, levels.Length-1);
         loadscenes(saved_variables.progreso.nivelActual);
         mist = GameObject.Find("Niebla");
-        levels = new GameObject[10];
+        //levels = new GameObject[30];
         coll = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
         dashTime = startDashTime;
