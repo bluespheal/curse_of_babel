@@ -681,6 +681,11 @@ PrefabInstance:
       propertyPath: limite_bot
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4729318107930760872, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
+        type: 3}
+      propertyPath: velocidad
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4729318107930760874, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
         type: 3}
       propertyPath: m_IsTrigger
@@ -1398,12 +1403,17 @@ PrefabInstance:
     - target: {fileID: 4729318107930760872, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
         type: 3}
       propertyPath: limite_top
-      value: 22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4729318107930760872, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
         type: 3}
       propertyPath: limite_bot
-      value: 9.5
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729318107930760872, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
+        type: 3}
+      propertyPath: velocidad
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4729318107930760874, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
         type: 3}
@@ -1571,6 +1581,11 @@ PrefabInstance:
     - target: {fileID: 4729318107930760872, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
         type: 3}
       propertyPath: limite_bot
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729318107930760872, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
+        type: 3}
+      propertyPath: velocidad
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4729318107930760874, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
@@ -3270,6 +3285,11 @@ PrefabInstance:
       propertyPath: limite_bot
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4729318107930760872, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
+        type: 3}
+      propertyPath: velocidad
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4729318107930760874, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
         type: 3}
       propertyPath: m_IsTrigger
@@ -3518,6 +3538,11 @@ PrefabInstance:
     - target: {fileID: 4729318107930760872, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
         type: 3}
       propertyPath: limite_bot
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729318107930760872, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
+        type: 3}
+      propertyPath: velocidad
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4729318107930760874, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
@@ -4062,6 +4087,11 @@ PrefabInstance:
     - target: {fileID: 4729318107930760872, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
         type: 3}
       propertyPath: limite_bot
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729318107930760872, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
+        type: 3}
+      propertyPath: velocidad
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4729318107930760874, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
