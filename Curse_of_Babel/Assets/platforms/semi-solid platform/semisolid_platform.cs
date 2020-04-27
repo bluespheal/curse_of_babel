@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class semisolid_platform : MonoBehaviour
 {
-		public Transform player;
+		//public Transform player;
 		public Transform platform;
 
 		private void OnTriggerEnter(Collider other)// checks if player has landed
@@ -15,7 +15,7 @@ public class semisolid_platform : MonoBehaviour
 
 		private void OnTriggerExit(Collider other)// checks if player has landed
 		{
-        platform.transform.GetComponent<Collider>().isTrigger = false;
+            platform.transform.GetComponent<Collider>().isTrigger = false;
         //Physics.IgnoreCollision(player.GetComponent<Collider>(), platform.GetComponent<Collider>(), false);
 		}
 }
