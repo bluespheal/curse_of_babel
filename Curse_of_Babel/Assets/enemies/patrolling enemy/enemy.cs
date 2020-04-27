@@ -10,6 +10,9 @@ public class enemy : MonoBehaviour
     public bool left; // if it's going to the left
     Vector3 direction = new Vector3(-1, -1, 0); // downwards direction of raycast
 
+    public ParticleSystem explosion;
+
+
     // Start is called before the first frame update
 
 
@@ -46,7 +49,9 @@ public class enemy : MonoBehaviour
     {
         if (other.name == "hit point")
         {
+            explosion.GetComponent<ParticleSystem>().Play();
             other.GetComponent<floor_detector>().playerScript.score_up(10);
+
             Destroy(this.gameObject);
         }
     }
