@@ -13,12 +13,13 @@ public class score_hscore : MonoBehaviour
     {
         var=GameObject.FindGameObjectWithTag("Player").GetComponent<Saved_variables>();
         var.Cargar();
-        var.progreso.score = 0;
+        //var.progreso.score = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        var.Guardar();
         if (var.progreso.score > var.progreso.hscore) {
             var.progreso.hscore = var.progreso.score;
         }

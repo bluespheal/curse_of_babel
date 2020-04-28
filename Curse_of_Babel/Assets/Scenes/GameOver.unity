@@ -237,7 +237,6 @@ GameObject:
   - component: {fileID: 394943604}
   - component: {fileID: 394943603}
   - component: {fileID: 394943602}
-  - component: {fileID: 394943606}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -329,24 +328,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &394943606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394943601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df3b491c7365fad4ba9e187fa6c0864b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  progreso:
-    nivelActual: 0
-    score: 0
-    hscore: 0
-    BGM_Volume: 0
-    SFX_Volume: 0
 --- !u!1 &834612670
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +512,7 @@ PrefabInstance:
         type: 3}
       propertyPath: var
       value: 
-      objectReference: {fileID: 394943606}
+      objectReference: {fileID: 0}
     - target: {fileID: 7831811010884746172, guid: a007e2eee06c4ed4496dfa304ffb8217,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -980,6 +961,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1386028785 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9026907871140804200, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2146884716}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1386028786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386028785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df3b491c7365fad4ba9e187fa6c0864b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progreso:
+    nivelActual: 0
+    score: 0
+    hscore: 0
+    BGM_Volume: 0
+    SFX_Volume: 0
 --- !u!1 &1490367246
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,7 +1133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc6adc7068e3a134e84730ee74b5ef3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Svar: {fileID: 394943606}
+  Svar: {fileID: 1386028786}
 --- !u!114 &1628839734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1380,7 +1385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc6adc7068e3a134e84730ee74b5ef3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Svar: {fileID: 394943606}
+  Svar: {fileID: 1386028786}
 --- !u!1 &1847840372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,8 +1513,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6, y: 110.9}
-  m_SizeDelta: {x: 412.9, y: 145.5}
+  m_AnchoredPosition: {x: -8.6525, y: 110.9}
+  m_SizeDelta: {x: 451.6, y: 145.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1899124216
 MonoBehaviour:
@@ -1616,7 +1621,7 @@ PrefabInstance:
     - target: {fileID: 9026907871140804198, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: progreso.hscore
-      value: 10000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9026907871140804200, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
@@ -1634,5 +1639,6 @@ PrefabInstance:
       propertyPath: transitionAnim
       value: 
       objectReference: {fileID: 1847840374}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9026907871140804198, guid: df8168dbc5f99da4cadfffde40fd2dd5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: df8168dbc5f99da4cadfffde40fd2dd5, type: 3}
