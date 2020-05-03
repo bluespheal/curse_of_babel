@@ -187,8 +187,10 @@ public class Personaje : MonoBehaviour
 
         if (!isGrounded && direction == 0)
         {
+            if (rb){
+                rb.AddForceAtPosition(new Vector3(0f, fallMultiplier * -1, 0f), Vector3.down);
+            }
             //rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-            rb.AddForceAtPosition(new Vector3(0f, fallMultiplier * -1, 0f), Vector3.down);
         }
 
 
@@ -314,9 +316,12 @@ public class Personaje : MonoBehaviour
     void loadscenes(int scene)
     {
         Instantiate(levels[scene]);
-        mainCamera.stop_signal = GameObject.FindGameObjectWithTag("alto").transform;
-        mainCamera.push_signal = GameObject.FindGameObjectWithTag("push_signal").transform;
-        mainCamera.alive = true;
+        if (mainCamera)
+        {   
+            mainCamera.stop_signal = GameObject.FindGameObjectWithTag("alto").transform;
+            mainCamera.push_signal = GameObject.FindGameObjectWithTag("push_signal").transform;
+            mainCamera.alive = true;
+        }
     }
     public void score_up(int _score) {
         saved_variables.progreso.score += _score;
