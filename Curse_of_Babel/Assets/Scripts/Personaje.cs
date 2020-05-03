@@ -32,6 +32,11 @@ public class Personaje : MonoBehaviour
     public GameObject[] levels;
 
     public Animator transitionAnim;
+    public Animator knight_animation;
+
+    public Coroutine knight_idle;
+
+    public camera_follow mainCamera;
 
     // Start is called before the first frame update
     void Start()
@@ -196,6 +201,8 @@ public class Personaje : MonoBehaviour
         rb.velocity = Vector3.zero;
         if (direction > 0)
         {
+            //StopCoroutine(knight_idle);
+            knight_animation.SetTrigger("jump");
             stopDashing = true;
             dashTime = startDashTime;
             direction = 0;
@@ -223,7 +230,7 @@ public class Personaje : MonoBehaviour
         touchEnd.z = Camera.main.nearClipPlane + .1f;
         p1 = Camera.main.ScreenToWorldPoint(touchStart);
         p2 = Camera.main.ScreenToWorldPoint(touchEnd);
-        CreateLine(p1, p2);
+        //CreateLine(p1, p2);
         Vector3 v = p2 - p1;
         //Rotate character
         if(v.normalized.x >= 0)
@@ -261,7 +268,7 @@ public class Personaje : MonoBehaviour
     }
 
     //creates an ugly purple line from p1 to p2
-    void CreateLine(Vector3 p1, Vector3 p2)
+    /*void CreateLine(Vector3 p1, Vector3 p2)
     {
         Destroy(lineRenderer);
         lineRenderer = new GameObject();
@@ -271,7 +278,7 @@ public class Personaje : MonoBehaviour
         lr.SetWidth(0.001f, 0.001f);
         lr.SetPosition(0, p1);
         lr.SetPosition(1, p2);
-    }
+    }*/
 
     //Death
     void OnTriggerEnter(Collider other)
@@ -301,14 +308,38 @@ public class Personaje : MonoBehaviour
     {
         saved_variables.Guardar();
         StartCoroutine(LoadGameOver());
+        mainCamera.alive = false;
     }
 
     void loadscenes(int scene)
     {
         Instantiate(levels[scene]);
+        mainCamera.stop_signal = GameObject.FindGameObjectWithTag("alto").transform;
+        mainCamera.push_signal = GameObject.FindGameObjectWithTag("push_signal").transform;
+        mainCamera.alive = true;
     }
     public void score_up(int _score) {
         saved_variables.progreso.score += _score;
+    }
+    
+    public void comportamientos()
+    {
+        knight_idle = StartCoroutine("idleAlt");
+    }
+
+    IEnumerator idleAlt()
+    {
+        while(isGrounded)
+        {
+            print("empieza comportamiento");
+            int wait_time = Random.Range(2, 5);
+            yield return new WaitForSeconds(wait_time);
+            if(isGrounded)
+            {
+                knight_animation.SetTrigger("check");
+                yield return new WaitForSeconds(3.0f);
+            }
+        }
     }
 
     IEnumerator LoadScene(){

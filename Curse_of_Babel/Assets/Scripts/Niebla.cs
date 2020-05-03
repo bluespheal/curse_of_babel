@@ -25,10 +25,4 @@ public class Niebla : MonoBehaviour
             transform.Translate(Vector3.up * velocidad * Time.deltaTime);
         }*/
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        //print(other);
-        /*jugador.muerto = true;*/
-    }
-
 }

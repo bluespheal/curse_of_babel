@@ -218,6 +218,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 503461193}
+  stop_signal: {fileID: 0}
+  push_signal: {fileID: 0}
+  alive: 1
 --- !u!1 &256498606
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,7 +530,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 5.5e-44, y: 3e-45, z: 0, w: 6e-45}
+  m_BoundingSphereOverride: {x: 17.98, y: 41, z: 1, w: 0.91431165}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1572,7 +1575,7 @@ PrefabInstance:
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: levels.Array.size
-      value: 17
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
@@ -1671,7 +1674,7 @@ PrefabInstance:
         type: 3}
       propertyPath: levels.Array.data[0]
       value: 
-      objectReference: {fileID: 3221512269553238133, guid: e261969f032481f4bb7cb2daa9c991f5,
+      objectReference: {fileID: 7304590737743106973, guid: d040d432208742a42a73c8daad8adfcc,
         type: 3}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
@@ -1691,6 +1694,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5138271967071182831, guid: 7da98f2f98a73b1438ad0f16eb802632,
         type: 3}
+    - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+        type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 177709999}
     - target: {fileID: 9026907871517524744, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: m_LocalPosition.y
