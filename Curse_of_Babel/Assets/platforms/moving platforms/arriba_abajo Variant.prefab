@@ -17,6 +17,19 @@ MonoBehaviour:
   limite_derecho: 0
   limite_top: 18
   limite_bot: 10
+--- !u!65 &2799368377992850248
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4400630765524648338}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7322024, y: 0.13236949, z: 0.73220074}
+  m_Center: {x: -0.000000059604645, y: 0.066184744, z: 0.00000013411045}
 --- !u!1001 &605613666019578048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84,7 +97,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3860490183176518278, guid: a3c1b6ed9ce0f074a95bdf75cd2111f2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a3c1b6ed9ce0f074a95bdf75cd2111f2, type: 3}
 --- !u!1 &4400630765524648338 stripped
 GameObject:
