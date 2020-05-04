@@ -29,7 +29,11 @@ public class Personaje : MonoBehaviour
 
     public float vel_rot;
     public Saved_variables saved_variables;
-    public GameObject[] levels;
+    public GameObject[] easy_levels;
+    public GameObject[] normal_levels;
+    public GameObject[] hard_levels;
+    public int max_easy_score=100;
+    public int max_normal_score=200;
 
     public Animator transitionAnim;
     public Animator knight_animation;
@@ -43,7 +47,16 @@ public class Personaje : MonoBehaviour
     {
         saved_variables.Cargar();
         //saved_variables.progreso.score = 0;
-        saved_variables.progreso.nivelActual = Random.Range(0, levels.Length-1);
+        if (saved_variables.progreso.score < max_easy_score) {
+            saved_variables.progreso.nivelActual = Random.Range(0, easy_levels.Length - 1);
+        }
+        if (saved_variables.progreso.score > max_easy_score && saved_variables.progreso.score < max_normal_score) {
+            saved_variables.progreso.nivelActual = Random.Range(0, normal_levels.Length - 1);
+        }
+        if (saved_variables.progreso.score > max_normal_score)
+        {
+            saved_variables.progreso.nivelActual = Random.Range(0, hard_levels.Length - 1);
+        }
         loadscenes(saved_variables.progreso.nivelActual);
         mist = GameObject.Find("Niebla");
         //levels = new GameObject[30];
@@ -315,7 +328,18 @@ public class Personaje : MonoBehaviour
 
     void loadscenes(int scene)
     {
-        Instantiate(levels[scene]);
+        if (saved_variables.progreso.score < max_easy_score)
+        {
+            Instantiate(easy_levels[scene]);
+        }
+        if (saved_variables.progreso.score > max_easy_score && saved_variables.progreso.score < max_normal_score)
+        {
+            Instantiate(normal_levels[scene]);
+        }
+        if (saved_variables.progreso.score > max_normal_score)
+        {
+            Instantiate(hard_levels[scene]);
+        }
         if (mainCamera)
         {   
             mainCamera.stop_signal = GameObject.FindGameObjectWithTag("alto").transform;
