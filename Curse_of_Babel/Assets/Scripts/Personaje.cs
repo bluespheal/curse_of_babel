@@ -291,6 +291,8 @@ public class Personaje : MonoBehaviour
         }
         if (other.CompareTag("door"))
         {
+            rb.velocity = Vector3.zero;
+            rb.isKinematic = true;
             saved_variables.progreso.score += 100;
             saved_variables.Guardar();
             StartCoroutine(LoadScene());
@@ -308,6 +310,8 @@ public class Personaje : MonoBehaviour
 
     void dead()
     {
+        rb.velocity = Vector3.zero;
+        rb.isKinematic = true;
         saved_variables.Guardar();
         StartCoroutine(LoadGameOver());
         mainCamera.alive = false;

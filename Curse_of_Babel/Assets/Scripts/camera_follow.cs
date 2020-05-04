@@ -14,8 +14,8 @@ public class camera_follow : MonoBehaviour
     void Start()
     {
         alive = true;
-        stop_signal = GameObject.FindGameObjectWithTag("alto").transform;
-        push_signal = GameObject.FindGameObjectWithTag("push_signal").transform;
+        //stop_signal = GameObject.FindGameObjectWithTag("alto").transform;
+        //push_signal = GameObject.FindGameObjectWithTag("push_signal").transform;
     }
 
     void Update()
