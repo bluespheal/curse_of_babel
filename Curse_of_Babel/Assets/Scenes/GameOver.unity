@@ -225,6 +225,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 916558434}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &278265005 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2887907229266348544, guid: a007e2eee06c4ed4496dfa304ffb8217,
+    type: 3}
+  m_PrefabInstance: {fileID: 916558434}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &394943601
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,7 +781,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: scores
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6477680985475235922, guid: a007e2eee06c4ed4496dfa304ffb8217, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a007e2eee06c4ed4496dfa304ffb8217, type: 3}
 --- !u!1 &1084771630
 GameObject:
@@ -1139,6 +1152,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490367246}
   m_CullTransparentMesh: 0
+--- !u!114 &1600964395 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7831811010890422463, guid: a007e2eee06c4ed4496dfa304ffb8217,
+    type: 3}
+  m_PrefabInstance: {fileID: 916558434}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1620721397 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7831811010986214838, guid: a007e2eee06c4ed4496dfa304ffb8217,
+    type: 3}
+  m_PrefabInstance: {fileID: 916558434}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1620721398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620721397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89cd79ee629757f42b2276943674056c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Score: {fileID: 1600964395}
+  HScore: {fileID: 278265005}
+  var: {fileID: 1857936869}
 --- !u!1 &1628839730
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class score_hscore : MonoBehaviour
     public Text Score;
     public Text HScore;
     public Saved_variables var;
+
     // Start is called before the first frame update
     void Start()
     {
