@@ -1579,6 +1579,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
+      propertyPath: easy_levels.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+        type: 3}
+      propertyPath: normal_levels.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+        type: 3}
+      propertyPath: hard_levels.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+        type: 3}
       propertyPath: mist
       value: 
       objectReference: {fileID: 0}
@@ -1699,6 +1714,29 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 177709999}
+    - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+        type: 3}
+      propertyPath: max_normal_score
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+        type: 3}
+      propertyPath: easy_levels.Array.data[0]
+      value: 
+      objectReference: {fileID: 5703637651264190059, guid: 4cb9cc345167242179e4b19ccf1f6df4,
+        type: 3}
+    - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+        type: 3}
+      propertyPath: normal_levels.Array.data[0]
+      value: 
+      objectReference: {fileID: 2678138928783485716, guid: ed97c4a15de47458db2159ac928f1820,
+        type: 3}
+    - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+        type: 3}
+      propertyPath: hard_levels.Array.data[0]
+      value: 
+      objectReference: {fileID: 8831720554529850441, guid: cb01ae39616ce43c5a86cd5263a33062,
+        type: 3}
     - target: {fileID: 9026907871517524744, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: m_LocalPosition.y
