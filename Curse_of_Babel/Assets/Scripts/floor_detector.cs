@@ -24,8 +24,9 @@ public class floor_detector : MonoBehaviour
 
 	private void OnTriggerStay(Collider other)
 	{
-		//jump.dashed = false;
-	}
+        //jump.dashed = false;
+        playerScript.isGrounded = true;
+    }
 
 	private void OnTriggerExit(Collider other)
 	{

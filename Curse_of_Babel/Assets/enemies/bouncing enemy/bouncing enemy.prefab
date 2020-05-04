@@ -4764,12 +4764,12 @@ GameObject:
   - component: {fileID: 6133044569038277917}
   - component: {fileID: 6133044569038277916}
   - component: {fileID: 6133044569038277919}
-  - component: {fileID: 6133044569038277918}
   - component: {fileID: 6133044569038277913}
   - component: {fileID: 6133044569038277912}
   - component: {fileID: 6133044569038277915}
   - component: {fileID: 268351923936606634}
   - component: {fileID: 1838162593527280316}
+  - component: {fileID: 3202554238166809042}
   m_Layer: 0
   m_Name: bouncing enemy
   m_TagString: enemy
@@ -4839,19 +4839,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &6133044569038277918
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6133044569038277914}
-  m_Material: {fileID: 13400000, guid: 5284e5990275db54eb77690a056043f2, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6133044569038277913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9620,6 +9607,19 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!65 &3202554238166809042
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6133044569038277914}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2, y: 0.5482981, z: 2}
+  m_Center: {x: 0, y: 0.025850967, z: 0}
 --- !u!1001 &3714163740645290763
 PrefabInstance:
   m_ObjectHideFlags: 0
