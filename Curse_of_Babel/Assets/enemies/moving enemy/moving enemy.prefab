@@ -4770,7 +4770,7 @@ GameObject:
   - component: {fileID: 1357154523523978216}
   - component: {fileID: 6691478754499048164}
   - component: {fileID: 8457518606079181065}
-  - component: {fileID: 4028559844704915261}
+  - component: {fileID: -5161639904263116377}
   m_Layer: 0
   m_Name: moving enemy
   m_TagString: enemy
@@ -9624,7 +9624,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!82 &4028559844704915261
+--- !u!82 &-5161639904263116377
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
