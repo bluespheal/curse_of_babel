@@ -59,7 +59,6 @@ public class enemy : MonoBehaviour
             explosion.GetComponent<ParticleSystem>().Play();
             other.GetComponent<floor_detector>().playerScript.score_up(10);
             death_sound.Play();
-            rb.isKinematic = true;
             Invoke("die", 0.5f);
         }
     }
