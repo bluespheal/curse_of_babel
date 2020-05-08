@@ -449,6 +449,7 @@ PrefabInstance:
       objectReference: {fileID: 1847840374}
     m_RemovedComponents:
     - {fileID: 9026907871140804198, guid: df8168dbc5f99da4cadfffde40fd2dd5, type: 3}
+    - {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: df8168dbc5f99da4cadfffde40fd2dd5, type: 3}
 --- !u!1 &834612670
 GameObject:
@@ -816,6 +817,7 @@ GameObject:
   - component: {fileID: 1084771633}
   - component: {fileID: 1084771632}
   - component: {fileID: 1084771631}
+  - component: {fileID: 1084771634}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -888,6 +890,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1084771634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084771630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df3b491c7365fad4ba9e187fa6c0864b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progreso:
+    nivelActual: 0
+    score: 0
+    hscore: 0
+    BGM_Volume: 0
+    SFX_Volume: 0
 --- !u!1 &1111504281
 GameObject:
   m_ObjectHideFlags: 0

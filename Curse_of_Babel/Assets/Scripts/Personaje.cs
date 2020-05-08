@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Personaje : MonoBehaviour
 {
+    public AudioSource dash_sound;
+    public AudioSource death_sound;
     public float salto;
     public float fallMultiplier = 2.5f;
     public bool isGrounded = false;
@@ -83,9 +85,20 @@ public class Personaje : MonoBehaviour
         saved_variables.Guardar();
     }
 
+    void Play_dash() {
+        dash_sound.Play();
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            Invoke("Play_dash", 0.1f);
+        }
+        if (Input.GetButtonDown("Fire1")&& canDash)
+        {
+            Invoke("Play_dash", 0.1f);
+        }
 
         if (Input.GetKeyDown(KeyCode.R)) {
             saved_variables.progreso.score = 0;
@@ -190,6 +203,7 @@ public class Personaje : MonoBehaviour
 
         if (!isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
+
             groundPound();
         }
 
@@ -386,6 +400,10 @@ public class Personaje : MonoBehaviour
 
     IEnumerator LoadGameOver(){
       transitionAnim.SetTrigger("fade_out");
+    if (!death_sound.isPlaying)
+    {
+        death_sound.Play();
+    }
       yield return new WaitForSeconds(2.0f);
       print("yeah");
       SceneManager.LoadScene("GameOver");

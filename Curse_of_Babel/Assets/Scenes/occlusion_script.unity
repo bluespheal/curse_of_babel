@@ -314,6 +314,7 @@ GameObject:
   - component: {fileID: 1687865938}
   - component: {fileID: 1687865937}
   - component: {fileID: 1687865940}
+  - component: {fileID: 1687865941}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -399,3 +400,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1166468617}
+  stop_signal: {fileID: 0}
+  push_signal: {fileID: 0}
+  alive: 1
+--- !u!114 &1687865941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687865936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df3b491c7365fad4ba9e187fa6c0864b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progreso:
+    nivelActual: 0
+    score: 0
+    hscore: 0
+    BGM_Volume: 0
+    SFX_Volume: 0

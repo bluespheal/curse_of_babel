@@ -4,8 +4,24 @@ using UnityEngine;
 
 public class BGM : MonoBehaviour
 {
-    private AudioSource bgm;
+    public AudioSource bgm;
     private Saved_variables saved_variables;
+    private static BGM BGMInstance;
+
+    void Awake()
+    {
+        DontDestroyOnLoad(this);
+
+        if (BGMInstance == null)
+        {
+            BGMInstance = this;
+        }
+        else
+        {
+            DestroyObject(gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +30,16 @@ public class BGM : MonoBehaviour
         bgm = GetComponent<AudioSource>();
         bgm.volume = saved_variables.progreso.BGM_Volume;
     }
+
+
+    void OnLevelWasLoaded(int level)
+    {
+        saved_variables = GameObject.FindObjectOfType<Camera>().GetComponent<Saved_variables>();
+        saved_variables.Cargar();
+        bgm.volume = saved_variables.progreso.BGM_Volume;
+    }
+
+
     void Update()
     {
         bgm.volume = saved_variables.progreso.BGM_Volume;
