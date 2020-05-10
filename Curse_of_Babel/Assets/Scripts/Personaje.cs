@@ -38,13 +38,17 @@ public class Personaje : MonoBehaviour
     public Animator transitionAnim;
     public Animator knight_animation;
 
-    public Coroutine knight_idle;
+    public int knight_idle = 0;
+    public int idle_change = 0;
 
     public camera_follow mainCamera;
+
+    float speed;
 
     // Start is called before the first frame update
     void Start()
     {
+        idle_change = Random.Range(2, 4);
         saved_variables.Cargar();
         //saved_variables.progreso.score = 0;
         if (saved_variables.progreso.score < max_easy_score)
@@ -86,7 +90,13 @@ public class Personaje : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            knight_animation.SetTrigger("dead");
+        }
+        speed = rb.velocity.magnitude;
+        knight_animation.SetFloat("speed", (float)speed);
+        print(speed);
         if (Input.GetKeyDown(KeyCode.R)) {
             saved_variables.progreso.score = 0;
             saved_variables.progreso.hscore = 0;
@@ -215,11 +225,13 @@ public class Personaje : MonoBehaviour
     }
     public void jump()
     {
+        knight_animation.SetTrigger("jump");
+        knight_animation.SetBool("stomp", false);
         rb.velocity = Vector3.zero;
+        knight_animation.SetBool("on_air",true);
         if (direction > 0)
         {
             //StopCoroutine(knight_idle);
-            knight_animation.SetTrigger("jump");
             stopDashing = true;
             dashTime = startDashTime;
             direction = 0;
@@ -229,13 +241,13 @@ public class Personaje : MonoBehaviour
     public void groundPound()
     {
         rb.velocity = Vector3.zero;
+        knight_animation.SetBool("stomp", true);
         if (direction > 0)
         {
             stopDashing = true;
             dashTime = startDashTime;
             direction = 0;
         }
-        print("pound!");
         rb.velocity = Vector3.down * salto;
     }
 
@@ -249,15 +261,7 @@ public class Personaje : MonoBehaviour
         p2 = Camera.main.ScreenToWorldPoint(touchEnd);
         //CreateLine(p1, p2);
         Vector3 v = p2 - p1;
-        //Rotate character
-        if(v.normalized.x >= 0)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-        else
-        {
-            transform.rotation = Quaternion.Euler(0, -183, 0);
-        }
+        
         //Checks if it was a tap
         if (v.normalized.x == 0 && v.normalized.y == 0 && v.normalized.z == 0 && isGrounded)
         {
@@ -278,10 +282,33 @@ public class Personaje : MonoBehaviour
             //Checks if dash was done upwards, and if so, turns canDash off because for some fucking reason it turns itself on whenever the dash is done upwards.
             if (v.normalized.y > 0.0f)
             {
-                canDash = false;
+                if (v.normalized.y < 0.3f)
+                {
+                    /*knight_animation.SetTrigger("dash");
+                    knight_animation.SetBool("on_air", true);*/
+                    /*print("hola");
+                    print(v.normalized.y);*/
+                    canDash = false;
+                }
+                else
+                {
+                    knight_animation.SetTrigger("dash");
+                    knight_animation.SetBool("on_air", true);
+                    canDash = false;
+                }
             }
             rb.velocity = v.normalized * dashSpeed;
+            //Rotate character
+            if (v.normalized.x >= 0)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, -183, 0);
+            }
         }
+        
     }
 
     //creates an ugly purple line from p1 to p2
@@ -325,6 +352,7 @@ public class Personaje : MonoBehaviour
 
     void dead()
     {
+        knight_animation.SetTrigger("dead");
         rb.velocity = Vector3.zero;
         rb.isKinematic = true;
         saved_variables.Guardar();
@@ -356,24 +384,24 @@ public class Personaje : MonoBehaviour
     public void score_up(int _score) {
         saved_variables.progreso.score += _score;
     }
-    
-    public void comportamientos()
+
+    /*public void comportamientos()
     {
         knight_idle = StartCoroutine("idleAlt");
-    }
+        //idle variado
+        //onloadscene
+    }*/
 
-    IEnumerator idleAlt()
+    public void idle_alts()
     {
-        while(isGrounded)
+        knight_idle++;
+        /*print(knight_idle);
+        print(idle_change);*/
+        if (knight_idle >= idle_change)
         {
-            print("empieza comportamiento");
-            int wait_time = Random.Range(2, 5);
-            yield return new WaitForSeconds(wait_time);
-            if(isGrounded)
-            {
-                knight_animation.SetTrigger("check");
-                yield return new WaitForSeconds(3.0f);
-            }
+            knight_animation.SetTrigger("check");
+            knight_idle = 0;
+            idle_change = Random.Range(2, 4);
         }
     }
 
@@ -387,9 +415,7 @@ public class Personaje : MonoBehaviour
     IEnumerator LoadGameOver(){
       transitionAnim.SetTrigger("fade_out");
       yield return new WaitForSeconds(2.0f);
-      print("yeah");
       SceneManager.LoadScene("GameOver");
-      print("nah");
       Destroy(this.gameObject);
     }
 }

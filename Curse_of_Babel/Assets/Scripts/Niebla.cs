@@ -5,7 +5,7 @@ using UnityEngine;
 public class Niebla : MonoBehaviour
 {
     //public Mono jugador;
-    bool muevete =false;
+    //bool muevete = false;
     public float velocidad = 0.5f;
     void Start()
     {

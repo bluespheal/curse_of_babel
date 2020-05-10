@@ -16,6 +16,8 @@ public class floor_detector : MonoBehaviour
 		if (other.CompareTag("platform"))
 		{
 			playerScript.isGrounded = true;
+			playerScript.knight_animation.SetBool("on_air", false);
+			playerScript.knight_animation.SetBool("stomp", false);
 			playerScript.knight_animation.SetTrigger("landing");
 			//playerScript.comportamientos();
 		}

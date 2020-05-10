@@ -209,15 +209,30 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 15.886001, y: -5.242, z: 4.316}
---- !u!1001 &179462758
+--- !u!1001 &811146750
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 747536431837301327, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 747536431837301327, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 747536431837301327, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 9026907871140804197, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -256,7 +271,7 @@ PrefabInstance:
     - target: {fileID: 9026907871140804197, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9026907871140804197, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
@@ -280,28 +295,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
-      propertyPath: levels.Array.data[0]
-      value: 
-      objectReference: {fileID: 8193046609272994577, guid: 8ce70a49e215a9e41b6c8cbba0ceac8d,
-        type: 3}
-    - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
-        type: 3}
-      propertyPath: transitionAnim
-      value: 
+      propertyPath: easy_levels.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
-      propertyPath: mainCamera
+      propertyPath: easy_levels.Array.data[0]
       value: 
-      objectReference: {fileID: 1687865939}
+      objectReference: {fileID: 675288090778782449, guid: 2687dcc3a93a04044b0bfa20dd54614b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df8168dbc5f99da4cadfffde40fd2dd5, type: 3}
---- !u!1 &1166468617 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9026907871140804200, guid: df8168dbc5f99da4cadfffde40fd2dd5,
-    type: 3}
-  m_PrefabInstance: {fileID: 179462758}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1687865936
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,9 +397,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687865936}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef6037f8a360b43748f4d44718c7eabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1166468617}
+  player: {fileID: 0}
+  stop_signal: {fileID: 0}
+  push_signal: {fileID: 0}
+  alive: 1
