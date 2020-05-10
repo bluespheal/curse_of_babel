@@ -46,7 +46,10 @@ public class Personaje : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        //Set starting rotation to look at the camera
+        transform.rotation = Quaternion.Euler(0, 180, 0);
+
         saved_variables.Cargar();
         //saved_variables.progreso.score = 0;
         if (saved_variables.progreso.score < max_easy_score)
@@ -266,11 +269,11 @@ public class Personaje : MonoBehaviour
         //Rotate character
         if(v.normalized.x >= 0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.rotation = Quaternion.Euler(0, 90, 0);
         }
         else
         {
-            transform.rotation = Quaternion.Euler(0, -183, 0);
+            transform.rotation = Quaternion.Euler(0, 273, 0);
         }
         //Checks if it was a tap
         if (v.normalized.x == 0 && v.normalized.y == 0 && v.normalized.z == 0 && isGrounded)
