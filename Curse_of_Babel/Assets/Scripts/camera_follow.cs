@@ -23,7 +23,7 @@ public class camera_follow : MonoBehaviour
         pos_jugador = player.transform.position;
         if(push_signal.position.y > pos_jugador.y)
         {
-            pos_niebla.y = push_signal.position.y;
+            pos_niebla.y = push_signal.position.y+13;
             pos_niebla.x = -6.0f;
             pos_niebla.z = pos_jugador.z - 10.0f;
             transform.position = pos_niebla;
@@ -31,6 +31,7 @@ public class camera_follow : MonoBehaviour
         else if (stop_signal.position.y > pos_jugador.y && alive && push_signal.position.y < pos_jugador.y)
          {            
             pos_jugador.x = -6.0f;
+            pos_jugador.y = pos_jugador.y + 13;
             pos_jugador.z = pos_jugador.z - 10.0f;
             // Assign value to Camera position
             transform.position = pos_jugador;

@@ -98,6 +98,10 @@ public class Personaje : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButtonDown("Fire1") && canDash)
+        {
+            dash_sound.Play();
+        }
         if (Input.GetKeyDown(KeyCode.J))
         {
             knight_animation.SetTrigger("dead");
