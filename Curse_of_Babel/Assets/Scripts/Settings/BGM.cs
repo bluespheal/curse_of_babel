@@ -26,9 +26,9 @@ public class BGM : MonoBehaviour
     void Start()
     {
         saved_variables = GameObject.FindObjectOfType<Camera>().GetComponent<Saved_variables>();
-        //saved_variables.Cargar();
+        saved_variables.Cargar();
         bgm = GetComponent<AudioSource>();
-        //bgm.volume = saved_variables.progreso.BGM_Volume;
+        bgm.volume = saved_variables.progreso.BGM_Volume;
     }
 
 
@@ -42,6 +42,6 @@ public class BGM : MonoBehaviour
 
     void Update()
     {
-        //bgm.volume = saved_variables.progreso.BGM_Volume;
+        bgm.volume = saved_variables.progreso.BGM_Volume;
     }
 }

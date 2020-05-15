@@ -104,7 +104,7 @@ public class Personaje : MonoBehaviour
         }
         speed = rb.velocity.magnitude;
         knight_animation.SetFloat("speed", (float)speed);
-        //print(speed);
+        print(speed);
         if (Input.GetKeyDown(KeyCode.R)) {
             saved_variables.progreso.score = 0;
             saved_variables.progreso.hscore = 0;
@@ -301,7 +301,8 @@ public class Personaje : MonoBehaviour
             {
                 if (v.normalized.y < 0.3f)
                 {
-                    knight_animation.SetTrigger("sdash");
+                    /*knight_animation.SetTrigger("dash");
+                    knight_animation.SetBool("on_air", true);*/
                     /*print("hola");
                     print(v.normalized.y);*/
                     canDash = false;
@@ -310,7 +311,6 @@ public class Personaje : MonoBehaviour
                 {
                     knight_animation.SetTrigger("dash");
                     knight_animation.SetBool("on_air", true);
-                    print("hola");
                     canDash = false;
                 }
             }
@@ -402,6 +402,12 @@ public class Personaje : MonoBehaviour
         saved_variables.progreso.score += _score;
     }
 
+    /*public void comportamientos()
+    {
+        knight_idle = StartCoroutine("idleAlt");
+        //idle variado
+        //onloadscene
+    }*/
 
     public void idle_alts()
     {

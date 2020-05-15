@@ -609,7 +609,7 @@ PrefabInstance:
     - target: {fileID: 2767354704005256638, guid: a007e2eee06c4ed4496dfa304ffb8217,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 581
+      value: 563
       objectReference: {fileID: 0}
     - target: {fileID: 2767354704005256638, guid: a007e2eee06c4ed4496dfa304ffb8217,
         type: 3}
@@ -1033,7 +1033,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3ecfd45e78a185b4f9be83d80bac7da1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 160621e742b8b4979a9774ed995e86f0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1463,7 +1463,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 173, y: -117}
+  m_AnchoredPosition: {x: 155, y: -117}
   m_SizeDelta: {x: 156.29, y: 53}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1643278735
@@ -1913,19 +1913,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGM
       objectReference: {fileID: 0}
-    - target: {fileID: 372796148307891055, guid: c9b40bcf867624441aa50506585a41fa,
-        type: 3}
-      propertyPath: bgm
-      value: 
-      objectReference: {fileID: 2075459258}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9b40bcf867624441aa50506585a41fa, type: 3}
---- !u!82 &2075459258 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 372796148307891041, guid: c9b40bcf867624441aa50506585a41fa,
-    type: 3}
-  m_PrefabInstance: {fileID: 2075459257}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2129978249 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7831811010890422463, guid: a007e2eee06c4ed4496dfa304ffb8217,

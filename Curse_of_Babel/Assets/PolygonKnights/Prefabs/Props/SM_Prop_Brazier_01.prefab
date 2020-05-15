@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3330184}
   - component: {fileID: 2365972}
   m_Layer: 0
-  m_Name: Brazier_L
+  m_Name: SM_Prop_Brazier_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4910,10 +4910,10 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 4294967295
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -4937,7 +4937,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e65c23e7ab668341ad65afc5e81a60b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minInt: 4.5
+  minInt: 4.7
   maxInt: 5
-  minT: 1
-  maxT: 3
