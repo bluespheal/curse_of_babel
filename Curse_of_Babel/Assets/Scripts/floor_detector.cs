@@ -19,6 +19,7 @@ public class floor_detector : MonoBehaviour
 			playerScript.knight_animation.SetBool("on_air", false);
 			playerScript.knight_animation.SetBool("stomp", false);
 			playerScript.knight_animation.SetTrigger("landing");
+			print("aterrizo");
 			//playerScript.comportamientos();
 		}
 		//jump.en_suelo = true;
