@@ -301,8 +301,7 @@ public class Personaje : MonoBehaviour
             {
                 if (v.normalized.y < 0.3f)
                 {
-                    /*knight_animation.SetTrigger("dash");
-                    knight_animation.SetBool("on_air", true);*/
+                    knight_animation.SetTrigger("sdash");
                     /*print("hola");
                     print(v.normalized.y);*/
                     canDash = false;
