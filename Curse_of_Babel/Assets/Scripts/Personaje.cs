@@ -114,6 +114,7 @@ public class Personaje : MonoBehaviour
         //Checks if player is touching the ground
         if (isGrounded)
         {
+            transform.GetChild(5).gameObject.SetActive(true);
             canDash = true;
         }
 
@@ -130,6 +131,7 @@ public class Personaje : MonoBehaviour
                 touchEnd = Input.mousePosition;
                 direction = 5;
                 stopDashing = false;
+                transform.GetChild(5).gameObject.SetActive(false);
                 canDash = false;
             }
 
@@ -215,6 +217,7 @@ public class Personaje : MonoBehaviour
         if (bounce == true)
         {
             jump();
+            transform.GetChild(5).gameObject.SetActive(true);
             canDash = true;
             bounce = false;
         }
