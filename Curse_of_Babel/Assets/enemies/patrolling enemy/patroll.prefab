@@ -96,8 +96,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.2, z: 0.7}
-  m_Center: {x: 0, y: 0.2, z: 0}
+  m_Size: {x: 0.90724754, y: 0.52142787, z: 0.7}
+  m_Center: {x: -0.025535047, y: 0.039286077, z: 0}
 --- !u!54 &1242163796295512684
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -223,10 +223,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slide_speed: 0
-  death_sound: {fileID: 0}
+  death_sound: {fileID: -1484448440544721473}
   distance: 0
   left: 0
-  explosion: {fileID: 0}
+  explosion: {fileID: 994752690622384524}
 --- !u!1001 &3207852501256442292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -453,6 +453,12 @@ PrefabInstance:
 --- !u!4 &1003491924928665102 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5348559870246805509, guid: 1bab54d6bada0454fb4751f1b3481707,
+    type: 3}
+  m_PrefabInstance: {fileID: 5176034877016962571}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &994752690622384524 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5339837623018569607, guid: 1bab54d6bada0454fb4751f1b3481707,
     type: 3}
   m_PrefabInstance: {fileID: 5176034877016962571}
   m_PrefabAsset: {fileID: 0}
