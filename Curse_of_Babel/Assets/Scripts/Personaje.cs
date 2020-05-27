@@ -23,7 +23,8 @@ public class Personaje : MonoBehaviour
     public GameObject mist;
     private Collider coll;
     private Rigidbody rb;
-    [Header("Movement")]
+    public ParticleSystem dashRelease;
+
     public float dashTime;
     private float distToGround;
     public float dashSpeed;
@@ -142,7 +143,7 @@ public class Personaje : MonoBehaviour
             knight_animation.SetBool("on_air", true);
             knight_animation.SetBool("Gdash", false);
         }
-        
+
         //print(speed);
         if (Input.GetKeyDown(KeyCode.R)) {
             saved_variables.progreso.score = 0;
@@ -153,7 +154,7 @@ public class Personaje : MonoBehaviour
         //Checks if player is touching the ground
         if (isGrounded)
         {
-            transform.GetChild(5).gameObject.SetActive(true);
+            transform.GetChild(5).gameObject.SetActive(false);
             canDash = true;
         }
 
@@ -276,6 +277,7 @@ public class Personaje : MonoBehaviour
     }
     public void jump()
     {
+        if(canDash) StartCoroutine(turnJumpParticlesOn());
         knight_animation.SetTrigger("jump");
         knight_animation.SetBool("stomp", false);
         rb.velocity = Vector3.zero;
@@ -347,7 +349,7 @@ public class Personaje : MonoBehaviour
             {
                 print("Horizontal");
                 knight_animation.SetTrigger("dash");
-                
+
                 if (canDash && !isGrounded)
                 canDash = false;
             }
@@ -481,6 +483,11 @@ public class Personaje : MonoBehaviour
         }
     }
 
+    IEnumerator turnJumpParticlesOn()
+    {
+        yield return new WaitForSeconds(0.07f);
+        transform.GetChild(5).gameObject.SetActive(true);
+    }
     IEnumerator LoadScene(){
       transitionAnim.SetTrigger("fade_out");
       yield return new WaitForSeconds(0.5f);
