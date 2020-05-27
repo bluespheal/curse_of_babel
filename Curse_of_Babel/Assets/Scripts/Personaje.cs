@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class Personaje : MonoBehaviour
 {
+    [Header("Audio")]
     public AudioSource dash_sound;
     public AudioSource death_sound;
+    [Header("Characteristics")]
     public float salto;
     public float fallMultiplier = 2.5f;
     public bool isGrounded = false;
@@ -21,7 +23,7 @@ public class Personaje : MonoBehaviour
     public GameObject mist;
     private Collider coll;
     private Rigidbody rb;
-
+    [Header("Movement")]
     public float dashTime;
     private float distToGround;
     public float dashSpeed;
@@ -30,18 +32,25 @@ public class Personaje : MonoBehaviour
     private int direction;
 
     public float vel_rot;
+    [Header("Levels")]
     public Saved_variables saved_variables;
     public GameObject[] easy_levels;
     public GameObject[] normal_levels;
     public GameObject[] hard_levels;
     public int max_easy_score = 100;
     public int max_normal_score = 300;
-
+    [Header("Animations")]
+    bool Gdash = false;
     public Animator transitionAnim;
     public Animator knight_animation;
 
     public int knight_idle = 0;
     public int idle_change = 0;
+    float velY;
+    public Transform raycGround;
+    RaycastHit hit; //Raycast for floor detection
+    public float rayDis; // distance to catch floor
+    public Vector3 rayDir; // downwards direction of raycast
 
     public camera_follow mainCamera;
 
@@ -98,13 +107,43 @@ public class Personaje : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        velY = rb.velocity.y;
         if (Input.GetKeyDown(KeyCode.J))
         {
             knight_animation.SetTrigger("dead");
         }
+        if (Gdash)
+        {
+            knight_animation.SetBool("Gdash", true);
+        }
+        else
+        {
+            knight_animation.SetBool("Gdash", false);
+        }
         speed = rb.velocity.magnitude;
         knight_animation.SetFloat("speed", (float)speed);
-        print(speed);
+        if (speed < 1 || !isGrounded)
+            Gdash = false;
+        rayDir = raycGround.position + (transform.up * -rayDis);
+        //rayDir2 = raycGround.position + (transform.up * -rayDis);
+        Debug.DrawLine(raycGround.position, rayDir, Color.green, 1.0f);
+       // Debug.DrawLine(raycGround.position, rayDir2, Color.blue, 1.0f);
+        if (Physics.Raycast(raycGround.position, raycGround.up * -1, out hit, rayDis) && velY <= 0 /*|| Physics.Raycast(raycGround2.position, raycGround2.up * -1, out hit, rayDis) && velY <= 0*/)
+        {
+            isGrounded = true;
+            knight_animation.SetBool("on_air", false);
+            knight_animation.SetBool("stomp", false);
+            if(!Gdash)
+            rb.velocity = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            isGrounded = false;
+            knight_animation.SetBool("on_air", true);
+            knight_animation.SetBool("Gdash", false);
+        }
+        
+        //print(speed);
         if (Input.GetKeyDown(KeyCode.R)) {
             saved_variables.progreso.score = 0;
             saved_variables.progreso.hscore = 0;
@@ -299,22 +338,18 @@ public class Personaje : MonoBehaviour
         //If it's not a tap, then it does the dash.
         else
         {
+            if (isGrounded)
+            {
+                Gdash = true;
+            }
             //Checks if dash was done upwards, and if so, turns canDash off because for some fucking reason it turns itself on whenever the dash is done upwards.
             if (v.normalized.y > 0.0f)
             {
-                if (v.normalized.y < 0.3f)
-                {
-                    knight_animation.SetTrigger("sdash");
-                    /*print("hola");
-                    print(v.normalized.y);*/
-                    canDash = false;
-                }
-                else
-                {
-                    knight_animation.SetTrigger("dash");
-                    knight_animation.SetBool("on_air", true);
-                    canDash = false;
-                }
+                print("Horizontal");
+                knight_animation.SetTrigger("dash");
+                
+                if (canDash && !isGrounded)
+                canDash = false;
             }
             rb.velocity = v.normalized * dashSpeed;
             //Rotate character
@@ -366,11 +401,33 @@ public class Personaje : MonoBehaviour
         {
             dead();
         }
+       /* if (collision.gameObject.CompareTag("platform") && velY <= 0)
+        {
+            knight_animation.SetBool("stomp", false);
+            knight_animation.SetTrigger("landing");
+        }*/
     }
+
+    /*private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("platform"))
+        {
+            knight_animation.SetBool("on_air", false);
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("platform"))
+        {
+            knight_animation.SetBool("on_air", true);
+        }
+    }*/
 
 
     void dead()
     {
+        knight_animation.SetBool("f", true);
         knight_animation.SetTrigger("dead");
         rb.velocity = Vector3.zero;
         rb.isKinematic = true;
