@@ -14,7 +14,6 @@ public class Personaje : MonoBehaviour
     public bool isGrounded = false;
     public bool canDash = false;
     public bool stopDashing = false;
-    public bool bounce = false;
 
     private Vector3 touchStart;
     private Vector3 touchEnd;
@@ -265,14 +264,6 @@ public class Personaje : MonoBehaviour
             groundPound();
         }
 
-        if (bounce == true)
-        {
-            jump();
-            transform.GetChild(5).gameObject.SetActive(true);
-            canDash = true;
-            bounce = false;
-        }
-
         if (!isGrounded && direction == 0)
         {
             if (rb){
@@ -286,6 +277,14 @@ public class Personaje : MonoBehaviour
 
         //rb.velocity = vel;
     }
+
+    public void bounce()
+    {
+        jump();
+        transform.GetChild(5).gameObject.SetActive(true);
+        canDash = true;
+    }
+
     public void jump()
     {
         if(canDash) StartCoroutine(turnJumpParticlesOn());

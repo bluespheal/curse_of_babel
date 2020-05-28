@@ -54,10 +54,11 @@ public class enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "hit point")
+        if (other.gameObject.CompareTag("hit_point"))
         {
             explosion.GetComponent<ParticleSystem>().Play();
-            other.GetComponent<floor_detector>().playerScript.score_up(10);
+            other.GetComponent<hitpoint>().player.score_up(10);
+            other.GetComponent<hitpoint>().player.bounce();
             death_sound.Play();
             Invoke("die", 0.5f);
         }
