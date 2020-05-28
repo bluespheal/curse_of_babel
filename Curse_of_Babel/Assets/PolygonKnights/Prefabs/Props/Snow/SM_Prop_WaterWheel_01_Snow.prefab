@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3363718}
   - component: {fileID: 2327436}
   - component: {fileID: 9558958}
-  - component: {fileID: 64298711522672156}
   m_Layer: 0
   m_Name: SM_Prop_WaterWheel_01_Snow
   m_TagString: Untagged
@@ -99,17 +98,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!64 &64298711522672156
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140674}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 43728143758905740, guid: f907283ada4adb846ad7a000bfaaf6a2, type: 2}

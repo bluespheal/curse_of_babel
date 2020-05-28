@@ -66,18 +66,20 @@ public class Personaje : MonoBehaviour
         idle_change = Random.Range(2, 4);
         saved_variables.Cargar();
         //saved_variables.progreso.score = 0;
-        if (saved_variables.progreso.score < max_easy_score)
+        print(easy_levels.Length);
+        if (saved_variables.progreso.score <= max_easy_score)
         {
-            saved_variables.progreso.nivelActual = Random.Range(0, easy_levels.Length - 1);
+            saved_variables.progreso.nivelActual = Random.Range(1, easy_levels.Length);
         }
-        if (saved_variables.progreso.score > max_easy_score && saved_variables.progreso.score < max_normal_score)
+        if (saved_variables.progreso.score >= max_easy_score && saved_variables.progreso.score <= max_normal_score)
         {
-            saved_variables.progreso.nivelActual = Random.Range(0, normal_levels.Length - 1);
+            saved_variables.progreso.nivelActual = Random.Range(1, normal_levels.Length);
         }
-        if (saved_variables.progreso.score > max_normal_score)
+        if (saved_variables.progreso.score >= max_normal_score)
         {
-            saved_variables.progreso.nivelActual = Random.Range(0, hard_levels.Length - 1);
+            saved_variables.progreso.nivelActual = Random.Range(1, hard_levels.Length);
         }
+        print(saved_variables.progreso.nivelActual);
         loadscenes(saved_variables.progreso.nivelActual);
         mist = GameObject.Find("Niebla");
         //levels = new GameObject[30];
@@ -447,15 +449,15 @@ public class Personaje : MonoBehaviour
 
     void loadscenes(int scene)
     {
-        if (saved_variables.progreso.score < max_easy_score)
+        if (saved_variables.progreso.score <= max_easy_score)
         {
             Instantiate(easy_levels[scene]);
         }
-        if (saved_variables.progreso.score > max_easy_score && saved_variables.progreso.score < max_normal_score)
+        if (saved_variables.progreso.score >= max_easy_score && saved_variables.progreso.score <= max_normal_score)
         {
             Instantiate(normal_levels[scene]);
         }
-        if (saved_variables.progreso.score > max_normal_score)
+        if (saved_variables.progreso.score >= max_normal_score)
         {
             Instantiate(hard_levels[scene]);
         }
