@@ -15,7 +15,6 @@ public class semisolid_platform : MonoBehaviour
 
 		private void OnTriggerExit(Collider other)// checks if player has landed
 		{
-      print ("Hello");
       platform.transform.GetComponent<Collider>().isTrigger = false;
         //Physics.IgnoreCollision(player.GetComponent<Collider>(), platform.GetComponent<Collider>(), false);
 		}

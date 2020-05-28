@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6929262833799743651}
   - component: {fileID: 1242163796295512684}
   - component: {fileID: -1484448440544721473}
-  - component: {fileID: 2312111756569900135}
+  - component: {fileID: 843884095832616719}
   m_Layer: 0
   m_Name: patroll
   m_TagString: enemy
@@ -210,7 +210,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2312111756569900135
+--- !u!114 &843884095832616719
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
