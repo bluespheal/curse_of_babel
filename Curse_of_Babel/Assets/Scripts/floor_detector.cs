@@ -10,7 +10,6 @@ public class floor_detector : MonoBehaviour
 	{
 		if (other.CompareTag("enemy"))
 		{
-			playerScript.bounce = true;
 			playerScript.canDash = true;
 		}
 		if (other.CompareTag("platform"))
