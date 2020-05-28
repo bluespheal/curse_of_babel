@@ -41,7 +41,8 @@ public class Personaje : MonoBehaviour
     public int max_easy_score = 100;
     public int max_normal_score = 300;
     [Header("Animations")]
-    bool Gdash = false;
+    public bool Gdash = false;
+    public bool landing = false;
     public Animator transitionAnim;
     public Animator knight_animation;
 
@@ -124,9 +125,9 @@ public class Personaje : MonoBehaviour
             knight_animation.SetBool("Gdash", false);
         }
         speed = rb.velocity.magnitude;
-        knight_animation.SetFloat("speed", (float)speed);
-        if (speed < 1 || !isGrounded)
-            Gdash = false;
+        knight_animation.SetFloat("speed", (float)velX);
+        /*if (speed < 1 || !isGrounded)
+            Gdash = false;*/
         //rayDir = raycGround.position + (transform.up * -rayDis);
         //Debug.DrawLine(raycGround.position, rayDir, Color.green, 1.0f);
         /*if (Physics.Raycast(raycGround.position, raycGround.up * -1, out hit, rayDis) && velY <= 0)
@@ -154,14 +155,18 @@ public class Personaje : MonoBehaviour
         //Checks if player is touching the ground
         if (isGrounded)
         {
+
             transform.GetChild(5).gameObject.SetActive(false);
             canDash = true;
             if (velX > 0 && velY == 0)
             {
                 Gdash = true;
             }
-            if (!Gdash && velY <= 0)
+            if (landing && velY <= 0)
+            {
+                landing = false;
                 rb.velocity = new Vector3(0, 0, 0);
+            }
         }
 
         //Dash

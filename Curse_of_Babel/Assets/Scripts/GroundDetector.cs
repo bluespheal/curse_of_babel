@@ -9,7 +9,8 @@ public class GroundDetector : MonoBehaviour
     {
          if (other.gameObject.CompareTag("platform") && jugador.velY <= 0)
          {
-             jugador.knight_animation.SetBool("stomp", false);
+            jugador.knight_animation.SetBool("stomp", false);
+            jugador.landing = true;
         }
     }
 
@@ -18,6 +19,7 @@ public class GroundDetector : MonoBehaviour
         if (other.gameObject.CompareTag("platform") && jugador.velY <= 0)
         {
             jugador.knight_animation.SetBool("on_air", false);
+            jugador.Gdash = true;
         }
     }
 
