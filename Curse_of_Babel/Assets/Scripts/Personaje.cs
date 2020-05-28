@@ -174,6 +174,7 @@ public class Personaje : MonoBehaviour
             //Testing with mouse
             if (Input.GetButtonDown("Fire1"))
             {
+                print("dash");
                 touchStart = Input.mousePosition;
             }
             if (Input.GetButtonUp("Fire1"))
@@ -246,6 +247,7 @@ public class Personaje : MonoBehaviour
                 }
                 else if (direction == 5)
                 {
+
                     DoInput();
                 }
             }
@@ -316,6 +318,7 @@ public class Personaje : MonoBehaviour
 
     void DoInput()
     {
+        print("click");
         Vector3 p1 = new Vector3();
         Vector3 p2 = new Vector3();
         touchStart.z = Camera.main.nearClipPlane + .1f; //make sure its visible on screen
