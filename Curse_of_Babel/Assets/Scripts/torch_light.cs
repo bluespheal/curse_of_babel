@@ -26,10 +26,6 @@ public class torch_light : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        //seconds = (int)timer % 60;
-        //print(timer);
-        print(seconds);
-
         if (seconds < timer + 0.1f)
         {
             seconds += 0.1f;
@@ -59,7 +55,7 @@ public class torch_light : MonoBehaviour
     {
         new_Int = Random.Range(minInt, maxInt);
         tstep = Random.Range(minT, maxT);
-        print(tstep);
+        //print(tstep);
         nsteps = tstep;
         if (new_Int > light_Int)
         {

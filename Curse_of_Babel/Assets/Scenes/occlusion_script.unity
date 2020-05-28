@@ -233,6 +233,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 6737709542084433649, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9026907871140804197, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -47,11 +47,12 @@ public class Personaje : MonoBehaviour
 
     public int knight_idle = 0;
     public int idle_change = 0;
-    float velY;
-    public Transform raycGround;
-    RaycastHit hit; //Raycast for floor detection
+    public float velY;
+    public float velX;
+    //public Transform raycGround;
+    /*RaycastHit hit; //Raycast for floor detection
     public float rayDis; // distance to catch floor
-    public Vector3 rayDir; // downwards direction of raycast
+    public Vector3 rayDir; // downwards direction of raycast*/
 
     public camera_follow mainCamera;
 
@@ -109,6 +110,7 @@ public class Personaje : MonoBehaviour
     void Update()
     {
         velY = rb.velocity.y;
+        velX = rb.velocity.x;
         if (Input.GetKeyDown(KeyCode.J))
         {
             knight_animation.SetTrigger("dead");
@@ -125,11 +127,9 @@ public class Personaje : MonoBehaviour
         knight_animation.SetFloat("speed", (float)speed);
         if (speed < 1 || !isGrounded)
             Gdash = false;
-        rayDir = raycGround.position + (transform.up * -rayDis);
-        //rayDir2 = raycGround.position + (transform.up * -rayDis);
-        Debug.DrawLine(raycGround.position, rayDir, Color.green, 1.0f);
-       // Debug.DrawLine(raycGround.position, rayDir2, Color.blue, 1.0f);
-        if (Physics.Raycast(raycGround.position, raycGround.up * -1, out hit, rayDis) && velY <= 0 /*|| Physics.Raycast(raycGround2.position, raycGround2.up * -1, out hit, rayDis) && velY <= 0*/)
+        //rayDir = raycGround.position + (transform.up * -rayDis);
+        //Debug.DrawLine(raycGround.position, rayDir, Color.green, 1.0f);
+        /*if (Physics.Raycast(raycGround.position, raycGround.up * -1, out hit, rayDis) && velY <= 0)
         {
             isGrounded = true;
             knight_animation.SetBool("on_air", false);
@@ -142,7 +142,7 @@ public class Personaje : MonoBehaviour
             isGrounded = false;
             knight_animation.SetBool("on_air", true);
             knight_animation.SetBool("Gdash", false);
-        }
+        }*/
 
         //print(speed);
         if (Input.GetKeyDown(KeyCode.R)) {
@@ -156,6 +156,12 @@ public class Personaje : MonoBehaviour
         {
             transform.GetChild(5).gameObject.SetActive(false);
             canDash = true;
+            if (velX > 0 && velY == 0)
+            {
+                Gdash = true;
+            }
+            if (!Gdash && velY <= 0)
+                rb.velocity = new Vector3(0, 0, 0);
         }
 
         //Dash
@@ -340,16 +346,13 @@ public class Personaje : MonoBehaviour
         //If it's not a tap, then it does the dash.
         else
         {
-            if (isGrounded)
-            {
-                Gdash = true;
-            }
             //Checks if dash was done upwards, and if so, turns canDash off because for some fucking reason it turns itself on whenever the dash is done upwards.
             if (v.normalized.y > 0.0f)
             {
-                print("Horizontal");
-                knight_animation.SetTrigger("dash");
-
+                if (!isGrounded)
+                {
+                    knight_animation.SetTrigger("dash");
+                }
                 if (canDash && !isGrounded)
                 canDash = false;
             }
