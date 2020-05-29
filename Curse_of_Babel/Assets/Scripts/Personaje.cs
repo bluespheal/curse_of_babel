@@ -355,6 +355,7 @@ public class Personaje : MonoBehaviour
             //Checks if dash was done upwards, and if so, turns canDash off because for some fucking reason it turns itself on whenever the dash is done upwards.
             if (v.normalized.y > 0.0f)
             {
+                dashRelease.Play();
                 if (!isGrounded)
                 {
                     knight_animation.SetTrigger("dash");
@@ -437,7 +438,7 @@ public class Personaje : MonoBehaviour
 
 
     void dead()
-    {
+    {   
         knight_animation.SetBool("f", true);
         knight_animation.SetTrigger("dead");
         rb.velocity = Vector3.zero;
