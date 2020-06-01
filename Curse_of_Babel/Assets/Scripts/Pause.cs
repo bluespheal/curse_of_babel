@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Pause : MonoBehaviour
 {
-    private bool paused=false;
+    public bool paused=false;
     public GameObject PauseMenu;
     public GameObject PauseButton;
     public Sprite play_image;
@@ -32,10 +32,10 @@ public class Pause : MonoBehaviour
         }
         else
         {
+            Time.timeScale = 0f;
             PauseButton.GetComponent<Image>().sprite = play_image;
             PauseMenu.SetActive(true);
             paused = true;
-            Time.timeScale = 0f;
         }
     }
 }
