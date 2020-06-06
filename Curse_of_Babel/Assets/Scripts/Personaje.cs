@@ -38,6 +38,7 @@ public class Personaje : MonoBehaviour
     public GameObject[] easy_levels;
     public GameObject[] normal_levels;
     public GameObject[] hard_levels;
+    public GameObject tutorial_level;
     public int max_easy_score = 100;
     public int max_normal_score = 300;
     [Header("Animations")]
@@ -72,20 +73,27 @@ public class Personaje : MonoBehaviour
         saved_variables.Cargar();
         //saved_variables.progreso.score = 0;
         //print(easy_levels.Length);
-        if (saved_variables.progreso.score <= max_easy_score)
+        if (!saved_variables.progreso.Tutorial)
         {
-            saved_variables.progreso.nivelActual = Random.Range(0, easy_levels.Length);
+            if (saved_variables.progreso.score <= max_easy_score)
+            {
+                saved_variables.progreso.nivelActual = Random.Range(1, easy_levels.Length);
+            }
+            if (saved_variables.progreso.score >= max_easy_score && saved_variables.progreso.score <= max_normal_score)
+            {
+                saved_variables.progreso.nivelActual = Random.Range(1, normal_levels.Length);
+            }
+            if (saved_variables.progreso.score >= max_normal_score)
+            {
+                saved_variables.progreso.nivelActual = Random.Range(1, hard_levels.Length);
+            }
+            print(saved_variables.progreso.nivelActual);
+            loadscenes(saved_variables.progreso.nivelActual);
         }
-        if (saved_variables.progreso.score >= max_easy_score && saved_variables.progreso.score <= max_normal_score)
-        {
-            saved_variables.progreso.nivelActual = Random.Range(0, normal_levels.Length);
+        else {
+            loadtut();
+            saved_variables.progreso.Tutorial = false;
         }
-        if (saved_variables.progreso.score >= max_normal_score)
-        {
-            saved_variables.progreso.nivelActual = Random.Range(0, hard_levels.Length);
-        }
-        //print(saved_variables.progreso.nivelActual);
-        loadscenes(saved_variables.progreso.nivelActual);
         mist = GameObject.Find("Niebla");
         //levels = new GameObject[30];
         coll = GetComponent<Collider>();
@@ -156,6 +164,7 @@ public class Personaje : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R)) {
             saved_variables.progreso.score = 0;
             saved_variables.progreso.hscore = 0;
+            saved_variables.progreso.Tutorial = true;
         }
 
         //print(isGrounded());
@@ -445,6 +454,16 @@ public class Personaje : MonoBehaviour
         saved_variables.Guardar();
         StartCoroutine(LoadGameOver());
         mainCamera.alive = false;
+    }
+
+    void loadtut() {
+        Instantiate(tutorial_level);
+        if (mainCamera)
+        {
+            mainCamera.stop_signal = GameObject.FindGameObjectWithTag("alto").transform;
+            mainCamera.push_signal = GameObject.FindGameObjectWithTag("push_signal").transform;
+            mainCamera.alive = true;
+        }
     }
 
     void loadscenes(int scene)
