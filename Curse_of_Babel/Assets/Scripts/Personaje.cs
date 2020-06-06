@@ -28,6 +28,7 @@ public class Personaje : MonoBehaviour
     private float distToGround;
     public float dashSpeed;
     public float startDashTime;
+    public Pause p;
 
     private int direction;
 
@@ -175,14 +176,16 @@ public class Personaje : MonoBehaviour
         }
 
         //Dash
-        if (direction == 0 && canDash && dashTime == startDashTime)
+        if (direction == 0 && canDash && dashTime == startDashTime && !p.paused)
         {
+            Rect bounds = new Rect(0, 0, Screen.width, Screen.height/1.3f);
+            print(bounds);
             //Testing with mouse
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") && bounds.Contains(Input.mousePosition))
             {
                 touchStart = Input.mousePosition;
             }
-            if (Input.GetButtonUp("Fire1"))
+            if (Input.GetButtonUp("Fire1") && bounds.Contains(Input.mousePosition))
             {
                 touchEnd = Input.mousePosition;
                 direction = 5;
@@ -257,7 +260,7 @@ public class Personaje : MonoBehaviour
 
         //Jump
 
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space)&&!p.paused)
         {
             jump();
         }

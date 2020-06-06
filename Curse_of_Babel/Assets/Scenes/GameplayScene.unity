@@ -361,7 +361,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.0000019073, y: -36}
+  m_AnchoredPosition: {x: 0, y: -36}
   m_SizeDelta: {x: 312.5, y: 58.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &681785644
@@ -466,6 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd2595309760214d87c70ee45a7166a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paused: 0
   PauseMenu: {fileID: 849712102}
   PauseButton: {fileID: 681785642}
   play_image: {fileID: 21300000, guid: d262c4f79c5244c11a50d0129e2e1ba2, type: 3}
@@ -1504,6 +1505,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7973544959152140886, guid: 5d1cffc0d2e11614689d02fe8734604f,
         type: 3}
+    - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+        type: 3}
+      propertyPath: p
+      value: 
+      objectReference: {fileID: 681785647}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df8168dbc5f99da4cadfffde40fd2dd5, type: 3}
 --- !u!1 &2142722406 stripped
