@@ -21,4 +21,10 @@ public class Button : MonoBehaviour
     {
         SceneManager.LoadScene("settings");
     }
+    public void Tutorial()
+    {
+        Svar.progreso.Tutorial = true;
+        Svar.Guardar();
+        SceneManager.LoadScene("GameplayScene");
+    }
 }

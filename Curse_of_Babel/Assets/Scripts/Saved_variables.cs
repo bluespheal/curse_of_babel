@@ -37,4 +37,5 @@ public class SAVEDATACLASS
     public int hscore;
     public float BGM_Volume;
     public float SFX_Volume;
+    public bool Tutorial;
 }
