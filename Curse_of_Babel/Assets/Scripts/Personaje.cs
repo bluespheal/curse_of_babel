@@ -47,6 +47,10 @@ public class Personaje : MonoBehaviour
 
     public int knight_idle = 0;
     public int idle_change = 0;
+
+    public GameObject particulasDash;
+    public GameObject particulasJump;
+    Vector3 lastFrameVelocity;
     public float velY;
     public float velX;
     //public Transform raycGround;
@@ -66,20 +70,20 @@ public class Personaje : MonoBehaviour
         idle_change = Random.Range(2, 4);
         saved_variables.Cargar();
         //saved_variables.progreso.score = 0;
-        print(easy_levels.Length);
+        //print(easy_levels.Length);
         if (saved_variables.progreso.score <= max_easy_score)
         {
-            saved_variables.progreso.nivelActual = Random.Range(1, easy_levels.Length);
+            saved_variables.progreso.nivelActual = Random.Range(0, easy_levels.Length);
         }
         if (saved_variables.progreso.score >= max_easy_score && saved_variables.progreso.score <= max_normal_score)
         {
-            saved_variables.progreso.nivelActual = Random.Range(1, normal_levels.Length);
+            saved_variables.progreso.nivelActual = Random.Range(0, normal_levels.Length);
         }
         if (saved_variables.progreso.score >= max_normal_score)
         {
-            saved_variables.progreso.nivelActual = Random.Range(1, hard_levels.Length);
+            saved_variables.progreso.nivelActual = Random.Range(0, hard_levels.Length);
         }
-        print(saved_variables.progreso.nivelActual);
+        //print(saved_variables.progreso.nivelActual);
         loadscenes(saved_variables.progreso.nivelActual);
         mist = GameObject.Find("Niebla");
         //levels = new GameObject[30];
@@ -111,6 +115,7 @@ public class Personaje : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        lastFrameVelocity = rb.velocity;
         velY = rb.velocity.y;
         velX = rb.velocity.x;
         if (Input.GetKeyDown(KeyCode.J))
@@ -156,9 +161,8 @@ public class Personaje : MonoBehaviour
         //Checks if player is touching the ground
         if (isGrounded)
         {
-
             transform.GetChild(5).gameObject.SetActive(false);
-            canDash = true;
+            //canDash = true;
             if (velX > 0 && velY == 0)
             {
                 Gdash = true;
@@ -184,9 +188,7 @@ public class Personaje : MonoBehaviour
                 direction = 5;
                 stopDashing = false;
                 transform.GetChild(5).gameObject.SetActive(false);
-                canDash = false;
             }
-
             //Testing with keys
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
@@ -412,32 +414,27 @@ public class Personaje : MonoBehaviour
         {
             dead();
         }
-       /* if (collision.gameObject.CompareTag("platform") && velY <= 0)
+        if (collision.gameObject.CompareTag("lateral") && velY > 0 || collision.gameObject.CompareTag("platform") && velY > 0)
         {
-            knight_animation.SetBool("stomp", false);
-            knight_animation.SetTrigger("landing");
-        }*/
-    }
-
-    /*private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("platform"))
-        {
-            knight_animation.SetBool("on_air", false);
+            //print("Bounce");
+            Bounce(collision.contacts[0].normal);
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void Bounce(Vector3 collisionNormal)
     {
-        if (collision.gameObject.CompareTag("platform"))
-        {
-            knight_animation.SetBool("on_air", true);
-        }
-    }*/
+        var speed = lastFrameVelocity.magnitude;
+        var direction = Vector3.Reflect(lastFrameVelocity.normalized, collisionNormal);
+
+        //Debug.Log("Out Direction: " + direction);
+        rb.velocity = direction * Mathf.Max(speed - 2.0f);
+    }
 
 
     void dead()
     {
+        particulasDash.gameObject.SetActive(false);
+        particulasJump.gameObject.SetActive(false);
         knight_animation.SetBool("f", true);
         knight_animation.SetTrigger("dead");
         rb.velocity = Vector3.zero;
@@ -495,7 +492,7 @@ public class Personaje : MonoBehaviour
     IEnumerator turnJumpParticlesOn()
     {
         yield return new WaitForSeconds(0.07f);
-        transform.GetChild(5).gameObject.SetActive(true);
+        particulasJump.gameObject.SetActive(true);
     }
     IEnumerator LoadScene(){
       transitionAnim.SetTrigger("fade_out");

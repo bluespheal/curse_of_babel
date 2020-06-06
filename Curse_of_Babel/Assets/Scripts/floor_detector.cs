@@ -6,6 +6,12 @@ public class floor_detector : MonoBehaviour
 {
 	public Personaje playerScript;
 
+	float timer = 0.0f;
+	bool aterrizando = false;
+	bool contando = false;
+	float seconds;
+
+
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("enemy"))
@@ -15,8 +21,6 @@ public class floor_detector : MonoBehaviour
 		if (other.CompareTag("platform"))
 		{
 			playerScript.isGrounded = true;
-			playerScript.knight_animation.SetBool("on_air", false);
-			playerScript.knight_animation.SetBool("stomp", false);
 			//playerScript.comportamientos();
 		}
 		//jump.en_suelo = true;
@@ -25,10 +29,14 @@ public class floor_detector : MonoBehaviour
 	private void OnTriggerStay(Collider other)
 	{
 		if (other.CompareTag("platform"))
+		{
+			playerScript.isGrounded = true;
+			if(!aterrizando)
 			{
-        playerScript.isGrounded = true;
+				aterrizando = true;
+				contando = true;
 			}
-        //jump.dashed = false;
+		}
     }
 
 	private void OnTriggerExit(Collider other)
@@ -36,7 +44,24 @@ public class floor_detector : MonoBehaviour
 		if (other.CompareTag("platform"))
 		{
 			playerScript.isGrounded = false;
-
+			aterrizando = false;
+		}
+	}
+	private void Update()
+	{
+		if (aterrizando && contando)
+		{
+			timer += Time.deltaTime;
+			if (seconds < timer + 0.1f)
+			{
+				seconds += 0.1f;
+				if(seconds >= 0.5f)
+				{
+					playerScript.canDash = true;
+					contando = false;
+					seconds = 0;
+				}
+			}
 		}
 	}
 }
