@@ -1420,6 +1420,11 @@ PrefabInstance:
       propertyPath: progreso.Tutorial
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9026907871140804199, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9026907871140804200, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: m_Name

@@ -340,6 +340,7 @@ public class Personaje : MonoBehaviour
         Play_dash();
         //CreateLine(p1, p2);
         Vector3 v = p2 - p1;
+        print(v.normalized);
         //Rotate character
         if(v.normalized.x >= 0)
         {
@@ -354,7 +355,8 @@ public class Personaje : MonoBehaviour
         {
             jump();
         }
-        else if (v.normalized.x == 0 && v.normalized.y == 0 && v.normalized.z == 0 && !isGrounded)
+        //Checks if it was a downwards swipe
+        else if (v.normalized.x <= 0.4 && v.normalized.y <= -0.7f && v.normalized.z <= 0 && v.normalized.x >= -0.4f && v.normalized.y >= -1.0f &&  !isGrounded)
         {
             groundPound();
         }
