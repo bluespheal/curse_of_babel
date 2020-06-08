@@ -61,7 +61,6 @@ public class enemytutorial : MonoBehaviour
         if (other.gameObject.CompareTag("hit_point"))
         {
             explosion.GetComponent<ParticleSystem>().Play();
-            other.GetComponent<hitpoint>().player.score_up(10);
             other.GetComponent<hitpoint>().player.bounce();
             death_sound.Play();
         }

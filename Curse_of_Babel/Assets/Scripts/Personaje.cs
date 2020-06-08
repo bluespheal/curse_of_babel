@@ -350,7 +350,7 @@ public class Personaje : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 273, 0);
         }
         //Checks if it was a tap
-        if (v.normalized.x == 0 && v.normalized.y == 0 && v.normalized.z == 0 && isGrounded)
+        if (v.x <= 1f && v.y <= 1f && v.z <= 1f && v.x >= -1f && v.y >= -1f && v.z >= -1f && isGrounded)
         {
             jump();
         }
