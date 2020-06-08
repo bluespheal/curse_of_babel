@@ -55,7 +55,7 @@ public class floor_detector : MonoBehaviour
 			if (seconds < timer + 0.1f)
 			{
 				seconds += 0.1f;
-				if(seconds >= 0.5f)
+				if(seconds >= 0.2f)
 				{
 					playerScript.canDash = true;
 					contando = false;

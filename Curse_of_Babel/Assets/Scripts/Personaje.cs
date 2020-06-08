@@ -67,7 +67,7 @@ public class Personaje : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Set starting rotation to look at the camera
+       //Set starting rotation to look at the camera
         transform.rotation = Quaternion.Euler(0, 180, 0);
         idle_change = Random.Range(2, 4);
         saved_variables.Cargar();
@@ -77,15 +77,15 @@ public class Personaje : MonoBehaviour
         {
             if (saved_variables.progreso.score <= max_easy_score)
             {
-                saved_variables.progreso.nivelActual = Random.Range(1, easy_levels.Length);
+                saved_variables.progreso.nivelActual = Random.Range(0, easy_levels.Length-1);
             }
             if (saved_variables.progreso.score >= max_easy_score && saved_variables.progreso.score <= max_normal_score)
             {
-                saved_variables.progreso.nivelActual = Random.Range(1, normal_levels.Length);
+                saved_variables.progreso.nivelActual = Random.Range(0, normal_levels.Length-1);
             }
             if (saved_variables.progreso.score >= max_normal_score)
             {
-                saved_variables.progreso.nivelActual = Random.Range(1, hard_levels.Length);
+                saved_variables.progreso.nivelActual = Random.Range(0, hard_levels.Length-1);
             }
             print(saved_variables.progreso.nivelActual);
             loadscenes(saved_variables.progreso.nivelActual);
@@ -187,8 +187,7 @@ public class Personaje : MonoBehaviour
         //Dash
         if (direction == 0 && canDash && dashTime == startDashTime && !p.paused)
         {
-            Rect bounds = new Rect(0, 0, Screen.width, Screen.height/1.3f);
-            print(bounds);
+            Rect bounds = new Rect(0, 0, Screen.width, Screen.height/1.2f);
             //Testing with mouse
             if (Input.GetButtonDown("Fire1") && bounds.Contains(Input.mousePosition))
             {

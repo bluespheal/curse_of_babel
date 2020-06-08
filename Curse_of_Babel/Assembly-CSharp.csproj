@@ -62,12 +62,12 @@
      <Compile Include="Assets\platforms\falling platform\falling_platform.cs" />
      <Compile Include="Assets\platforms\moving platforms\plataforma_movil.cs" />
      <Compile Include="Assets\platforms\semi-solid platform\semisolid_platform.cs" />
+     <Compile Include="Assets\Scripts\Animation_floor_detector.cs" />
      <Compile Include="Assets\Scripts\animator_events.cs" />
      <Compile Include="Assets\Scripts\Button.cs" />
      <Compile Include="Assets\Scripts\camera_follow.cs" />
      <Compile Include="Assets\Scripts\floor_detector.cs" />
      <Compile Include="Assets\Scripts\game_over_scores.cs" />
-     <Compile Include="Assets\Scripts\GroundDetector.cs" />
      <Compile Include="Assets\Scripts\hitpoint.cs" />
      <Compile Include="Assets\Scripts\Niebla.cs" />
      <Compile Include="Assets\Scripts\Pause.cs" />
@@ -82,6 +82,7 @@
      <Compile Include="Assets\Scripts\start_button.cs" />
      <Compile Include="Assets\Scripts\stop_mist.cs" />
      <Compile Include="Assets\Scripts\torch_light.cs" />
+     <Compile Include="Assets\Scripts\tutorial_button.cs" />
      <Compile Include="Assets\Scripts\WaypointInfo.cs" />
      <Compile Include="Assets\Scripts\WaypointSystem.cs" />
  <Reference Include="Unity.Timeline.Editor">

@@ -216,8 +216,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef6037f8a360b43748f4d44718c7eabb, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   player: {fileID: 2061302336}
   stop_signal: {fileID: 0}
   push_signal: {fileID: 0}
@@ -232,8 +232,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df3b491c7365fad4ba9e187fa6c0864b, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   progreso:
     nivelActual: 0
     score: 0
@@ -294,8 +294,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.38431373}
   m_RaycastTarget: 1
@@ -375,8 +375,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
     m_SelectOnUp: {fileID: 0}
@@ -416,7 +416,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument:
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &681785645
@@ -429,8 +429,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -465,8 +465,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6dd2595309760214d87c70ee45a7166a, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   paused: 0
   PauseMenu: {fileID: 849712102}
   PauseButton: {fileID: 681785642}
@@ -616,7 +616,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -630,8 +630,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
   m_RaycastTarget: 1
@@ -689,8 +689,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75290330a8ea34ee4834a61c4c0944d2, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   transitionAnim: {fileID: 844300764}
 --- !u!4 &877815538
 Transform:
@@ -734,8 +734,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -753,8 +753,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
@@ -934,7 +934,7 @@ PrefabInstance:
     - target: {fileID: 372796148307891041, guid: c9b40bcf867624441aa50506585a41fa,
         type: 3}
       propertyPath: m_audioClip
-      value:
+      value: 
       objectReference: {fileID: 8300000, guid: 01dbda64d4c9f5a4686c842c7caacd6c, type: 3}
     - target: {fileID: 372796148307891041, guid: c9b40bcf867624441aa50506585a41fa,
         type: 3}
@@ -949,7 +949,7 @@ PrefabInstance:
     - target: {fileID: 372796148307891055, guid: c9b40bcf867624441aa50506585a41fa,
         type: 3}
       propertyPath: bgm
-      value:
+      value: 
       objectReference: {fileID: 1438663267}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9b40bcf867624441aa50506585a41fa, type: 3}
@@ -1133,8 +1133,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
   m_BlockingObjects: 0
   m_BlockingMask:
@@ -1150,8 +1150,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
@@ -1252,8 +1252,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 4, y: -4}
   m_UseGraphicAlpha: 1
@@ -1267,8 +1267,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
   m_RaycastTarget: 1
@@ -1309,8 +1309,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_EffectColor: {r: 0.20103541, g: 0, b: 0.3018868, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
@@ -1336,20 +1336,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df3b491c7365fad4ba9e187fa6c0864b, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
---- !u!114 &2061302339 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
-    type: 3}
-  m_PrefabInstance: {fileID: 2105904432}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2061302336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8583b98d1fa841141853f5d2f0d9112a, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2105904432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1445,104 +1433,95 @@ PrefabInstance:
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: normal_levels.Array.size
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: hard_levels.Array.size
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: dash_sound
-      value:
+      value: 
       objectReference: {fileID: 1317773717}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: death_sound
-      value:
+      value: 
       objectReference: {fileID: 407918858}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: dashRelease
-      value:
+      value: 
       objectReference: {fileID: 1954748178}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: saved_variables
-      value:
+      value: 
       objectReference: {fileID: 2061302337}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: easy_levels.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 616838159576804672, guid: 679d882f2b79a9e4eaeee1b74cd8ebb3,
         type: 3}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: normal_levels.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 1285157024512270086, guid: d040d432208742a42a73c8daad8adfcc,
         type: 3}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: hard_levels.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 8831720554529850441, guid: cb01ae39616ce43c5a86cd5263a33062,
         type: 3}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: transitionAnim
-      value:
+      value: 
       objectReference: {fileID: 844300764}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: knight_animation
-      value:
+      value: 
       objectReference: {fileID: 214499693}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: mainCamera
-      value:
+      value: 
       objectReference: {fileID: 177709999}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: easy_levels.Array.data[1]
-      value:
-      objectReference: {fileID: 1020584225506206134, guid: 95496e8ed3103434691b9a0e160d6f2d,
+      value: 
+      objectReference: {fileID: 616838159576804672, guid: 679d882f2b79a9e4eaeee1b74cd8ebb3,
         type: 3}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: p
-      value:
+      value: 
       objectReference: {fileID: 681785647}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: tutorial_level
-      value:
-      objectReference: {fileID: 7973544959152140886, guid: 5d1cffc0d2e11614689d02fe8734604f,
+      value: 
+      objectReference: {fileID: 7973544959152140886, guid: 89bd3c7f84b7844db9d02756db3e957f,
         type: 3}
+    - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+        type: 3}
+      propertyPath: max_easy_score
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+        type: 3}
+      propertyPath: max_normal_score
+      value: 299
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df8168dbc5f99da4cadfffde40fd2dd5, type: 3}
---- !u!1 &2142722406 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4620752841442199060, guid: df8168dbc5f99da4cadfffde40fd2dd5,
-    type: 3}
-  m_PrefabInstance: {fileID: 2105904432}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2142722412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2142722406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8e4db8377afc4680a760757700d0878, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  jugador: {fileID: 2061302339}
 --- !u!1001 &7831811010606518089
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1603,7 +1582,7 @@ PrefabInstance:
     - target: {fileID: 6477680985475235922, guid: a007e2eee06c4ed4496dfa304ffb8217,
         type: 3}
       propertyPath: var
-      value:
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7831811010884746172, guid: a007e2eee06c4ed4496dfa304ffb8217,
         type: 3}
