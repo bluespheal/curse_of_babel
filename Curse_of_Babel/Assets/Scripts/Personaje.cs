@@ -69,15 +69,15 @@ public class Personaje : MonoBehaviour
         print(easy_levels.Length);
         if (saved_variables.progreso.score <= max_easy_score)
         {
-            saved_variables.progreso.nivelActual = Random.Range(1, easy_levels.Length);
+            saved_variables.progreso.nivelActual = Random.Range(0, easy_levels.Length);
         }
         if (saved_variables.progreso.score >= max_easy_score && saved_variables.progreso.score <= max_normal_score)
         {
-            saved_variables.progreso.nivelActual = Random.Range(1, normal_levels.Length);
+            saved_variables.progreso.nivelActual = Random.Range(0, normal_levels.Length);
         }
         if (saved_variables.progreso.score >= max_normal_score)
         {
-            saved_variables.progreso.nivelActual = Random.Range(1, hard_levels.Length);
+            saved_variables.progreso.nivelActual = Random.Range(0, hard_levels.Length);
         }
         print(saved_variables.progreso.nivelActual);
         loadscenes(saved_variables.progreso.nivelActual);
@@ -324,6 +324,7 @@ public class Personaje : MonoBehaviour
         touchEnd.z = Camera.main.nearClipPlane + .1f;
         p1 = Camera.main.ScreenToWorldPoint(touchStart);
         p2 = Camera.main.ScreenToWorldPoint(touchEnd);
+        Play_dash();
         //CreateLine(p1, p2);
         Vector3 v = p2 - p1;
         //Rotate character
@@ -355,6 +356,7 @@ public class Personaje : MonoBehaviour
             //Checks if dash was done upwards, and if so, turns canDash off because for some fucking reason it turns itself on whenever the dash is done upwards.
             if (v.normalized.y > 0.0f)
             {
+                dashRelease.Play();
                 if (!isGrounded)
                 {
                     knight_animation.SetTrigger("dash");
