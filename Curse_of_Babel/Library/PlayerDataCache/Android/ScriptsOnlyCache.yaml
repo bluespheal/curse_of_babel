@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - BGM
     - Button
+    - GroundDetector
     - Niebla
     - Pause
     - Personaje
@@ -11,11 +12,14 @@ ScriptsOnlyBuild:
     - SceneTransitions
     - Settings
     - animator_events
+    - bounce
     - camera_follow
     - enemy
+    - enemytutorial
     - falling_platform
     - floor_detector
     - game_over_scores
+    - hitpoint
     - plataforma_movil
     - score_hscore
     - semisolid_platform
@@ -30,6 +34,7 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
+    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -101,25 +106,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10022}
     - Class: 114
-      Script: {instanceID: 10248}
+      Script: {instanceID: 10250}
     - Class: 114
-      Script: {instanceID: 10394}
+      Script: {instanceID: 10362}
     - Class: 114
-      Script: {instanceID: 10594}
+      Script: {instanceID: 10398}
     - Class: 114
-      Script: {instanceID: 10820}
+      Script: {instanceID: 10600}
     - Class: 114
-      Script: {instanceID: 11020}
+      Script: {instanceID: 10826}
     - Class: 114
-      Script: {instanceID: 11044}
+      Script: {instanceID: 11026}
     - Class: 114
-      Script: {instanceID: 11176}
+      Script: {instanceID: 11050}
     - Class: 114
-      Script: {instanceID: 11344}
+      Script: {instanceID: 11182}
     - Class: 114
-      Script: {instanceID: 11398}
+      Script: {instanceID: 11350}
     - Class: 114
-      Script: {instanceID: 11408}
+      Script: {instanceID: 11404}
+    - Class: 114
+      Script: {instanceID: 11414}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -204,48 +211,58 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10048}
     - Class: 114
-      Script: {instanceID: 10184}
+      Script: {instanceID: 10086}
     - Class: 114
-      Script: {instanceID: 10212}
+      Script: {instanceID: 10162}
     - Class: 114
-      Script: {instanceID: 10248}
+      Script: {instanceID: 10186}
     - Class: 114
-      Script: {instanceID: 10394}
+      Script: {instanceID: 10214}
     - Class: 114
-      Script: {instanceID: 10506}
+      Script: {instanceID: 10250}
     - Class: 114
-      Script: {instanceID: 10594}
+      Script: {instanceID: 10362}
     - Class: 114
-      Script: {instanceID: 10606}
+      Script: {instanceID: 10398}
     - Class: 114
-      Script: {instanceID: 10640}
+      Script: {instanceID: 10510}
     - Class: 114
-      Script: {instanceID: 11020}
+      Script: {instanceID: 10600}
     - Class: 114
-      Script: {instanceID: 11044}
+      Script: {instanceID: 10612}
     - Class: 114
-      Script: {instanceID: 11078}
+      Script: {instanceID: 10646}
     - Class: 114
-      Script: {instanceID: 11162}
+      Script: {instanceID: 11026}
     - Class: 114
-      Script: {instanceID: 11176}
+      Script: {instanceID: 11050}
     - Class: 114
-      Script: {instanceID: 11204}
+      Script: {instanceID: 11084}
     - Class: 114
-      Script: {instanceID: 11270}
+      Script: {instanceID: 11168}
     - Class: 114
-      Script: {instanceID: 11318}
+      Script: {instanceID: 11182}
     - Class: 114
-      Script: {instanceID: 11344}
+      Script: {instanceID: 11210}
     - Class: 114
-      Script: {instanceID: 11392}
+      Script: {instanceID: 11276}
+    - Class: 114
+      Script: {instanceID: 11324}
+    - Class: 114
+      Script: {instanceID: 11350}
     - Class: 114
       Script: {instanceID: 11398}
     - Class: 114
-      Script: {instanceID: 11408}
+      Script: {instanceID: 11404}
+    - Class: 114
+      Script: {instanceID: 11414}
+    - Class: 114
+      Script: {instanceID: 146096}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
+      Script: {instanceID: 0}
+    - Class: 134
       Script: {instanceID: 0}
     - Class: 136
       Script: {instanceID: 0}
@@ -307,19 +324,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10022}
     - Class: 114
-      Script: {instanceID: 10248}
+      Script: {instanceID: 10250}
     - Class: 114
-      Script: {instanceID: 10594}
+      Script: {instanceID: 10600}
     - Class: 114
-      Script: {instanceID: 10616}
+      Script: {instanceID: 10622}
     - Class: 114
-      Script: {instanceID: 11020}
+      Script: {instanceID: 11026}
     - Class: 114
-      Script: {instanceID: 11044}
+      Script: {instanceID: 11050}
     - Class: 114
-      Script: {instanceID: 11344}
+      Script: {instanceID: 11350}
     - Class: 114
-      Script: {instanceID: 11398}
+      Script: {instanceID: 11404}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -366,19 +383,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9870}
     - Class: 114
-      Script: {instanceID: 10124}
+      Script: {instanceID: 10126}
     - Class: 114
-      Script: {instanceID: 10248}
+      Script: {instanceID: 10250}
     - Class: 114
-      Script: {instanceID: 10594}
+      Script: {instanceID: 10600}
     - Class: 114
-      Script: {instanceID: 11020}
+      Script: {instanceID: 11026}
     - Class: 114
-      Script: {instanceID: 11044}
+      Script: {instanceID: 11050}
     - Class: 114
-      Script: {instanceID: 11398}
+      Script: {instanceID: 11350}
     - Class: 114
-      Script: {instanceID: 11432}
+      Script: {instanceID: 11404}
+    - Class: 114
+      Script: {instanceID: 11438}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -425,16 +444,18 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9870}
     - Class: 114
-      Script: {instanceID: 10248}
+      Script: {instanceID: 10250}
     - Class: 114
-      Script: {instanceID: 11020}
+      Script: {instanceID: 11026}
     - Class: 114
-      Script: {instanceID: 11044}
+      Script: {instanceID: 11050}
     - Class: 114
-      Script: {instanceID: 11398}
+      Script: {instanceID: 11404}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
+      Script: {instanceID: 0}
+    - Class: 213
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -619,6 +640,12 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
+      Hash: 799a495f1876e08163ab9932e534a385
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GroundDetector
+  - hash:
+      serializedVersion: 2
       Hash: 832f71e7c152136493bec02e18e56b2d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -689,6 +716,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: start_button
+  - hash:
+      serializedVersion: 2
+      Hash: f6ac17ec4ed84433131de8cfcd4df097
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: hitpoint
   - hash:
       serializedVersion: 2
       Hash: 0344fd7d89f00983f384939155f95d65
@@ -877,7 +910,7 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: 92f5b860b5239297e0a8ab8a86983fdf
+      Hash: 321a6a1bcda140d8ebd5ad259ac530f2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Personaje
@@ -913,7 +946,7 @@ ScriptsOnlyBuild:
     className: TMP_ColorGradient
   - hash:
       serializedVersion: 2
-      Hash: 8dae7abfc5a3426b14b7fb91d670db2d
+      Hash: 1f0113e205cf0412e4917387c98af248
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: wander_behavior
@@ -1007,6 +1040,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: cb13cfbe18448baf85fe62b4dd966d5f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: enemytutorial
   platform: 13
   scenePathNames:
   - Assets/splash screen/splash_screen.unity
@@ -1014,4 +1053,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/GameplayScene.unity
   - Assets/Scenes/GameOver.unity
   - Assets/Scenes/settings.unity
-  playerPath: /Users/Bluespheal/Documents/GitHub/curse_of_babel/Curse_of_Babel/cbt.apk
+  playerPath: /Users/Bluespheal/Documents/GitHub/curse_of_babel/Curse_of_Babel/CBT.apk

@@ -57,6 +57,7 @@
   <ItemGroup>
      <Compile Include="Assets\enemies\bouncing enemy\bounce.cs" />
      <Compile Include="Assets\enemies\enemy.cs" />
+     <Compile Include="Assets\enemies\enemytutorial.cs" />
      <Compile Include="Assets\enemies\moving enemy\wander_behavior.cs" />
      <Compile Include="Assets\platforms\falling platform\falling_platform.cs" />
      <Compile Include="Assets\platforms\moving platforms\plataforma_movil.cs" />
@@ -71,7 +72,6 @@
      <Compile Include="Assets\Scripts\Niebla.cs" />
      <Compile Include="Assets\Scripts\Pause.cs" />
      <Compile Include="Assets\Scripts\Personaje.cs" />
-     <Compile Include="Assets\Scripts\ReplaceWithPrefab.cs" />
      <Compile Include="Assets\Scripts\Saved_variables.cs" />
      <Compile Include="Assets\Scripts\SceneTransitions.cs" />
      <Compile Include="Assets\Scripts\score_hscore.cs" />

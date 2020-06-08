@@ -338,6 +338,7 @@ public class Personaje : MonoBehaviour
         touchEnd.z = Camera.main.nearClipPlane + .1f;
         p1 = Camera.main.ScreenToWorldPoint(touchStart);
         p2 = Camera.main.ScreenToWorldPoint(touchEnd);
+        Play_dash();
         //CreateLine(p1, p2);
         Vector3 v = p2 - p1;
         //Rotate character
@@ -369,6 +370,7 @@ public class Personaje : MonoBehaviour
             //Checks if dash was done upwards, and if so, turns canDash off because for some fucking reason it turns itself on whenever the dash is done upwards.
             if (v.normalized.y > 0.0f)
             {
+                dashRelease.Play();
                 if (!isGrounded)
                 {
                     knight_animation.SetTrigger("dash");
