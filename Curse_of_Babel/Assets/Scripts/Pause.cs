@@ -10,6 +10,7 @@ public class Pause : MonoBehaviour
     public GameObject PauseButton;
     public Sprite play_image;
     public Sprite pause_image;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,20 +18,20 @@ public class Pause : MonoBehaviour
         PauseButton.GetComponent<Image>().sprite = pause_image;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void unpause() {
+        paused = false;
     }
+
+    // Update is called once per frame
     public void pause() {
         if (paused)
         {
             Time.timeScale = 1f;
-            paused = false;
             PauseMenu.SetActive(false);
             PauseButton.GetComponent<Image>().sprite = pause_image;
+            Invoke("unpause", 0.2f);
         }
-        else
+        if(!paused)
         {
             Time.timeScale = 0f;
             PauseButton.GetComponent<Image>().sprite = play_image;
