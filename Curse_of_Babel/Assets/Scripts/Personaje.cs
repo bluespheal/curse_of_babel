@@ -28,6 +28,7 @@ public class Personaje : MonoBehaviour
     private float distToGround;
     public float dashSpeed;
     public float startDashTime;
+    public float amortiguador;
     public Pause p;
 
     private int direction;
@@ -74,11 +75,20 @@ public class Personaje : MonoBehaviour
         //print(easy_levels.Length);
         if (saved_variables.progreso.score <= max_easy_score)
         {
-            saved_variables.progreso.nivelActual = Random.Range(0, easy_levels.Length);
-        }
-        if (saved_variables.progreso.score >= max_easy_score && saved_variables.progreso.score <= max_normal_score)
-        {
-            saved_variables.progreso.nivelActual = Random.Range(0, normal_levels.Length);
+            if (saved_variables.progreso.score <= max_easy_score)
+            {
+                saved_variables.progreso.nivelActual = Random.Range(0, easy_levels.Length-1);
+            }
+            if (saved_variables.progreso.score >= max_easy_score && saved_variables.progreso.score <= max_normal_score)
+            {
+                saved_variables.progreso.nivelActual = Random.Range(0, normal_levels.Length-1);
+            }
+            if (saved_variables.progreso.score >= max_normal_score)
+            {
+                saved_variables.progreso.nivelActual = Random.Range(0, hard_levels.Length-1);
+            }
+            //print(saved_variables.progreso.nivelActual);
+            loadscenes(saved_variables.progreso.nivelActual);
         }
         if (saved_variables.progreso.score >= max_normal_score)
         {
@@ -417,20 +427,32 @@ public class Personaje : MonoBehaviour
         {
             dead();
         }
-        if (collision.gameObject.CompareTag("lateral") && velY > 0 || collision.gameObject.CompareTag("platform") && velY > 0)
+        if (collision.gameObject.CompareTag("lateral") && !isGrounded/*velY > 0 || collision.gameObject.CompareTag("lateral") && velY < 0*/)
         {
-            //print("Bounce");
             Bounce(collision.contacts[0].normal);
+        }
+        if (collision.gameObject.CompareTag("platform") && velY > 0)
+        {
+            Bounce_Platform(collision.contacts[0].normal);
         }
     }
 
     private void Bounce(Vector3 collisionNormal)
     {
+        /*var speed = lastFrameVelocity.magnitude;
+        var direction = Vector3.Reflect(lastFrameVelocity.normalized, collisionNormal);*/
+
+        //Debug.Log("Out Direction: " + direction);
+        //rb.velocity = direction * Mathf.Max(speed - (speed * 0.75f));
+        rb.velocity = new Vector3(-lastFrameVelocity.x * amortiguador, lastFrameVelocity.y, lastFrameVelocity.z);
+    }
+    private void Bounce_Platform(Vector3 collisionNormal)
+    {
         var speed = lastFrameVelocity.magnitude;
         var direction = Vector3.Reflect(lastFrameVelocity.normalized, collisionNormal);
 
         //Debug.Log("Out Direction: " + direction);
-        rb.velocity = direction * Mathf.Max(speed - 2.0f);
+        rb.velocity = direction * Mathf.Max(speed - (speed * 0.75f));
     }
 
 

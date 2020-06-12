@@ -15177,11 +15177,14 @@ MonoBehaviour:
   dashTime: 0
   dashSpeed: 12
   startDashTime: 0.01
+  amortiguador: 0.3
+  p: {fileID: 0}
   vel_rot: 5
   saved_variables: {fileID: 9026907871140804198}
   easy_levels: []
   normal_levels: []
   hard_levels: []
+  tutorial_level: {fileID: 0}
   max_easy_score: 100
   max_normal_score: 300
   Gdash: 0
@@ -15227,6 +15230,7 @@ MonoBehaviour:
     hscore: 0
     BGM_Volume: 0
     SFX_Volume: 0
+    Tutorial: 0
 --- !u!1001 &5518185465322709551
 PrefabInstance:
   m_ObjectHideFlags: 0
