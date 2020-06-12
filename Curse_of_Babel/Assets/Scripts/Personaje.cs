@@ -39,6 +39,7 @@ public class Personaje : MonoBehaviour
     public GameObject[] easy_levels;
     public GameObject[] normal_levels;
     public GameObject[] hard_levels;
+    public GameObject tutorial_level;
     public int max_easy_score = 100;
     public int max_normal_score = 300;
     [Header("Animations")]
@@ -67,13 +68,13 @@ public class Personaje : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Set starting rotation to look at the camera
+       //Set starting rotation to look at the camera
         transform.rotation = Quaternion.Euler(0, 180, 0);
         idle_change = Random.Range(2, 4);
         saved_variables.Cargar();
         //saved_variables.progreso.score = 0;
         //print(easy_levels.Length);
-        if (saved_variables.progreso.score <= max_easy_score)
+        if (!saved_variables.progreso.Tutorial)
         {
             if (saved_variables.progreso.score <= max_easy_score)
             {
@@ -90,12 +91,10 @@ public class Personaje : MonoBehaviour
             //print(saved_variables.progreso.nivelActual);
             loadscenes(saved_variables.progreso.nivelActual);
         }
-        if (saved_variables.progreso.score >= max_normal_score)
-        {
-            saved_variables.progreso.nivelActual = Random.Range(0, hard_levels.Length);
+        else {
+            loadtut();
+            saved_variables.progreso.Tutorial = false;
         }
-        //print(saved_variables.progreso.nivelActual);
-        loadscenes(saved_variables.progreso.nivelActual);
         mist = GameObject.Find("Niebla");
         //levels = new GameObject[30];
         coll = GetComponent<Collider>();
@@ -166,6 +165,7 @@ public class Personaje : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R)) {
             saved_variables.progreso.score = 0;
             saved_variables.progreso.hscore = 0;
+            saved_variables.progreso.Tutorial = true;
         }
 
         //print(isGrounded());
@@ -188,8 +188,7 @@ public class Personaje : MonoBehaviour
         //Dash
         if (direction == 0 && canDash && dashTime == startDashTime && !p.paused)
         {
-            Rect bounds = new Rect(0, 0, Screen.width, Screen.height/1.3f);
-            print(bounds);
+            Rect bounds = new Rect(0, 0, Screen.width, Screen.height/1.2f);
             //Testing with mouse
             if (Input.GetButtonDown("Fire1") && bounds.Contains(Input.mousePosition))
             {
@@ -339,8 +338,10 @@ public class Personaje : MonoBehaviour
         touchEnd.z = Camera.main.nearClipPlane + .1f;
         p1 = Camera.main.ScreenToWorldPoint(touchStart);
         p2 = Camera.main.ScreenToWorldPoint(touchEnd);
+        Play_dash();
         //CreateLine(p1, p2);
         Vector3 v = p2 - p1;
+        print(v.normalized);
         //Rotate character
         if(v.normalized.x >= 0)
         {
@@ -351,11 +352,12 @@ public class Personaje : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 273, 0);
         }
         //Checks if it was a tap
-        if (v.normalized.x == 0 && v.normalized.y == 0 && v.normalized.z == 0 && isGrounded)
+        if (v.x <= 1f && v.y <= 1f && v.z <= 1f && v.x >= -1f && v.y >= -1f && v.z >= -1f && isGrounded)
         {
             jump();
         }
-        else if (v.normalized.x == 0 && v.normalized.y == 0 && v.normalized.z == 0 && !isGrounded)
+        //Checks if it was a downwards swipe
+        else if (v.normalized.x <= 0.4 && v.normalized.y <= -0.7f && v.normalized.z <= 0 && v.normalized.x >= -0.4f && v.normalized.y >= -1.0f &&  !isGrounded)
         {
             groundPound();
         }
@@ -370,6 +372,7 @@ public class Personaje : MonoBehaviour
             //Checks if dash was done upwards, and if so, turns canDash off because for some fucking reason it turns itself on whenever the dash is done upwards.
             if (v.normalized.y > 0.0f)
             {
+                dashRelease.Play();
                 if (!isGrounded)
                 {
                     knight_animation.SetTrigger("dash");
@@ -467,6 +470,16 @@ public class Personaje : MonoBehaviour
         saved_variables.Guardar();
         StartCoroutine(LoadGameOver());
         mainCamera.alive = false;
+    }
+
+    void loadtut() {
+        Instantiate(tutorial_level);
+        if (mainCamera)
+        {
+            mainCamera.stop_signal = GameObject.FindGameObjectWithTag("alto").transform;
+            mainCamera.push_signal = GameObject.FindGameObjectWithTag("push_signal").transform;
+            mainCamera.alive = true;
+        }
     }
 
     void loadscenes(int scene)

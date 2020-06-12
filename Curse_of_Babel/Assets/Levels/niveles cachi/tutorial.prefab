@@ -383,6 +383,22 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!114 &8981877090578875164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6271364313371909410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdbeacc6fc7750d47a0cf988147d3972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingTime: 1
+  fallingSpeed: 0.3
+  falling: 0
+  ogPos: {x: 0, y: 0, z: 0}
 --- !u!1 &6940634812911197261
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,6 +477,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1568301190701757100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7578010922313476131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdbeacc6fc7750d47a0cf988147d3972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingTime: 1
+  fallingSpeed: 0.3
+  falling: 0
+  ogPos: {x: 0, y: 0, z: 0}
 --- !u!1 &7892311022353040169
 GameObject:
   m_ObjectHideFlags: 0
@@ -2379,8 +2411,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falling-platform (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2245150275642786931, guid: 4777f22252126734da229b78f894a6d9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4777f22252126734da229b78f894a6d9, type: 3}
+--- !u!1 &6271364313371909410 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2245150275642786928, guid: 4777f22252126734da229b78f894a6d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 5197220878807931218}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6271364314063296264 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2245150275396095578, guid: 4777f22252126734da229b78f894a6d9,
@@ -2982,8 +3021,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falling-platform
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2245150275642786931, guid: 4777f22252126734da229b78f894a6d9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4777f22252126734da229b78f894a6d9, type: 3}
+--- !u!1 &7578010922313476131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2245150275642786928, guid: 4777f22252126734da229b78f894a6d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 8503605953085140051}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7578010923107066377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2245150275396095578, guid: 4777f22252126734da229b78f894a6d9,

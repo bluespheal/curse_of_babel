@@ -4,80 +4,82 @@ using UnityEngine;
 
 public class wander_behavior : MonoBehaviour
 {
-    public float velocidad;
+    public float speed;
+    public float move_limit;
+    public bool horizontal;
 
-    public float limite_izquierdo = 0.0f;
-    public float limite_derecho = 0.0f;
-    public float limite_top = 0.0f;
-    public float limite_bot = 0.0f;
+    float start_position;
+    float current_position;
+    float true_move_limit;
+    public bool move_left;
 
-    bool izquierda = true; 
-    bool derecha = false;
-    bool arriba = true;
-    bool abajo = false;
-    bool retrato = false;
-    bool horizonte = false;
     // Start is called before the first frame update
     void Start()
-    {
-        if (limite_top == limite_bot)
-        {
-            arriba = false;
-            horizonte = true;
-        }
-        if (limite_izquierdo == limite_derecho)
-        {
-            izquierda = false;
-            retrato = true;
-        }
+    { 
+      if (horizontal)
+      {
+          start_position = transform.position.x;
+          true_move_limit = start_position + move_limit;
+      }
+      else
+      {
+          start_position = transform.position.y;
+          true_move_limit = start_position + move_limit;
+      }
+      
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(horizonte)
+      if (horizontal)
+      {
+          current_position = transform.position.x;
+          true_move_limit = start_position + move_limit;
+      }
+      else
+      {
+          current_position = transform.position.y;
+          true_move_limit = start_position + move_limit;
+      }
+      if (horizontal)
+      {
+        if (move_left)
         {
-            if (izquierda && transform.position.x > limite_izquierdo)
-            {
-                transform.position += Vector3.left * Time.deltaTime * velocidad;
-            }
-            if (derecha && transform.position.x < limite_derecho)
-            {
-                transform.position += Vector3.right * Time.deltaTime * velocidad;
-            }
-            if (transform.position.x >= limite_derecho)
-            {
-                derecha = false;
-                izquierda = true;
-            }
-            if (transform.position.x <= limite_izquierdo)
-            {
-                derecha = true;
-                izquierda = false;
-            }
+          transform.position += Vector3.left * Time.deltaTime * speed;
         }
-        
-        if(retrato)
+        if (!move_left)
         {
-            if (arriba && transform.position.y < limite_top)
-            {
-                transform.position += Vector3.up * Time.deltaTime * velocidad;
-            }
-            if (abajo && transform.position.y > limite_bot)
-            {
-                transform.position += Vector3.down * Time.deltaTime * velocidad;
-            }
-            if (transform.position.y >= limite_top)
-            {
-                arriba = false;
-                abajo = true;
-            }
-            if (transform.position.y <= limite_bot)
-            {
-                arriba = true;
-                abajo = false;
-            }
+          transform.position += Vector3.right * Time.deltaTime * speed;
         }
+        if (current_position > true_move_limit && !move_left)
+        {
+            move_left = !move_left;
+        }
+        if (current_position < start_position && move_left)
+        {
+            move_left = !move_left;
+        }
+      }
+      else
+      {
+        if (move_left)
+        {
+          transform.position += Vector3.down * Time.deltaTime * speed;
+        }
+        if (!move_left)
+        {
+          transform.position += Vector3.up * Time.deltaTime * speed;
+        }
+        if (current_position > true_move_limit && !move_left)
+        {
+            move_left = !move_left;
+        }
+        if (current_position < start_position && move_left)
+        {
+            move_left = !move_left;
+        }
+      }
         
     }
 }

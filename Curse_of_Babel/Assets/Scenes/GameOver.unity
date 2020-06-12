@@ -1945,8 +1945,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGM
       objectReference: {fileID: 0}
+    - target: {fileID: 372796148307891055, guid: c9b40bcf867624441aa50506585a41fa,
+        type: 3}
+      propertyPath: bgm
+      value: 
+      objectReference: {fileID: 2075459258}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9b40bcf867624441aa50506585a41fa, type: 3}
+--- !u!82 &2075459258 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 372796148307891041, guid: c9b40bcf867624441aa50506585a41fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 2075459257}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2129978249 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7831811010890422463, guid: a007e2eee06c4ed4496dfa304ffb8217,
