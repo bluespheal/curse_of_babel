@@ -185,45 +185,19 @@ public class Personaje : MonoBehaviour
         }
 
         //Dash
-        if (direction == 0 && canDash && dashTime == startDashTime && !p.paused)
+        if (direction == 0 && canDash && dashTime == startDashTime)
         {
-            Rect bounds = new Rect(0, 0, Screen.width, Screen.height/1.2f);
             //Testing with mouse
-            if (Input.GetButtonDown("Fire1") && bounds.Contains(Input.mousePosition))
+            if (Input.GetButtonDown("Fire1") && !p.paused)
             {
                 touchStart = Input.mousePosition;
             }
-            if (Input.GetButtonUp("Fire1") && bounds.Contains(Input.mousePosition))
+            if (Input.GetButtonUp("Fire1") && !p.paused)
             {
                 touchEnd = Input.mousePosition;
                 direction = 5;
                 stopDashing = false;
                 transform.GetChild(5).gameObject.SetActive(false);
-            }
-            //Testing with keys
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                direction = 1;
-                stopDashing = false;
-                canDash = false;
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                direction = 2;
-                stopDashing = false;
-                canDash = false;
-            }
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                direction = 3;
-                stopDashing = false;
-                canDash = false;
-            }
-            else if (Input.GetKeyDown(KeyCode.DownArrow) && !isGrounded)
-            {
-                direction = 4;
-                stopDashing = false;
-                canDash = false;
             }
         }
         else
@@ -238,30 +212,33 @@ public class Personaje : MonoBehaviour
             }
             else
             {
-                if (!stopDashing)
+                if (!p.paused)
                 {
-                    dashTime -= Time.deltaTime;
-                }
-                if (direction == 1)
-                {
-                    rb.velocity = Vector3.left * dashSpeed;
-                }
-                else if (direction == 2)
-                {
-                    rb.velocity = Vector3.right * dashSpeed;
-                }
-                else if (direction == 3)
-                {
-                    canDash = false;
-                    rb.velocity = Vector3.up * dashSpeed;
-                }
-                else if (direction == 4)
-                {
-                    rb.velocity = Vector3.down * dashSpeed;
-                }
-                else if (direction == 5)
-                {
-                    DoInput();
+                    if (!stopDashing)
+                    {
+                        dashTime -= Time.deltaTime;
+                    }
+                    if (direction == 1)
+                    {
+                        rb.velocity = Vector3.left * dashSpeed;
+                    }
+                    else if (direction == 2)
+                    {
+                        rb.velocity = Vector3.right * dashSpeed;
+                    }
+                    else if (direction == 3)
+                    {
+                        canDash = false;
+                        rb.velocity = Vector3.up * dashSpeed;
+                    }
+                    else if (direction == 4)
+                    {
+                        rb.velocity = Vector3.down * dashSpeed;
+                    }
+                    else if (direction == 5)
+                    {
+                        DoInput();
+                    }
                 }
             }
         }
@@ -363,7 +340,7 @@ public class Personaje : MonoBehaviour
         //Asspull bugfix. If the previous if wasn't true because isGrounded was false, it would go into the else below this statement, multiplying v.normalized (0,0,0) by dashSpeed. Causing the player to freeze in the air for a bit.
         else if (v.normalized.x == 0 && v.normalized.y == 0 && v.normalized.z == 0)
         {
-            print("Fuck off, stop multiplying by 0");
+            
         }
         //If it's not a tap, then it does the dash.
         else
