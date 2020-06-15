@@ -12,17 +12,12 @@ public class enemy : MonoBehaviour
     Vector3 direction = new Vector3(-1, -1, 0); // downwards direction of raycast
     private Rigidbody rb;
     public ParticleSystem explosion;
-    
-    Transform skull;
-
-
 
 
     // Start is called before the first frame update
     void Start() {
         death_sound = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
-        skull = this.gameObject.transform.GetChild(0);
     }
 
         // Update is called once per frame
@@ -60,14 +55,12 @@ public class enemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("hit_point"))
-        {   
-            skull.GetComponent<MeshRenderer>().enabled = false;
-            this.GetComponent<BoxCollider>().enabled = false;
+        {
             explosion.GetComponent<ParticleSystem>().Play();
             other.GetComponent<hitpoint>().player.score_up(10);
-            other.GetComponent<hitpoint>().player.enemy_bounce();
+            other.GetComponent<hitpoint>().player.bounce();
             death_sound.Play();
-            Invoke("die", 1f);
+            Invoke("die", 0.5f);
         }
     }
 }
