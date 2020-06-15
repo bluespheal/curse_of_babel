@@ -188,7 +188,7 @@ public class Personaje : MonoBehaviour
         }
 
         //Dash
-        if (direction == 0 && canDash && dashTime == startDashTime)
+        if (direction == 0 && canDash && dashTime == startDashTime && !p.paused)
         {
             //Testing with mouse
             if (Input.GetButtonDown("Fire1") && !p.paused)
@@ -355,26 +355,29 @@ public class Personaje : MonoBehaviour
         //If it's not a tap, then it does the dash.
         else
         {
-            //Checks if dash was done upwards, and if so, turns canDash off because for some fucking reason it turns itself on whenever the dash is done upwards.
-            if (v.normalized.y > 0.0f)
+            if(canDash)
             {
-                dashRelease.Play();
-                if (!isGrounded)
+                //Checks if dash was done upwards, and if so, turns canDash off because for some fucking reason it turns itself on whenever the dash is done upwards.
+                if (v.normalized.y > 0.0f)
                 {
-                    knight_animation.SetTrigger("dash");
+                    dashRelease.Play();
+                    if (!isGrounded)
+                    {
+                        knight_animation.SetTrigger("dash");
+                    }
+                    if (canDash && !isGrounded)
+                    canDash = false;
                 }
-                if (canDash && !isGrounded)
-                canDash = false;
-            }
-            rb.velocity = v.normalized * dashSpeed;
-            //Rotate character
-            if (v.normalized.x >= 0)
-            {
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-            }
-            else
-            {
-                transform.rotation = Quaternion.Euler(0, -183, 0);
+                rb.velocity = v.normalized * dashSpeed;
+                //Rotate character
+                if (v.normalized.x >= 0)
+                {
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                }
+                else
+                {
+                    transform.rotation = Quaternion.Euler(0, -183, 0);
+                }
             }
         }
 
