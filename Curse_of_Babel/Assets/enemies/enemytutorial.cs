@@ -61,15 +61,17 @@ public class enemytutorial : MonoBehaviour
         if (other.gameObject.CompareTag("hit_point"))
         {
             explosion.GetComponent<ParticleSystem>().Play();
-            other.GetComponent<hitpoint>().player.bounce();
+            other.GetComponent<hitpoint>().player.enemy_bounce();
             death_sound.Play();
         }
     }
     private void OnCollisionEnter(Collision collision)
     {
+        GameObject other = collision.gameObject;
         if (collision.transform.CompareTag("Player"))
-        {
-            collision.transform.position = tryagain.transform.position;
+        {   
+            other.GetComponent<Personaje>().goto_origin();
+            // collision.transform.position = tryagain.transform.position;
             transitionAnim.SetTrigger("tutorial_fade_out");
         }
     }

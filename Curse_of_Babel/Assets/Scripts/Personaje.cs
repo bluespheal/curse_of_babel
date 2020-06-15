@@ -61,6 +61,7 @@ public class Personaje : MonoBehaviour
     public float rayDis; // distance to catch floor
     public Vector3 rayDir; // downwards direction of raycast*/
 
+    private IEnumerator spawn_tutorial;
     public camera_follow mainCamera;
 
     float speed;
@@ -72,6 +73,7 @@ public class Personaje : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 180, 0);
         idle_change = Random.Range(2, 4);
         saved_variables.Cargar();
+        spawn_tutorial = tutorial_spawn();
         //saved_variables.progreso.score = 0;
         //print(easy_levels.Length);
         if (!saved_variables.progreso.Tutorial)
@@ -294,6 +296,13 @@ public class Personaje : MonoBehaviour
         }
         rb.velocity = Vector3.up * salto;
     }
+    public void enemy_bounce()
+    {
+        transform.position = transform.position + new Vector3(0, 1, 0);
+        jump();
+        transform.GetChild(5).gameObject.SetActive(true);
+        canDash = true;
+    }
     public void groundPound()
     {
         rb.velocity = Vector3.zero;
@@ -449,6 +458,13 @@ public class Personaje : MonoBehaviour
         mainCamera.alive = false;
     }
 
+    public void goto_origin()
+    {
+        rb.isKinematic = true;
+        particulasDash.gameObject.SetActive(false);
+        StartCoroutine("tutorial_spawn");
+    }
+
     void loadtut() {
         Instantiate(tutorial_level);
         if (mainCamera)
@@ -509,6 +525,15 @@ public class Personaje : MonoBehaviour
         yield return new WaitForSeconds(0.07f);
         particulasJump.gameObject.SetActive(true);
     }
+
+    IEnumerator tutorial_spawn()
+    {
+        yield return new WaitForSeconds(0.3f);
+        rb.isKinematic = false;
+        gameObject.transform.position = GameObject.Find("Try again").transform.position;
+        particulasDash.gameObject.SetActive(true);
+    }
+
     IEnumerator LoadScene(){
       transitionAnim.SetTrigger("fade_out");
       yield return new WaitForSeconds(0.5f);
