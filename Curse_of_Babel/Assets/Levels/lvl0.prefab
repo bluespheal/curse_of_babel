@@ -1620,7 +1620,7 @@ PrefabInstance:
     - target: {fileID: 3852191997288572534, guid: a3c1b6ed9ce0f074a95bdf75cd2111f2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.58
+      value: 2.9621534
       objectReference: {fileID: 0}
     - target: {fileID: 3852191997288572534, guid: a3c1b6ed9ce0f074a95bdf75cd2111f2,
         type: 3}
@@ -1879,7 +1879,7 @@ PrefabInstance:
     - target: {fileID: 3852191997288572534, guid: a3c1b6ed9ce0f074a95bdf75cd2111f2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.88
+      value: -13.8
       objectReference: {fileID: 0}
     - target: {fileID: 3852191997288572534, guid: a3c1b6ed9ce0f074a95bdf75cd2111f2,
         type: 3}
@@ -2069,7 +2069,7 @@ PrefabInstance:
     - target: {fileID: 3852191997288572534, guid: a3c1b6ed9ce0f074a95bdf75cd2111f2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.1
+      value: -14.318847
       objectReference: {fileID: 0}
     - target: {fileID: 3852191997288572534, guid: a3c1b6ed9ce0f074a95bdf75cd2111f2,
         type: 3}
@@ -2850,15 +2850,15 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 64004067818428332, guid: 68806ed2cec96b24f9e4c1fa06c68930, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 68806ed2cec96b24f9e4c1fa06c68930, type: 3}
---- !u!4 &3523757871990050136 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 407416, guid: 68806ed2cec96b24f9e4c1fa06c68930,
-    type: 3}
-  m_PrefabInstance: {fileID: 3523757871989930528}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3523757871989819806 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 177086, guid: 68806ed2cec96b24f9e4c1fa06c68930,
+    type: 3}
+  m_PrefabInstance: {fileID: 3523757871989930528}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3523757871990050136 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 407416, guid: 68806ed2cec96b24f9e4c1fa06c68930,
     type: 3}
   m_PrefabInstance: {fileID: 3523757871989930528}
   m_PrefabAsset: {fileID: 0}
@@ -3637,11 +3637,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4074336075871315167}
     m_Modifications:
-    - target: {fileID: 2854760003608045548, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
-        type: 3}
-      propertyPath: prewarm
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4729318107930760872, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
         type: 3}
       propertyPath: limite_izquierdo
