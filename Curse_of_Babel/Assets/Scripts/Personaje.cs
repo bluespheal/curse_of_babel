@@ -188,7 +188,7 @@ public class Personaje : MonoBehaviour
         }
 
         //Dash
-        if (direction == 0 && canDash && dashTime == startDashTime && !p.paused)
+        if (direction == 0 && dashTime == startDashTime && !p.paused)
         {
             //Testing with mouse
             if (Input.GetButtonDown("Fire1") && !p.paused)
