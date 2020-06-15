@@ -28,6 +28,7 @@ public class Personaje : MonoBehaviour
     private float distToGround;
     public float dashSpeed;
     public float startDashTime;
+    public float amortiguador;
     public Pause p;
 
     private int direction;
@@ -60,7 +61,6 @@ public class Personaje : MonoBehaviour
     public float rayDis; // distance to catch floor
     public Vector3 rayDir; // downwards direction of raycast*/
 
-    private IEnumerator spawn_tutorial;
     public camera_follow mainCamera;
 
     float speed;
@@ -72,7 +72,6 @@ public class Personaje : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 180, 0);
         idle_change = Random.Range(2, 4);
         saved_variables.Cargar();
-        spawn_tutorial = tutorial_spawn();
         //saved_variables.progreso.score = 0;
         //print(easy_levels.Length);
         if (!saved_variables.progreso.Tutorial)
@@ -89,7 +88,7 @@ public class Personaje : MonoBehaviour
             {
                 saved_variables.progreso.nivelActual = Random.Range(0, hard_levels.Length-1);
             }
-            print(saved_variables.progreso.nivelActual);
+            //print(saved_variables.progreso.nivelActual);
             loadscenes(saved_variables.progreso.nivelActual);
         }
         else {
@@ -187,45 +186,19 @@ public class Personaje : MonoBehaviour
         }
 
         //Dash
-        if (direction == 0 && canDash && dashTime == startDashTime && !p.paused)
+        if (direction == 0 && canDash && dashTime == startDashTime)
         {
-            Rect bounds = new Rect(0, 0, Screen.width, Screen.height/1.2f);
             //Testing with mouse
-            if (Input.GetButtonDown("Fire1") && bounds.Contains(Input.mousePosition))
+            if (Input.GetButtonDown("Fire1") && !p.paused)
             {
                 touchStart = Input.mousePosition;
             }
-            if (Input.GetButtonUp("Fire1") && bounds.Contains(Input.mousePosition))
+            if (Input.GetButtonUp("Fire1") && !p.paused)
             {
                 touchEnd = Input.mousePosition;
                 direction = 5;
                 stopDashing = false;
                 transform.GetChild(5).gameObject.SetActive(false);
-            }
-            //Testing with keys
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                direction = 1;
-                stopDashing = false;
-                canDash = false;
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                direction = 2;
-                stopDashing = false;
-                canDash = false;
-            }
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                direction = 3;
-                stopDashing = false;
-                canDash = false;
-            }
-            else if (Input.GetKeyDown(KeyCode.DownArrow) && !isGrounded)
-            {
-                direction = 4;
-                stopDashing = false;
-                canDash = false;
             }
         }
         else
@@ -240,30 +213,33 @@ public class Personaje : MonoBehaviour
             }
             else
             {
-                if (!stopDashing)
+                if (!p.paused)
                 {
-                    dashTime -= Time.deltaTime;
-                }
-                if (direction == 1)
-                {
-                    rb.velocity = Vector3.left * dashSpeed;
-                }
-                else if (direction == 2)
-                {
-                    rb.velocity = Vector3.right * dashSpeed;
-                }
-                else if (direction == 3)
-                {
-                    canDash = false;
-                    rb.velocity = Vector3.up * dashSpeed;
-                }
-                else if (direction == 4)
-                {
-                    rb.velocity = Vector3.down * dashSpeed;
-                }
-                else if (direction == 5)
-                {
-                    DoInput();
+                    if (!stopDashing)
+                    {
+                        dashTime -= Time.deltaTime;
+                    }
+                    if (direction == 1)
+                    {
+                        rb.velocity = Vector3.left * dashSpeed;
+                    }
+                    else if (direction == 2)
+                    {
+                        rb.velocity = Vector3.right * dashSpeed;
+                    }
+                    else if (direction == 3)
+                    {
+                        canDash = false;
+                        rb.velocity = Vector3.up * dashSpeed;
+                    }
+                    else if (direction == 4)
+                    {
+                        rb.velocity = Vector3.down * dashSpeed;
+                    }
+                    else if (direction == 5)
+                    {
+                        DoInput();
+                    }
                 }
             }
         }
@@ -295,9 +271,8 @@ public class Personaje : MonoBehaviour
         //rb.velocity = vel;
     }
 
-    public void enemy_bounce()
+    public void bounce()
     {
-        transform.position = transform.position + new Vector3(0, 1, 0);
         jump();
         transform.GetChild(5).gameObject.SetActive(true);
         canDash = true;
@@ -343,6 +318,7 @@ public class Personaje : MonoBehaviour
         Play_dash();
         //CreateLine(p1, p2);
         Vector3 v = p2 - p1;
+        print(v.normalized);
         //Rotate character
         if(v.normalized.x >= 0)
         {
@@ -357,14 +333,15 @@ public class Personaje : MonoBehaviour
         {
             jump();
         }
-        else if (v.normalized.x == 0 && v.normalized.y == 0 && v.normalized.z == 0 && !isGrounded)
+        //Checks if it was a downwards swipe
+        else if (v.normalized.x <= 0.4 && v.normalized.y <= -0.7f && v.normalized.z <= 0 && v.normalized.x >= -0.4f && v.normalized.y >= -1.0f &&  !isGrounded)
         {
             groundPound();
         }
         //Asspull bugfix. If the previous if wasn't true because isGrounded was false, it would go into the else below this statement, multiplying v.normalized (0,0,0) by dashSpeed. Causing the player to freeze in the air for a bit.
         else if (v.normalized.x == 0 && v.normalized.y == 0 && v.normalized.z == 0)
         {
-            print("Fuck off, stop multiplying by 0");
+            
         }
         //If it's not a tap, then it does the dash.
         else
@@ -430,22 +407,32 @@ public class Personaje : MonoBehaviour
         {
             dead();
         }
-        if (collision.gameObject.CompareTag("lateral") && velY > 0 || collision.gameObject.CompareTag("platform") && velY > 0)
+        if (collision.gameObject.CompareTag("lateral") && !isGrounded/*velY > 0 || collision.gameObject.CompareTag("lateral") && velY < 0*/)
         {
-            //print("Bounce");
             Bounce(collision.contacts[0].normal);
+        }
+        if (collision.gameObject.CompareTag("platform") && velY > 0)
+        {
+            Bounce_Platform(collision.contacts[0].normal);
         }
     }
 
- 
-
     private void Bounce(Vector3 collisionNormal)
+    {
+        /*var speed = lastFrameVelocity.magnitude;
+        var direction = Vector3.Reflect(lastFrameVelocity.normalized, collisionNormal);*/
+
+        //Debug.Log("Out Direction: " + direction);
+        //rb.velocity = direction * Mathf.Max(speed - (speed * 0.75f));
+        rb.velocity = new Vector3(-lastFrameVelocity.x * amortiguador, lastFrameVelocity.y, lastFrameVelocity.z);
+    }
+    private void Bounce_Platform(Vector3 collisionNormal)
     {
         var speed = lastFrameVelocity.magnitude;
         var direction = Vector3.Reflect(lastFrameVelocity.normalized, collisionNormal);
 
         //Debug.Log("Out Direction: " + direction);
-        rb.velocity = direction * Mathf.Max(speed - 2.0f);
+        rb.velocity = direction * Mathf.Max(speed - (speed * 0.75f));
     }
 
 
@@ -460,13 +447,6 @@ public class Personaje : MonoBehaviour
         saved_variables.Guardar();
         StartCoroutine(LoadGameOver());
         mainCamera.alive = false;
-    }
-
-    public void goto_origin()
-    {
-        rb.isKinematic = true;
-        particulasDash.gameObject.SetActive(false);
-        StartCoroutine("tutorial_spawn");
     }
 
     void loadtut() {
@@ -529,15 +509,6 @@ public class Personaje : MonoBehaviour
         yield return new WaitForSeconds(0.07f);
         particulasJump.gameObject.SetActive(true);
     }
-
-    IEnumerator tutorial_spawn()
-    {
-        yield return new WaitForSeconds(0.3f);
-        rb.isKinematic = false;
-        gameObject.transform.position = GameObject.Find("Try again").transform.position;
-        particulasDash.gameObject.SetActive(true);
-    }
-
     IEnumerator LoadScene(){
       transitionAnim.SetTrigger("fade_out");
       yield return new WaitForSeconds(0.5f);
