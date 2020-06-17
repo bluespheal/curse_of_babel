@@ -183,10 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e359bdc7601142d4abd6849f47d7fcbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slide_speed: 0
   death_sound: {fileID: -7901935498795712245}
-  distance: 0
-  left: 0
   explosion: {fileID: 3386389252570046330}
 --- !u!1001 &1254404028421018035
 PrefabInstance:
@@ -213,7 +210,7 @@ PrefabInstance:
     - target: {fileID: 2657096951129599872, guid: 05e57ac32c0024b7c9057d76336a414e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.32000014
+      value: -0.35
       objectReference: {fileID: 0}
     - target: {fileID: 2657096951129599872, guid: 05e57ac32c0024b7c9057d76336a414e,
         type: 3}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6929262833799743651}
   - component: {fileID: 1242163796295512684}
   - component: {fileID: -1484448440544721473}
-  - component: {fileID: 4343082456870196132}
+  - component: {fileID: 7347107178192805230}
   m_Layer: 0
   m_Name: patroll
   m_TagString: enemy
@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4471551443241513985}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.5}
+  m_LocalPosition: {x: 0, y: 0.17, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3207852501256320698}
@@ -96,8 +96,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.3604363, z: 0.7}
-  m_Center: {x: 0, y: 0.11978187, z: 0}
+  m_Size: {x: 0.7, y: 0.13635598, z: 0.7}
+  m_Center: {x: 0, y: 0.23182201, z: 0}
 --- !u!54 &1242163796295512684
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -210,7 +210,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4343082456870196132
+--- !u!114 &7347107178192805230
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -219,14 +219,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4471551443241513985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e359bdc7601142d4abd6849f47d7fcbf, type: 3}
+  m_Script: {fileID: 11500000, guid: 698b43851616d4176b6fac8dae1e5345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slide_speed: 2
   death_sound: {fileID: -1484448440544721473}
+  explosion: {fileID: 3605786494286252616}
+  slide_speed: 2
   distance: 1
   left: 0
-  explosion: {fileID: 3605786494286252616}
 --- !u!1001 &3207852501256442292
 PrefabInstance:
   m_ObjectHideFlags: 0

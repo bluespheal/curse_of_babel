@@ -495,11 +495,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca5f4ac6e2ce48009a8213cff009d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 2
-  limite_izquierdo: 0
-  limite_derecho: 0
-  limite_top: 17.47
-  limite_bot: 13.47
+  speed: 0
+  move_limit: 0
+  horizontal: 0
+  start_position: 0
+  current_position: 0
+  true_move_limit: 0
+  move_back: 0
+  invert: 0
 --- !u!1 &2112556337504634033
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,11 +720,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca5f4ac6e2ce48009a8213cff009d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 2
-  limite_izquierdo: -5
-  limite_derecho: 1
-  limite_top: 0
-  limite_bot: 0
+  speed: 0
+  move_limit: 0
+  horizontal: 0
+  start_position: 0
+  current_position: 0
+  true_move_limit: 0
+  move_back: 0
+  invert: 0
 --- !u!1 &3130915295495088079
 GameObject:
   m_ObjectHideFlags: 0
@@ -3479,6 +3485,16 @@ PrefabInstance:
       propertyPath: velocidad
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4729318107930760872, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
+        type: 3}
+      propertyPath: move_limit
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729318107930760872, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
+        type: 3}
+      propertyPath: invert
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4729318107930760878, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
         type: 3}
       propertyPath: m_Name
@@ -3492,7 +3508,7 @@ PrefabInstance:
     - target: {fileID: 4729318107930760887, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.72
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 4729318107930760887, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
         type: 3}
@@ -3569,6 +3585,11 @@ PrefabInstance:
         type: 3}
       propertyPath: velocidad
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729318107930760872, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
+        type: 3}
+      propertyPath: move_limit
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4729318107930760878, guid: 5e017b2fa1b38844d835ed8ff6d728d2,
         type: 3}

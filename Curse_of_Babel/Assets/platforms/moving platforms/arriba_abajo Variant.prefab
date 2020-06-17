@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca5f4ac6e2ce48009a8213cff009d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 2
-  limite_izquierdo: 0
-  limite_derecho: 0
-  limite_top: 18
-  limite_bot: 10
+  speed: 2
+  move_limit: 6
+  horizontal: 0
+  move_left: 0
 --- !u!1001 &605613666019578048
 PrefabInstance:
   m_ObjectHideFlags: 0

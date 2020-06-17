@@ -2,84 +2,148 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class wander_behavior : MonoBehaviour
+public class wander_behavior : enemy
 {
-    public float speed;
-    public float move_limit;
-    public bool horizontal;
+  public float speed;
+  public float move_limit;
+  public bool horizontal;
 
-    float start_position;
-    float current_position;
-    float true_move_limit;
-    public bool move_left;
+  public float start_position;
+  public float current_position;
+  public float true_move_limit;
+  public bool move_back;
 
-    // Start is called before the first frame update
-    void Start()
-    { 
-      if (horizontal)
+  public bool invert;
+
+  // Start is called before the first frame update
+  void Start()
+  { 
+    start_position = DetermineStartPosition(horizontal);
+    true_move_limit = DetermineStartTrueLimit(invert);
+  }
+
+  // Update is called once per frame
+  void Update()
+  {
+    if (!stop){
+      current_position = CalculateCurrentPosition(horizontal);
+
+      if (!invert)
       {
-          start_position = transform.position.x;
-          true_move_limit = start_position + move_limit;
+        if (current_position > true_move_limit && !move_back || current_position < start_position && move_back)
+        {
+            move_back = !move_back;
+        }
       }
       else
       {
-          start_position = transform.position.y;
-          true_move_limit = start_position + move_limit;
+        if (current_position < true_move_limit && !move_back || current_position > start_position && move_back)
+        {
+            move_back = !move_back;
+        }
       }
-      
-    }
 
-    // Update is called once per frame
-    void Update()
+      if (horizontal)
+      {
+        MoveHorizontal(invert); 
+      }
+      else
+      {
+        MoveVertical(invert);
+      }  
+    }
+  }
+
+  private float DetermineStartPosition(bool horizontal)
+  {
+    if (horizontal)
     {
-      if (horizontal)
-      {
-          current_position = transform.position.x;
-          true_move_limit = start_position + move_limit;
-      }
-      else
-      {
-          current_position = transform.position.y;
-          true_move_limit = start_position + move_limit;
-      }
-      if (horizontal)
-      {
-        if (move_left)
-        {
-          transform.position += Vector3.left * Time.deltaTime * speed;
-        }
-        if (!move_left)
-        {
-          transform.position += Vector3.right * Time.deltaTime * speed;
-        }
-        if (current_position > true_move_limit && !move_left)
-        {
-            move_left = !move_left;
-        }
-        if (current_position < start_position && move_left)
-        {
-            move_left = !move_left;
-        }
-      }
-      else
-      {
-        if (move_left)
-        {
-          transform.position += Vector3.down * Time.deltaTime * speed;
-        }
-        if (!move_left)
-        {
-          transform.position += Vector3.up * Time.deltaTime * speed;
-        }
-        if (current_position > true_move_limit && !move_left)
-        {
-            move_left = !move_left;
-        }
-        if (current_position < start_position && move_left)
-        {
-            move_left = !move_left;
-        }
-      }
-        
+      return transform.position.x;
     }
+    else
+    {
+      return transform.position.y;
+    } 
+  }
+
+  private float CalculateCurrentPosition(bool horizontal)
+  {
+    if (horizontal)
+    {
+      return transform.position.x;
+    }
+    else
+    {
+      return transform.position.y;
+    }
+  }
+
+  private float DetermineStartTrueLimit(bool invert)
+  {
+    if(invert)
+    {
+      return start_position - move_limit;
+    } 
+    else
+    {
+      return start_position + move_limit;
+    }
+  }
+
+  private void MoveHorizontal(bool invert)
+  {
+    if (!invert){
+      if (move_back)
+      {
+        Move(Vector3.left);
+      }
+      else
+      {
+        Move(Vector3.right);
+      }   
+    }
+    else
+    {
+      if (move_back)
+      {
+        Move(Vector3.right);
+      }
+      else
+      {
+        Move(Vector3.left);
+      }  
+    }
+  }
+
+
+  private void MoveVertical(bool invert)
+  {
+    if (!invert){
+      if (move_back)
+      {
+        Move(Vector3.down);
+      }
+      else
+      {
+        Move(Vector3.up);
+      }   
+    }
+    else
+    {
+      if (move_back)
+      {
+        Move(Vector3.up);
+      }
+      else
+      {
+        Move(Vector3.down);
+      }  
+    }
+  }
+
+  private void Move(Vector3 direction)
+  {
+    transform.position += direction * Time.deltaTime * speed;
+  }
+
 }

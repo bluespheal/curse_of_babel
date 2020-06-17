@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 6691478754499048164}
   - component: {fileID: 8457518606079181065}
   - component: {fileID: 3443288653780366660}
-  - component: {fileID: 4018824737597667410}
   m_Layer: 0
   m_Name: moving enemy
   m_TagString: enemy
@@ -98,10 +97,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4b5658e62693ce43b2364bfa233684e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  death_sound: {fileID: 3443288653780366660}
+  explosion: {fileID: 2757297913002830290}
+  skull: {fileID: 3524185935200240365}
+  stop: 0
   speed: 2
   move_limit: 0
   horizontal: 0
-  move_left: 0
+  start_position: 0
+  current_position: 0
+  true_move_limit: 0
+  move_back: 0
+  invert: 0
 --- !u!65 &6691478754499048164
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -227,23 +234,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4018824737597667410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4729318107930760878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e359bdc7601142d4abd6849f47d7fcbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slide_speed: 0
-  death_sound: {fileID: 3443288653780366660}
-  distance: 0
-  left: 0
-  explosion: {fileID: 2757297913002830290}
 --- !u!1001 &1738371868161364730
 PrefabInstance:
   m_ObjectHideFlags: 0

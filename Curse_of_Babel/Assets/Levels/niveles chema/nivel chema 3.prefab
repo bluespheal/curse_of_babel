@@ -469,6 +469,14 @@ PrefabInstance:
       propertyPath: velocidad
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 323299731, guid: 9b5a9d376da7b20418dc4c4070c9325b, type: 3}
+      propertyPath: move_limit
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 323299731, guid: 9b5a9d376da7b20418dc4c4070c9325b, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4400630765524648338, guid: 9b5a9d376da7b20418dc4c4070c9325b,
         type: 3}
       propertyPath: m_Name
@@ -482,7 +490,7 @@ PrefabInstance:
     - target: {fileID: 4400630765524940470, guid: 9b5a9d376da7b20418dc4c4070c9325b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.23
+      value: 3.11
       objectReference: {fileID: 0}
     - target: {fileID: 4400630765524940470, guid: 9b5a9d376da7b20418dc4c4070c9325b,
         type: 3}
