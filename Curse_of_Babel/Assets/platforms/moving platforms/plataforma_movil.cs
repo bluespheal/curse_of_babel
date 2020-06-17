@@ -4,83 +4,147 @@ using UnityEngine;
 
 public class plataforma_movil : MonoBehaviour
 {
-    public float velocidad;
+    public float speed;
+    public float move_limit;
+    public bool horizontal;
 
-    public float limite_izquierdo = 0.0f;
-    public float limite_derecho = 0.0f;
-    public float limite_top = 0.0f;
-    public float limite_bot = 0.0f;
+    public float start_position;
+    public float current_position;
+    public float true_move_limit;
+    public bool move_back;
 
-    bool izquierda = true;
-    bool derecha = false;
-    bool arriba = true;
-    bool abajo = false;
-    bool retrato = false;
-    bool horizonte = false;
+    public bool invert;
+
     // Start is called before the first frame update
     void Start()
-    {
-        if (limite_top == limite_bot)
-        {
-            arriba = false;
-            horizonte = true;
-        }
-        if (limite_izquierdo == limite_derecho)
-        {
-            izquierda = false;
-            retrato = true;
-        }
+    { 
+      start_position = DetermineStartPosition(horizontal);
+      true_move_limit = DetermineStartTrueLimit(invert);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (horizonte)
-        {
-            if (izquierda && transform.position.x > limite_izquierdo)
-            {
-                transform.position += Vector3.left * Time.deltaTime * velocidad;
-            }
-            if (derecha && transform.position.x < limite_derecho)
-            {
-                transform.position += Vector3.right * Time.deltaTime * velocidad;
-            }
-            if (transform.position.x >= limite_derecho)
-            {
-                derecha = false;
-                izquierda = true;
-            }
-            if (transform.position.x <= limite_izquierdo)
-            {
-                derecha = true;
-                izquierda = false;
-            }
-        }
+      current_position = CalculateCurrentPosition(horizontal);
 
-        if (retrato)
+      if (!invert)
+      {
+        if (current_position > true_move_limit && !move_back || current_position < start_position && move_back)
         {
-            if (arriba && transform.position.y < limite_top)
-            {
-                transform.position += Vector3.up * Time.deltaTime * velocidad;
-            }
-            if (abajo && transform.position.y > limite_bot)
-            {
-                transform.position += Vector3.down * Time.deltaTime * velocidad;
-            }
-            if (transform.position.y >= limite_top)
-            {
-                arriba = false;
-                abajo = true;
-            }
-            if (transform.position.y <= limite_bot)
-            {
-                arriba = true;
-                abajo = false;
-            }
+            move_back = !move_back;
         }
+      }
+      else
+      {
+        if (current_position < true_move_limit && !move_back || current_position > start_position && move_back)
+        {
+            move_back = !move_back;
+        }
+      }
 
+      if (horizontal)
+      {
+        MoveHorizontal(invert); 
+      }
+      else
+      {
+        MoveVertical(invert);
+      }  
     }
-    public void OnCollisionEnter(Collision collision)
+
+    private float DetermineStartPosition(bool horizontal)
+    {
+      if (horizontal)
+      {
+        return transform.position.x;
+      }
+      else
+      {
+        return transform.position.y;
+      } 
+    }
+
+    private float CalculateCurrentPosition(bool horizontal)
+    {
+      if (horizontal)
+      {
+        return transform.position.x;
+      }
+      else
+      {
+        return transform.position.y;
+      }
+    }
+
+    private float DetermineStartTrueLimit(bool invert)
+    {
+      if(invert)
+      {
+        return start_position - move_limit;
+      } 
+      else
+      {
+        return start_position + move_limit;
+      }
+    }
+
+    private void MoveHorizontal(bool invert)
+    {
+      if (!invert){
+        if (move_back)
+        {
+          Move(Vector3.left);
+        }
+        else
+        {
+          Move(Vector3.right);
+        }   
+      }
+      else
+      {
+        if (move_back)
+        {
+          Move(Vector3.right);
+        }
+        else
+        {
+          Move(Vector3.left);
+        }  
+      }
+    }
+
+
+    private void MoveVertical(bool invert)
+    {
+      if (!invert){
+        if (move_back)
+        {
+          Move(Vector3.down);
+        }
+        else
+        {
+          Move(Vector3.up);
+        }   
+      }
+      else
+      {
+        if (move_back)
+        {
+          Move(Vector3.up);
+        }
+        else
+        {
+          Move(Vector3.down);
+        }  
+      }
+    }
+
+    private void Move(Vector3 direction)
+    {
+      transform.position += direction * Time.deltaTime * speed;
+    }
+
+    public void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {

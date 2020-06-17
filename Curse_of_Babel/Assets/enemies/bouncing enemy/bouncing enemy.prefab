@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 3202554238166809042}
   - component: {fileID: 2931146718419442865}
   - component: {fileID: 2377067028142417058}
-  - component: {fileID: 7372047331374100569}
   m_Layer: 0
   m_Name: bouncing enemy
   m_TagString: enemy
@@ -223,26 +222,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae07314ad4dbaf4bb10015c58efd012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  death_sound: {fileID: 2931146718419442865}
+  explosion: {fileID: 2425178293200493840}
   bounceLenght: 0
   bounces: 0
   bouncesLeft: 0
---- !u!114 &7372047331374100569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6133044569038277914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e359bdc7601142d4abd6849f47d7fcbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slide_speed: 0
-  death_sound: {fileID: 0}
-  distance: 0
-  left: 0
-  explosion: {fileID: 2425178293200493840}
 --- !u!1001 &2437534066277026686
 PrefabInstance:
   m_ObjectHideFlags: 0

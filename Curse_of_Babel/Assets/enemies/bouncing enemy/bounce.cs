@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bounce : MonoBehaviour
+public class bounce : enemy
 {
     // Start is called before the first frame update
     private float startY;
@@ -22,12 +22,15 @@ public class bounce : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (bounceLenght != 0)
+        if (!stop)
         {
-            rigi.velocity = new Vector3(bounceLenght, rigi.velocity.y, rigi.velocity.z);
-        }
-        if (transform.position.y >= startY) {
-            rigi.velocity = new Vector3(rigi.velocity.x,0,0);
+            if (bounceLenght != 0)
+            {
+                rigi.velocity = new Vector3(bounceLenght, rigi.velocity.y, rigi.velocity.z);
+            }
+            if (transform.position.y >= startY) {
+                rigi.velocity = new Vector3(rigi.velocity.x,0,0);
+            }
         }
     }
 
