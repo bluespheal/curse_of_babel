@@ -1488,7 +1488,7 @@ PrefabInstance:
         type: 3}
       propertyPath: easy_levels.Array.data[0]
       value: 
-      objectReference: {fileID: 616838159576804672, guid: 679d882f2b79a9e4eaeee1b74cd8ebb3,
+      objectReference: {fileID: 1020584225506206134, guid: f446405c66f4cdb4d84cc13808e41562,
         type: 3}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
@@ -1543,6 +1543,11 @@ PrefabInstance:
         type: 3}
       propertyPath: max_normal_score
       value: 299
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+        type: 3}
+      propertyPath: amortiguador
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df8168dbc5f99da4cadfffde40fd2dd5, type: 3}
