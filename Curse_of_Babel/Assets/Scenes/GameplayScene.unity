@@ -1452,7 +1452,7 @@ PrefabInstance:
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: easy_levels.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
@@ -1488,7 +1488,7 @@ PrefabInstance:
         type: 3}
       propertyPath: easy_levels.Array.data[0]
       value: 
-      objectReference: {fileID: 1020584225506206134, guid: f446405c66f4cdb4d84cc13808e41562,
+      objectReference: {fileID: 825806368319796763, guid: a2afbd40009de2843a2f392f33c91b28,
         type: 3}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
@@ -1521,7 +1521,7 @@ PrefabInstance:
         type: 3}
       propertyPath: easy_levels.Array.data[1]
       value: 
-      objectReference: {fileID: 616838159576804672, guid: 679d882f2b79a9e4eaeee1b74cd8ebb3,
+      objectReference: {fileID: 1020584225506206134, guid: 2a422d0ea2025a84694fe4d492b51b3a,
         type: 3}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
@@ -1537,18 +1537,36 @@ PrefabInstance:
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: max_easy_score
-      value: 99
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: max_normal_score
-      value: 299
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: amortiguador
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+        type: 3}
+      propertyPath: easy_levels.Array.data[2]
+      value: 
+      objectReference: {fileID: 1020584225506206134, guid: 271c5f87304d2bf448c29a3caa76a821,
+        type: 3}
+    - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+        type: 3}
+      propertyPath: easy_levels.Array.data[3]
+      value: 
+      objectReference: {fileID: 2678138928783485716, guid: cff20617a38b0694480f739d77d6028b,
+        type: 3}
+    - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+        type: 3}
+      propertyPath: easy_levels.Array.data[4]
+      value: 
+      objectReference: {fileID: 1020584225506206134, guid: f446405c66f4cdb4d84cc13808e41562,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df8168dbc5f99da4cadfffde40fd2dd5, type: 3}
 --- !u!1001 &7831811010606518089
