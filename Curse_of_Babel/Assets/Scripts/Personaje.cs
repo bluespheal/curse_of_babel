@@ -72,6 +72,7 @@ public class Personaje : MonoBehaviour
         idle_change = Random.Range(2, 4);
         saved_variables.Cargar();
         spawn_tutorial = tutorial_spawn();
+        amortiguador = 0.25f;
         //saved_variables.progreso.score = 0;
         //print(easy_levels.Length);
         if (!saved_variables.progreso.Tutorial)
