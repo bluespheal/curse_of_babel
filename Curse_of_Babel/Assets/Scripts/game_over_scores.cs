@@ -14,7 +14,6 @@ public class game_over_scores : MonoBehaviour
     {
         var = GameObject.FindGameObjectWithTag("Player").GetComponent<Saved_variables>();
         var.Cargar();
-        //var.progreso.score = 0;
         Score.text = "Score " + var.progreso.score.ToString();
         HScore.text = "High score " + var.progreso.hscore.ToString();
     }
