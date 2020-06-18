@@ -9,7 +9,13 @@ public class Animation_floor_detector : MonoBehaviour
     {
         if (other.gameObject.CompareTag("platform") && jugador.velY <= 0)
         {
-            jugador.knight_animation.SetBool("stomp", false);
+            if(jugador.stomp)
+            {
+                jugador.particlesStomp.Play();
+                jugador.stomp = false;
+                jugador.knight_animation.SetBool("stomp", false);
+            }
+            
             jugador.landing = true;
         }
     }

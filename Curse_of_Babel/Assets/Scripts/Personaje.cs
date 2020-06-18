@@ -47,19 +47,17 @@ public class Personaje : MonoBehaviour
     public bool landing = false;
     public Animator transitionAnim;
     public Animator knight_animation;
+    public bool stomp = false;
 
     public int knight_idle = 0;
     public int idle_change = 0;
 
     public GameObject particulasDash;
     public GameObject particulasJump;
+    public ParticleSystem particlesStomp;
     Vector3 lastFrameVelocity;
     public float velY;
     public float velX;
-    //public Transform raycGround;
-    /*RaycastHit hit; //Raycast for floor detection
-    public float rayDis; // distance to catch floor
-    public Vector3 rayDir; // downwards direction of raycast*/
 
     private IEnumerator spawn_tutorial;
     public camera_follow mainCamera;
@@ -307,6 +305,7 @@ public class Personaje : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
         knight_animation.SetBool("stomp", true);
+        stomp = true;
         if (direction > 0)
         {
             stopDashing = true;
@@ -528,7 +527,7 @@ public class Personaje : MonoBehaviour
         yield return new WaitForSeconds(0.07f);
         particulasJump.gameObject.SetActive(true);
     }
-
+    
     IEnumerator tutorial_spawn()
     {
         yield return new WaitForSeconds(0.3f);
