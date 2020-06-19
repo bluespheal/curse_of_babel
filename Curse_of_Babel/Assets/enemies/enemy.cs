@@ -10,6 +10,7 @@ public class enemy : MonoBehaviour
     public Transform skull;
 
     public bool stop;
+    public Personaje player;
 
     // Start is called before the first frame update
     void Start() {
@@ -18,7 +19,6 @@ public class enemy : MonoBehaviour
         skull = this.gameObject.transform.GetChild(0);
         stop = false;
     }
-
    
     public void die() {
         Destroy(this.gameObject);
@@ -26,16 +26,20 @@ public class enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("hit_point"))
-        {   
-            stop = true;
-            skull.GetComponent<MeshRenderer>().enabled = false;
-            this.GetComponent<BoxCollider>().enabled = false;
-            explosion.GetComponent<ParticleSystem>().Play();
-            other.GetComponent<hitpoint>().player.score_up(10);
-            other.GetComponent<hitpoint>().player.enemy_bounce();
-            death_sound.Play();
-            Invoke("die", 1f);
+        player = GameObject.FindWithTag("Player").GetComponent<Personaje>();
+        if (player.alive)
+        { 
+            if (other.gameObject.CompareTag("hit_point"))
+            {   
+                stop = true;
+                skull.GetComponent<MeshRenderer>().enabled = false;
+                this.GetComponent<BoxCollider>().enabled = false;
+                explosion.GetComponent<ParticleSystem>().Play();
+                other.GetComponent<hitpoint>().player.score_up(10);
+                other.GetComponent<hitpoint>().player.enemy_bounce();
+                death_sound.Play();
+                Invoke("die", 1f);
+            }
         }
     }
 }

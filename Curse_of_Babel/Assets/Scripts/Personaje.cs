@@ -62,6 +62,8 @@ public class Personaje : MonoBehaviour
     private IEnumerator spawn_tutorial;
     public camera_follow mainCamera;
 
+    public bool alive;
+
     float speed;
 
     // Start is called before the first frame update
@@ -69,6 +71,7 @@ public class Personaje : MonoBehaviour
     void Start()
     {
        //Set starting rotation to look at the camera
+        alive = true;
         transform.rotation = Quaternion.Euler(0, 180, 0);
         idle_change = Random.Range(2, 4);
         saved_variables.Cargar();
@@ -249,113 +252,118 @@ public class Personaje : MonoBehaviour
         }*/
 
         //print(speed);
-        if (Input.GetKeyDown(KeyCode.R)) {
-            saved_variables.progreso.score = 0;
-            saved_variables.progreso.hscore = 0;
-            saved_variables.progreso.Tutorial = true;
-        }
 
-        //print(isGrounded());
-        //Checks if player is touching the ground
-        if (isGrounded)
-        {
-            transform.GetChild(5).gameObject.SetActive(false);
-            //canDash = true;
-            if (velX > 0 && velY == 0)
+        if (alive)
             {
-                Gdash = true;
-            }
-            if (landing && velY <= 0)
-            {
-                landing = false;
-                rb.velocity = new Vector3(0, 0, 0);
-            }
-        }
 
-        //Dash
-        if (direction == 0 && dashTime == startDashTime && !p.paused)
-        {
-            //Testing with mouse
-            if (Input.GetButtonDown("Fire1") && !p.paused)
-            {
-                touchStart = Input.mousePosition;
+            if (Input.GetKeyDown(KeyCode.R)) {
+                saved_variables.progreso.score = 0;
+                saved_variables.progreso.hscore = 0;
+                saved_variables.progreso.Tutorial = true;
             }
-            if (Input.GetButtonUp("Fire1") && !p.paused)
+
+            //print(isGrounded());
+            //Checks if player is touching the ground
+            if (isGrounded)
             {
-                touchEnd = Input.mousePosition;
-                direction = 5;
-                stopDashing = false;
                 transform.GetChild(5).gameObject.SetActive(false);
+                //canDash = true;
+                if (velX > 0 && velY == 0)
+                {
+                    Gdash = true;
+                }
+                if (landing && velY <= 0)
+                {
+                    landing = false;
+                    rb.velocity = new Vector3(0, 0, 0);
+                }
             }
-        }
-        else
-        {
-            //Checks if dash is complete and if so, returns direction to 0. Allowing the player to dash again.
-            if (dashTime <= 0.0f && !stopDashing)
+
+            //Dash
+            if (direction == 0 && dashTime == startDashTime && !p.paused)
             {
-                stopDashing = true;
-                //rb.velocity = Vector3.zero;
-                dashTime = startDashTime;
-                direction = 0;
+                //Testing with mouse
+                if (Input.GetButtonDown("Fire1") && !p.paused)
+                {
+                    touchStart = Input.mousePosition;
+                }
+                if (Input.GetButtonUp("Fire1") && !p.paused)
+                {
+                    touchEnd = Input.mousePosition;
+                    direction = 5;
+                    stopDashing = false;
+                    transform.GetChild(5).gameObject.SetActive(false);
+                }
             }
             else
             {
-                if (!p.paused)
+                //Checks if dash is complete and if so, returns direction to 0. Allowing the player to dash again.
+                if (dashTime <= 0.0f && !stopDashing)
                 {
-                    if (!stopDashing)
+                    stopDashing = true;
+                    //rb.velocity = Vector3.zero;
+                    dashTime = startDashTime;
+                    direction = 0;
+                }
+                else
+                {
+                    if (!p.paused)
                     {
-                        dashTime -= Time.deltaTime;
-                    }
-                    if (direction == 1)
-                    {
-                        rb.velocity = Vector3.left * dashSpeed;
-                    }
-                    else if (direction == 2)
-                    {
-                        rb.velocity = Vector3.right * dashSpeed;
-                    }
-                    else if (direction == 3)
-                    {
-                        canDash = false;
-                        rb.velocity = Vector3.up * dashSpeed;
-                    }
-                    else if (direction == 4)
-                    {
-                        rb.velocity = Vector3.down * dashSpeed;
-                    }
-                    else if (direction == 5)
-                    {
-                        DoInput();
+                        if (!stopDashing)
+                        {
+                            dashTime -= Time.deltaTime;
+                        }
+                        if (direction == 1)
+                        {
+                            rb.velocity = Vector3.left * dashSpeed;
+                        }
+                        else if (direction == 2)
+                        {
+                            rb.velocity = Vector3.right * dashSpeed;
+                        }
+                        else if (direction == 3)
+                        {
+                            canDash = false;
+                            rb.velocity = Vector3.up * dashSpeed;
+                        }
+                        else if (direction == 4)
+                        {
+                            rb.velocity = Vector3.down * dashSpeed;
+                        }
+                        else if (direction == 5)
+                        {
+                            DoInput();
+                        }
                     }
                 }
             }
-        }
 
-        //Jump
+            //Jump
 
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space)&&!p.paused)
-        {
-            jump();
-        }
-
-        if (!isGrounded && Input.GetKeyDown(KeyCode.Space))
-        {
-
-            groundPound();
-        }
-
-        if (!isGrounded && direction == 0)
-        {
-            if (rb){
-                rb.AddForceAtPosition(new Vector3(0f, fallMultiplier * -1, 0f), Vector3.down);
+            if (isGrounded && Input.GetKeyDown(KeyCode.Space)&&!p.paused)
+            {
+                jump();
             }
-            //rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+
+            if (!isGrounded && Input.GetKeyDown(KeyCode.Space))
+            {
+
+                groundPound();
+            }
+
+            if (!isGrounded && direction == 0)
+            {
+                if (rb){
+                    rb.AddForceAtPosition(new Vector3(0f, fallMultiplier * -1, 0f), Vector3.down);
+                }
+                //rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            }
+
+
+            //rb.AddForceAtPosition(new Vector3(0f, fallMultiplier * -1, 0f), Vector3.down);
+
+            //rb.velocity = vel;
         }
-
-
-        //rb.AddForceAtPosition(new Vector3(0f, fallMultiplier * -1, 0f), Vector3.down);
-
-        //rb.velocity = vel;
     }
 
     public void bounce()
@@ -536,6 +544,8 @@ public class Personaje : MonoBehaviour
 
     void dead()
     {
+        alive = false;
+        coll.enabled = false;
         particulasDash.gameObject.SetActive(false);
         particulasJump.gameObject.SetActive(false);
         knight_animation.SetBool("f", true);
@@ -633,7 +643,7 @@ public class Personaje : MonoBehaviour
 
     IEnumerator LoadGameOver(){
       transitionAnim.SetTrigger("fade_out");
-    if (!death_sound.isPlaying)
+    if (!death_sound.isPlaying && !alive)
     {
         death_sound.Play();
     }
