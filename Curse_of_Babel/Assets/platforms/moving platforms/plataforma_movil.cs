@@ -144,11 +144,12 @@ public class plataforma_movil : MonoBehaviour
       transform.position += direction * Time.deltaTime * speed;
     }
 
-    public void OnCollisionStay(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             collision.transform.parent = transform;
+            // collision.transform.localScale = new Vector3(1.6f,1f,1f);
         }
     }
     public void OnCollisionExit(Collision collision)
@@ -156,6 +157,7 @@ public class plataforma_movil : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.transform.parent = null;
+            collision.transform.localScale = new Vector3(1.6f,1.6f,1.6f);
         }
     }
 }
