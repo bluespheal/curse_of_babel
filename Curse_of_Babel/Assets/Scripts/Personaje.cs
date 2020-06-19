@@ -65,6 +65,7 @@ public class Personaje : MonoBehaviour
     float speed;
 
     // Start is called before the first frame update
+
     void Start()
     {
        //Set starting rotation to look at the camera
@@ -73,24 +74,15 @@ public class Personaje : MonoBehaviour
         saved_variables.Cargar();
         spawn_tutorial = tutorial_spawn();
         amortiguador = 0.25f;
-        //saved_variables.progreso.score = 0;
-        //print(easy_levels.Length);
         if (!saved_variables.progreso.Tutorial)
         {
-            if (saved_variables.progreso.score <= max_easy_score)
+            if (saved_variables.progreso.FirstLevel)
             {
-                saved_variables.progreso.nivelActual = Random.Range(0, easy_levels.Length-1);
+                saved_variables.progreso.FirstLevel = false;
+                saved_variables.progreso.score = 0;
+                Buscar_Niveles();
             }
-            if (saved_variables.progreso.score >= max_easy_score && saved_variables.progreso.score <= max_normal_score)
-            {
-                saved_variables.progreso.nivelActual = Random.Range(0, normal_levels.Length-1);
-            }
-            if (saved_variables.progreso.score >= max_normal_score)
-            {
-                saved_variables.progreso.nivelActual = Random.Range(0, hard_levels.Length-1);
-            }
-            //print(saved_variables.progreso.nivelActual);
-            loadscenes(saved_variables.progreso.nivelActual);
+            choose_level();
         }
         else {
             loadtut();
@@ -104,6 +96,91 @@ public class Personaje : MonoBehaviour
         distToGround = coll.bounds.extents.y;
     }
 
+    void choose_level()
+    {
+        int indx = -1;
+        if (saved_variables.progreso.score <= max_easy_score)
+        {
+            if (saved_variables.progreso.index < saved_variables.progreso.listE.Count)
+            {
+                do
+                {
+                    indx = saved_variables.progreso.listE[Random.Range(0, saved_variables.progreso.listE.Count)];
+                } while (indx == -1 || indx == saved_variables.progreso.nivelActual);
+            }
+            else
+            {
+                Buscar_Niveles();
+                do
+                {
+                    indx = Random.Range(0, saved_variables.progreso.listE.Count);
+                } while (indx == -1 || indx == saved_variables.progreso.nivelActual);
+            }
+            saved_variables.progreso.listE[indx] = -1;
+        }
+        if (saved_variables.progreso.score >= max_easy_score && saved_variables.progreso.score <= max_normal_score)
+        {
+            if (saved_variables.progreso.index < saved_variables.progreso.listN.Count)
+            {
+                do
+                {
+                    indx = saved_variables.progreso.listN[Random.Range(0, saved_variables.progreso.listN.Count)];
+                } while (indx == -1 || indx == saved_variables.progreso.nivelActual);
+            }
+            else
+            {
+                Buscar_Niveles();
+                do
+                {
+                    indx = Random.Range(0, saved_variables.progreso.listN.Count);
+                } while (indx == -1 || indx==saved_variables.progreso.nivelActual);
+            }
+            saved_variables.progreso.listN[indx] = -1;
+        }
+        if (saved_variables.progreso.score >= max_normal_score)
+        {
+            if (saved_variables.progreso.index < saved_variables.progreso.listH.Count)
+            {
+                do
+                {
+                    indx = saved_variables.progreso.listH[Random.Range(0, saved_variables.progreso.listH.Count)];
+                } while (indx == -1 || indx == saved_variables.progreso.nivelActual);
+            }
+            else
+            {
+                Buscar_Niveles();
+                do
+                {
+                    indx = Random.Range(0, saved_variables.progreso.listH.Count);
+                } while (indx == -1 || indx == saved_variables.progreso.nivelActual);
+            }
+            saved_variables.progreso.listH[indx] = -1;
+        }
+        print(indx);
+        saved_variables.progreso.index++;
+        saved_variables.progreso.nivelActual = indx;
+        loadscenes(saved_variables.progreso.nivelActual);
+    }
+
+    void Buscar_Niveles()
+    {
+        saved_variables.progreso.index = 0;
+        saved_variables.progreso.listE.Clear();
+        saved_variables.progreso.listN.Clear();
+        saved_variables.progreso.listH.Clear();
+        for (int i = 0; i < easy_levels.Length; i++)
+        {
+            saved_variables.progreso.listE.Insert(i, i);
+        }
+        for (int i = 0; i < normal_levels.Length; i++)
+        {
+            saved_variables.progreso.listN.Insert(i, i);
+        }
+        for (int i = 0; i < hard_levels.Length; i++)
+        {
+            saved_variables.progreso.listH.Insert(i, i);
+        }
+    }
     //Checa si esta en el suelo usando raycast
     /*
     bool isGrounded()
@@ -116,6 +193,7 @@ public class Personaje : MonoBehaviour
     {
         saved_variables.progreso.score = 0;
         saved_variables.progreso.nivelActual = 0;
+        saved_variables.progreso.FirstLevel = true;
         saved_variables.Guardar();
     }
 
@@ -126,6 +204,14 @@ public class Personaje : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!isGrounded && canDash && particulasJump.gameObject.activeSelf == false)
+        {
+            StartCoroutine(turnJumpParticlesOn());
+        }
+        if (!isGrounded && !canDash)
+        {
+            particulasJump.gameObject.SetActive(false);
+        }
         lastFrameVelocity = rb.velocity;
         velY = rb.velocity.y;
         velX = rb.velocity.x;
@@ -326,7 +412,6 @@ public class Personaje : MonoBehaviour
         p2 = Camera.main.ScreenToWorldPoint(touchEnd);
         //CreateLine(p1, p2);
         Vector3 v = p2 - p1;
-        print(v.normalized);
         //Rotate character
         if (v.normalized.x >= 0)
         {
@@ -336,7 +421,7 @@ public class Personaje : MonoBehaviour
             }
             else
             {
-                transform.rotation = Quaternion.Euler(0, 90, 0);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
             }
         }
         else
@@ -347,7 +432,7 @@ public class Personaje : MonoBehaviour
             }
             else
             {
-                transform.rotation = Quaternion.Euler(0, 273, 0);
+                transform.rotation = Quaternion.Euler(0, -183, 0);
             }
         }
         //Checks if it was a tap
@@ -363,7 +448,7 @@ public class Personaje : MonoBehaviour
         //Asspull bugfix. If the previous if wasn't true because isGrounded was false, it would go into the else below this statement, multiplying v.normalized (0,0,0) by dashSpeed. Causing the player to freeze in the air for a bit.
         else if (v.normalized.x == 0 && v.normalized.y == 0 && v.normalized.z == 0)
         {
-            
+
         }
         //If it's not a tap, then it does the dash.
         else
@@ -384,15 +469,6 @@ public class Personaje : MonoBehaviour
                     canDash = false;
                 }
                 rb.velocity = v.normalized * dashSpeed;
-                //Rotate character
-                if (v.normalized.x >= 0)
-                {
-                    transform.rotation = Quaternion.Euler(0, 0, 0);
-                }
-                else
-                {
-                    transform.rotation = Quaternion.Euler(0, -183, 0);
-                }
             }
         }
 
@@ -466,6 +542,7 @@ public class Personaje : MonoBehaviour
         knight_animation.SetTrigger("dead");
         rb.velocity = Vector3.zero;
         rb.isKinematic = true;
+        saved_variables.progreso.FirstLevel = true;
         saved_variables.Guardar();
         StartCoroutine(LoadGameOver());
         mainCamera.alive = false;
@@ -538,7 +615,7 @@ public class Personaje : MonoBehaviour
         yield return new WaitForSeconds(0.07f);
         particulasJump.gameObject.SetActive(true);
     }
-    
+
     IEnumerator tutorial_spawn()
     {
         yield return new WaitForSeconds(0.3f);
