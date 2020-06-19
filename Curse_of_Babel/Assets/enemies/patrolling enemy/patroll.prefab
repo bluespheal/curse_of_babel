@@ -219,13 +219,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4471551443241513985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 698b43851616d4176b6fac8dae1e5345, type: 3}
+  m_Script: {fileID: 11500000, guid: bf0257fbc329aaa459d525c73093cb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   death_sound: {fileID: -1484448440544721473}
   explosion: {fileID: 3605786494286252616}
-  slide_speed: 2
-  distance: 1
+  skull: {fileID: 3207852501256320698}
+  stop: 0
+  slide_speed: 0
+  distance: 0
   left: 0
 --- !u!1001 &3207852501256442292
 PrefabInstance:
