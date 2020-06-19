@@ -204,6 +204,14 @@ public class Personaje : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!isGrounded && canDash && particulasJump.gameObject.activeSelf == false)
+        {
+            StartCoroutine(turnJumpParticlesOn());
+        }
+        if (!isGrounded && !canDash)
+        {
+            particulasJump.gameObject.SetActive(false);
+        }
         lastFrameVelocity = rb.velocity;
         velY = rb.velocity.y;
         velX = rb.velocity.x;
@@ -407,11 +415,25 @@ public class Personaje : MonoBehaviour
         //Rotate character
         if(v.normalized.x >= 0)
         {
-            transform.rotation = Quaternion.Euler(0, 90, 0);
+            if (v.x <= 1f && v.y <= 1f && v.z <= 1f && v.x >= -1f && v.y >= -1f && v.z >= -1f)
+            {
+                //si es tap no hace nada
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
         }
         else
         {
-            transform.rotation = Quaternion.Euler(0, 273, 0);
+            if (v.x <= 1f && v.y <= 1f && v.z <= 1f && v.x >= -1f && v.y >= -1f && v.z >= -1f)
+            {
+                //si es tap no hace nada
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, -183, 0);
+            }
         }
         //Checks if it was a tap
         if (v.x <= 1f && v.y <= 1f && v.z <= 1f && v.x >= -1f && v.y >= -1f && v.z >= -1f && isGrounded)
@@ -447,15 +469,6 @@ public class Personaje : MonoBehaviour
                     canDash = false;
                 }
                 rb.velocity = v.normalized * dashSpeed;
-                //Rotate character
-                if (v.normalized.x >= 0)
-                {
-                    transform.rotation = Quaternion.Euler(0, 0, 0);
-                }
-                else
-                {
-                    transform.rotation = Quaternion.Euler(0, -183, 0);
-                }
             }
         }
 
