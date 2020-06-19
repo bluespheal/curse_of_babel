@@ -328,13 +328,27 @@ public class Personaje : MonoBehaviour
         Vector3 v = p2 - p1;
         print(v.normalized);
         //Rotate character
-        if(v.normalized.x >= 0)
+        if (v.normalized.x >= 0)
         {
-            transform.rotation = Quaternion.Euler(0, 90, 0);
+            if (v.x <= 1f && v.y <= 1f && v.z <= 1f && v.x >= -1f && v.y >= -1f && v.z >= -1f)
+            {
+                //si es tap no hace nada
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, 90, 0);
+            }
         }
         else
         {
-            transform.rotation = Quaternion.Euler(0, 273, 0);
+            if (v.x <= 1f && v.y <= 1f && v.z <= 1f && v.x >= -1f && v.y >= -1f && v.z >= -1f)
+            {
+                //si es tap no hace nada
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, 273, 0);
+            }
         }
         //Checks if it was a tap
         if (v.x <= 1f && v.y <= 1f && v.z <= 1f && v.x >= -1f && v.y >= -1f && v.z >= -1f && isGrounded)
@@ -357,7 +371,7 @@ public class Personaje : MonoBehaviour
             if(canDash)
             {
                 Play_dash();
-
+                knight_animation.SetBool("stomp", false);
                 //Checks if dash was done upwards, and if so, turns canDash off because for some fucking reason it turns itself on whenever the dash is done upwards.
                 if (v.normalized.y > 0.0f)
                 {
@@ -420,11 +434,11 @@ public class Personaje : MonoBehaviour
         {
             dead();
         }
-        if (collision.gameObject.CompareTag("lateral") && !isGrounded/*velY > 0 || collision.gameObject.CompareTag("lateral") && velY < 0*/)
+        if (collision.gameObject.CompareTag("lateral") && !isGrounded)
         {
             Bounce(collision.contacts[0].normal);
         }
-        if (collision.gameObject.CompareTag("platform") && velY > 0)
+        if (collision.gameObject.CompareTag("platform") && !isGrounded || collision.gameObject.CompareTag("platform") && velY > 0)
         {
             Bounce_Platform(collision.contacts[0].normal);
         }
@@ -432,11 +446,6 @@ public class Personaje : MonoBehaviour
 
     private void Bounce(Vector3 collisionNormal)
     {
-        /*var speed = lastFrameVelocity.magnitude;
-        var direction = Vector3.Reflect(lastFrameVelocity.normalized, collisionNormal);*/
-
-        //Debug.Log("Out Direction: " + direction);
-        //rb.velocity = direction * Mathf.Max(speed - (speed * 0.75f));
         rb.velocity = new Vector3(-lastFrameVelocity.x * amortiguador, lastFrameVelocity.y, lastFrameVelocity.z);
     }
     private void Bounce_Platform(Vector3 collisionNormal)
