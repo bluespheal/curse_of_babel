@@ -1284,7 +1284,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: derecha_izquierda Variant (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1506706103, guid: fd17a1b534551d947ab8a5fb00416905, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fd17a1b534551d947ab8a5fb00416905, type: 3}
 --- !u!4 &4227199199924730209 stripped
 Transform:
@@ -1688,7 +1689,7 @@ PrefabInstance:
     - target: {fileID: 6133044569038277917, guid: 72c0a822729c17140a8b9be2498d2898,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: -13.6
       objectReference: {fileID: 0}
     - target: {fileID: 6133044569038277917, guid: 72c0a822729c17140a8b9be2498d2898,
         type: 3}
@@ -2824,7 +2825,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: derecha_izquierda Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1506706103, guid: fd17a1b534551d947ab8a5fb00416905, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fd17a1b534551d947ab8a5fb00416905, type: 3}
 --- !u!4 &7206868108263602463 stripped
 Transform:

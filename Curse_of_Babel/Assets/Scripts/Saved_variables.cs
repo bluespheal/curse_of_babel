@@ -8,7 +8,7 @@ public class Saved_variables : MonoBehaviour
 
     private void Start()
     {
-        Cargar();
+        //Cargar();
     }
 
     public void Guardar()
@@ -35,7 +35,12 @@ public class SAVEDATACLASS
     public int nivelActual;
     public int score;
     public int hscore;
+    public int index;
+    public List<int> listE;
+    public List<int> listN;
+    public List<int> listH;
     public float BGM_Volume;
     public float SFX_Volume;
+    public bool FirstLevel;
     public bool Tutorial;
 }
