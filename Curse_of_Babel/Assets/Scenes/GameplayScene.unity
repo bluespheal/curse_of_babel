@@ -238,8 +238,13 @@ MonoBehaviour:
     nivelActual: 0
     score: 0
     hscore: 0
+    index: 0
+    listE: 
+    listN: 
+    listH: 
     BGM_Volume: 0
     SFX_Volume: 0
+    FirstLevel: 0
     Tutorial: 0
 --- !u!95 &214499693 stripped
 Animator:
@@ -1457,7 +1462,7 @@ PrefabInstance:
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: normal_levels.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
@@ -1537,7 +1542,7 @@ PrefabInstance:
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
       propertyPath: max_easy_score
-      value: 1000
+      value: 101
       objectReference: {fileID: 0}
     - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
         type: 3}
@@ -1566,6 +1571,12 @@ PrefabInstance:
       propertyPath: easy_levels.Array.data[4]
       value: 
       objectReference: {fileID: 1020584225506206134, guid: f446405c66f4cdb4d84cc13808e41562,
+        type: 3}
+    - target: {fileID: 9026907871140804201, guid: df8168dbc5f99da4cadfffde40fd2dd5,
+        type: 3}
+      propertyPath: normal_levels.Array.data[1]
+      value: 
+      objectReference: {fileID: 7991165057622419216, guid: 03ac7b05ebf91b74c8af2ee65543cf7d,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df8168dbc5f99da4cadfffde40fd2dd5, type: 3}
