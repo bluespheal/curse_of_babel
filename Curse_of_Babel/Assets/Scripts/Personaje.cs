@@ -184,13 +184,6 @@ public class Personaje : MonoBehaviour
             saved_variables.progreso.listH.Insert(i, i);
         }
     }
-    //Checa si esta en el suelo usando raycast
-    /*
-    bool isGrounded()
-    {
-        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
-    }
-    */
 
     void OnApplicationQuit()
     {
@@ -215,13 +208,11 @@ public class Personaje : MonoBehaviour
         {
             particulasJump.gameObject.SetActive(false);
         }
+        //Registra la velocidad en X y Y del personaje
         lastFrameVelocity = rb.velocity;
         velY = rb.velocity.y;
         velX = rb.velocity.x;
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            knight_animation.SetTrigger("dead");
-        }
+        //Si el jugador esta moviendose mientras no esta en el aire, reproduce la animacion de Grund Dash
         if (Gdash)
         {
             knight_animation.SetBool("Gdash", true);
@@ -230,28 +221,9 @@ public class Personaje : MonoBehaviour
         {
             knight_animation.SetBool("Gdash", false);
         }
+        //Regristra si el jugador esta moviendose para las animaciones
         speed = rb.velocity.magnitude;
         knight_animation.SetFloat("speed", (float)velX);
-        /*if (speed < 1 || !isGrounded)
-            Gdash = false;*/
-        //rayDir = raycGround.position + (transform.up * -rayDis);
-        //Debug.DrawLine(raycGround.position, rayDir, Color.green, 1.0f);
-        /*if (Physics.Raycast(raycGround.position, raycGround.up * -1, out hit, rayDis) && velY <= 0)
-        {
-            isGrounded = true;
-            knight_animation.SetBool("on_air", false);
-            knight_animation.SetBool("stomp", false);
-            if(!Gdash)
-            rb.velocity = new Vector3(0, 0, 0);
-        }
-        else
-        {
-            isGrounded = false;
-            knight_animation.SetBool("on_air", true);
-            knight_animation.SetBool("Gdash", false);
-        }*/
-
-        //print(speed);
 
         if (alive)
             {
@@ -262,16 +234,17 @@ public class Personaje : MonoBehaviour
                 saved_variables.progreso.Tutorial = true;
             }
 
-            //print(isGrounded());
             //Checks if player is touching the ground
             if (isGrounded)
             {
+                //Apaga las particulas que indican si tienes un dash extra disponible
                 transform.GetChild(5).gameObject.SetActive(false);
-                //canDash = true;
+                //Indica que estoy haciendo un dash en el suelo
                 if (velX > 0 && velY == 0)
                 {
                     Gdash = true;
                 }
+                //Si el jugador "aterriza", hace que su velocidad sea 0 para que no derrape
                 if (landing && velY <= 0)
                 {
                     landing = false;
@@ -377,12 +350,13 @@ public class Personaje : MonoBehaviour
     {
         if(canDash) StartCoroutine(turnJumpParticlesOn());
         knight_animation.SetTrigger("jump");
+        //Si estaba haciendo un stomp, interrumpe la animacion
         knight_animation.SetBool("stomp", false);
         rb.velocity = Vector3.zero;
+        //Activa la animacion de estar en el aire
         knight_animation.SetBool("on_air",true);
         if (direction > 0)
         {
-            //StopCoroutine(knight_idle);
             stopDashing = true;
             dashTime = startDashTime;
             direction = 0;
@@ -464,15 +438,18 @@ public class Personaje : MonoBehaviour
             if(canDash)
             {
                 Play_dash();
+                //Si hace un Dash mientras hace un stomp, interrumpe la animacion de este ultimo
                 knight_animation.SetBool("stomp", false);
                 //Checks if dash was done upwards, and if so, turns canDash off because for some fucking reason it turns itself on whenever the dash is done upwards.
                 if (v.normalized.y > 0.0f)
                 {
                     dashRelease.Play();
+                    //Realiza una animacion de dash diferente al Dash en suelo
                     if (!isGrounded)
                     {
                         knight_animation.SetTrigger("dash");
                     }
+                    //Permite hace un dash extra en el aire
                     if (canDash && !isGrounded)
                     canDash = false;
                 }
@@ -518,26 +495,28 @@ public class Personaje : MonoBehaviour
         {
             dead();
         }
+        //Al golpear una pared en el aire, rebotas en la direccion opuesta
         if (collision.gameObject.CompareTag("lateral") && !isGrounded)
         {
-            Bounce(collision.contacts[0].normal);
+            Bounce();
         }
+        //Al golpear una plataforma en el aire, rebotas en la direccion opuesta
         if (collision.gameObject.CompareTag("platform") && !isGrounded || collision.gameObject.CompareTag("platform") && velY > 0)
         {
             Bounce_Platform(collision.contacts[0].normal);
         }
     }
-
-    private void Bounce(Vector3 collisionNormal)
+    //Invierte la direccion que tenia el jugador y reduce su velocidad en proporcion a  "amortiguador"
+    private void Bounce()
     {
         rb.velocity = new Vector3(-lastFrameVelocity.x * amortiguador, lastFrameVelocity.y, lastFrameVelocity.z);
     }
+    //Invierte la direccion que tenia el jugador y detiene al jugador al traspasar una plataforma semi solida
     private void Bounce_Platform(Vector3 collisionNormal)
     {
         var speed = lastFrameVelocity.magnitude;
         var direction = Vector3.Reflect(lastFrameVelocity.normalized, collisionNormal);
 
-        //Debug.Log("Out Direction: " + direction);
         rb.velocity = direction * Mathf.Max(speed - (speed * 0.75f));
     }
 
@@ -546,8 +525,10 @@ public class Personaje : MonoBehaviour
     {
         alive = false;
         coll.enabled = false;
+        //Apaga las particulas del jugador
         particulasDash.gameObject.SetActive(false);
         particulasJump.gameObject.SetActive(false);
+        //Activa la animacion de mierte y evita que otras animaciones se reproduscan
         knight_animation.SetBool("f", true);
         knight_animation.SetTrigger("dead");
         rb.velocity = Vector3.zero;
@@ -600,18 +581,10 @@ public class Personaje : MonoBehaviour
         saved_variables.progreso.score += _score;
     }
 
-    /*public void comportamientos()
-    {
-        knight_idle = StartCoroutine("idleAlt");
-        //idle variado
-        //onloadscene
-    }*/
-
+    //Se llama con eventos en la animacion, cuando se llama cierto numero de veces, hace una animacion de idle alternativa
     public void idle_alts()
     {
         knight_idle++;
-        /*print(knight_idle);
-        print(idle_change);*/
         if (knight_idle >= idle_change)
         {
             knight_animation.SetTrigger("check");

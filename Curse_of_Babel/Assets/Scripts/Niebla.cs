@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class Niebla : MonoBehaviour
 {
-    //public Mono jugador;
     //bool muevete = false;
     public float velocidad = 0.5f;
-    void Start()
-    {
-        Rigidbody rigi = GetComponent<Rigidbody>();
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        //Mueve la niebla de forma vertical a una velocidad constante
         transform.Translate(Vector3.up * velocidad * Time.deltaTime);
+        //Codigo para debug, Presiona Q para detener la niebla o haver que se mueva
         /*if (Input.GetKeyDown(KeyCode.Q))
         {
             muevete = !muevete;
