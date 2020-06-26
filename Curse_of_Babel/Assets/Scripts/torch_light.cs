@@ -55,7 +55,6 @@ public class torch_light : MonoBehaviour
     {
         new_Int = Random.Range(minInt, maxInt);
         tstep = Random.Range(minT, maxT);
-        //print(tstep);
         nsteps = tstep;
         if (new_Int > light_Int)
         {

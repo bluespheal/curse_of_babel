@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class fallingtut : MonoBehaviour
 {
+    //El tiempo que tarda en caer la plataforma despues de tocarla
     public float fallingTime = 0.5f;
+
+    //La velodidad a la que cae la plataforma
     public float fallingSpeed = 0.098f;
+
+    //¿Esta cayendo?
     public bool falling = false;
+
+    //Su posicion original
     public Vector3 ogPos;
-    // Start is called before the first frame update
+
+
     void Start()
     {
+        //Obtiene la posicion inicial de la plataforma
         ogPos = transform.position;
     }
 
@@ -20,6 +29,8 @@ public class fallingtut : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y - fallingSpeed, transform.position.z);
         }
+
+        //Cuando la posicion en y de la plataforma sea menor o igual a 0, regresa a su posicion original.
         if(transform.position.y <= 0)
         {
             falling = false;

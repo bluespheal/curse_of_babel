@@ -5,7 +5,7 @@ using UnityEngine;
 public class tutorial_button : MonoBehaviour
 {
     public Saved_variables saved_variables;
-    // Start is called before the first frame update
+
     void Start()
     {
         saved_variables.Cargar();
@@ -13,12 +13,12 @@ public class tutorial_button : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
-        else {
+        else 
+        {
             this.gameObject.SetActive(true);
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))

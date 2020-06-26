@@ -5,14 +5,13 @@ using UnityEngine;
 public class stop_mist : MonoBehaviour
 {
     public Niebla mist;
-    // Start is called before the first frame update
+
     private void OnTriggerEnter(Collider other)
     {
+        //Si la niebla toca al jugador se detiene
         if (other.gameObject.CompareTag("Player"))
         {
             mist.velocidad = 0;
         }
-        print(other);
-        /*jugador.muerto = true;*/
     }
 }

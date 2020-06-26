@@ -8,7 +8,9 @@ public class start_button : MonoBehaviour
 {
 	  public Saved_variables Svar;
 
-    public void Start_game(){
+    public void Start_game()
+    {
+        //Carga la escena de gameplay
         SceneManager.LoadScene("GameplayScene");
     }
 }
