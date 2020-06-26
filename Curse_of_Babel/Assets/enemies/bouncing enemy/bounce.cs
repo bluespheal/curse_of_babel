@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class bounce : enemy
 {
-    // Start is called before the first frame update
-    private float startY;
     private Rigidbody rigi;
-
+    
     public float bounceLenght;
     public int bounces;
     public int bouncesLeft;
+
+    private float startY;
 
     void Awake()
     {
@@ -19,15 +19,15 @@ public class bounce : enemy
         bouncesLeft = bounces;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (!stop)
+        if (!stop) 
         {
-            if (bounceLenght != 0)
+            if (bounceLenght != 0) 
             {
                 rigi.velocity = new Vector3(bounceLenght, rigi.velocity.y, rigi.velocity.z);
             }
+
             if (transform.position.y >= startY) {
                 rigi.velocity = new Vector3(rigi.velocity.x,0,0);
             }

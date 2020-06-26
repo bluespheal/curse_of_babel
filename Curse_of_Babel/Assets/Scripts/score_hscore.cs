@@ -8,22 +8,21 @@ public class score_hscore : MonoBehaviour
     public Text Score;
     public Text HScore;
     public Saved_variables var;
-    // Start is called before the first frame update
+
     void Start()
     {
-        var=GameObject.FindGameObjectWithTag("Player").GetComponent<Saved_variables>();
-        var.Cargar();
-        //var.progreso.score = 0;
+        var = GameObject.FindGameObjectWithTag("Player").GetComponent<Saved_variables>(); //Saca las variables guardadas del player.
+        var.Cargar(); // carga las variables de score guardadas en var
     }
 
-    // Update is called once per frame
     void Update()
     {
-        var.Guardar();
+        var.Guardar(); // Guarda las variables a var
         if (var.progreso.score > var.progreso.hscore) {
-            var.progreso.hscore = var.progreso.score;
+            var.progreso.hscore = var.progreso.score; //Actualiza el hscore si score es mayor
         }
-        Score.text = "Score "+var.progreso.score.ToString();
+        //Muestra los score en pantalla, en los Text correspondientes.
+        Score.text = "Score "+var.progreso.score.ToString(); 
         HScore.text = "High score "+var.progreso.hscore.ToString();
     }
 }

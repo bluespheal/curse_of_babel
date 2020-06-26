@@ -4,6 +4,5 @@ using UnityEngine;
 
 public class hitpoint : MonoBehaviour
 { 
-  public Personaje player;
-   
+  public Personaje player; //Funciona como componente del jugador, el cual los enemigos necesitan la referencia.
 }

@@ -5,18 +5,8 @@ using UnityEngine;
 public class animator_events : MonoBehaviour
 {
     public Personaje personaje;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void idle_alt()
+    public void idle_alt()//se comunica con el codigo del personaje para cambiar la animacion de idle
     {
         personaje.idle_alts();
     }
