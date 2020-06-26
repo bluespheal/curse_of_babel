@@ -92,7 +92,6 @@ public class Personaje : MonoBehaviour
             saved_variables.progreso.Tutorial = false;
         }
         mist = GameObject.Find("Niebla");
-        //levels = new GameObject[30];
         coll = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
         dashTime = startDashTime;
@@ -329,21 +328,9 @@ public class Personaje : MonoBehaviour
                 if (rb){
                     rb.AddForceAtPosition(new Vector3(0f, fallMultiplier * -1, 0f), Vector3.down);
                 }
-                //rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
             }
 
-
-            //rb.AddForceAtPosition(new Vector3(0f, fallMultiplier * -1, 0f), Vector3.down);
-
-            //rb.velocity = vel;
         }
-    }
-
-    public void bounce()
-    {
-        jump();
-        transform.GetChild(5).gameObject.SetActive(true);
-        canDash = true;
     }
 
     public void jump()
@@ -363,7 +350,7 @@ public class Personaje : MonoBehaviour
         }
         rb.velocity = Vector3.up * salto;
     }
-    public void enemy_bounce()
+    public void enemy_bounce() // Si el personaje salta en un enemigo, llama la función de salto y le regenera el dash
     {
         transform.position = transform.position + new Vector3(0, 1, 0);
         jump();
@@ -459,19 +446,6 @@ public class Personaje : MonoBehaviour
 
     }
 
-    //creates an ugly purple line from p1 to p2
-    /*void CreateLine(Vector3 p1, Vector3 p2)
-    {
-        Destroy(lineRenderer);
-        lineRenderer = new GameObject();
-        lineRenderer.name = "LineRenderer";
-        LineRenderer lr = (LineRenderer)lineRenderer.AddComponent(typeof(LineRenderer));
-        lr.SetVertexCount(2);
-        lr.SetWidth(0.001f, 0.001f);
-        lr.SetPosition(0, p1);
-        lr.SetPosition(1, p2);
-    }*/
-
     //Death
     void OnTriggerEnter(Collider other)
     {
@@ -498,7 +472,7 @@ public class Personaje : MonoBehaviour
         //Al golpear una pared en el aire, rebotas en la direccion opuesta
         if (collision.gameObject.CompareTag("lateral") && !isGrounded)
         {
-            Bounce();
+            Wall_Bounce();
         }
         //Al golpear una plataforma en el aire, rebotas en la direccion opuesta
         if (collision.gameObject.CompareTag("platform") && !isGrounded || collision.gameObject.CompareTag("platform") && velY > 0)
@@ -506,8 +480,9 @@ public class Personaje : MonoBehaviour
             Bounce_Platform(collision.contacts[0].normal);
         }
     }
+
     //Invierte la direccion que tenia el jugador y reduce su velocidad en proporcion a  "amortiguador"
-    private void Bounce()
+    private void Wall_Bounce()
     {
         rb.velocity = new Vector3(-lastFrameVelocity.x * amortiguador, lastFrameVelocity.y, lastFrameVelocity.z);
     }
@@ -531,6 +506,7 @@ public class Personaje : MonoBehaviour
         //Activa la animacion de mierte y evita que otras animaciones se reproduscan
         knight_animation.SetBool("f", true);
         knight_animation.SetTrigger("dead");
+        //Cambia la velocidad del jugador a 0 y lo vuelve kinemático
         rb.velocity = Vector3.zero;
         rb.isKinematic = true;
         saved_variables.progreso.FirstLevel = true;
@@ -539,14 +515,14 @@ public class Personaje : MonoBehaviour
         mainCamera.alive = false;
     }
 
-    public void goto_origin()
+    public void goto_origin() //Función que mueve el personaje al morir en el tutorial
     {
         rb.isKinematic = true;
         particulasDash.gameObject.SetActive(false);
         StartCoroutine("tutorial_spawn");
     }
 
-    void loadtut() {
+    void loadtut() { //Función que carga el tutorial
         Instantiate(tutorial_level);
         if (mainCamera)
         {
@@ -577,6 +553,7 @@ public class Personaje : MonoBehaviour
             mainCamera.alive = true;
         }
     }
+
     public void score_up(int _score) {
         saved_variables.progreso.score += _score;
     }
@@ -599,7 +576,7 @@ public class Personaje : MonoBehaviour
         particulasJump.gameObject.SetActive(true);
     }
 
-    IEnumerator tutorial_spawn()
+    IEnumerator tutorial_spawn() //Función que hace que el personaje quede congelado unos segundos al morir en el tutorial
     {
         yield return new WaitForSeconds(0.3f);
         rb.isKinematic = false;
@@ -607,14 +584,14 @@ public class Personaje : MonoBehaviour
         particulasDash.gameObject.SetActive(true);
     }
 
-    IEnumerator LoadScene(){
+    IEnumerator LoadScene(){ //Animación y cambio de escena de nivel
       transitionAnim.SetTrigger("fade_out");
       yield return new WaitForSeconds(0.5f);
       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
 
-    IEnumerator LoadGameOver(){
+    IEnumerator LoadGameOver(){ //Animación y cambio de escena a Game Over
       transitionAnim.SetTrigger("fade_out");
     if (!death_sound.isPlaying && !alive)
     {
