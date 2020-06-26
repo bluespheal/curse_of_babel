@@ -8,6 +8,7 @@ public class Personaje : MonoBehaviour
     [Header("Audio")]
     public AudioSource dash_sound;
     public AudioSource death_sound;
+
     [Header("Characteristics")]
     public float salto;
     public float fallMultiplier = 2.5f;
@@ -34,6 +35,7 @@ public class Personaje : MonoBehaviour
     private int direction;
 
     public float vel_rot;
+
     [Header("Levels")]
     public Saved_variables saved_variables;
     public GameObject[] easy_levels;
@@ -42,6 +44,7 @@ public class Personaje : MonoBehaviour
     public GameObject tutorial_level;
     public int max_easy_score = 100;
     public int max_normal_score = 300;
+
     [Header("Animations")]
     public bool Gdash = false;
     public bool landing = false;
@@ -66,11 +69,8 @@ public class Personaje : MonoBehaviour
 
     float speed;
 
-    // Start is called before the first frame update
-
     void Start()
     {
-       //Set starting rotation to look at the camera
         alive = true;
         transform.rotation = Quaternion.Euler(0, 180, 0);
         idle_change = Random.Range(2, 4);
@@ -79,6 +79,7 @@ public class Personaje : MonoBehaviour
         amortiguador = 0.25f;
         if (!saved_variables.progreso.Tutorial)
         {
+            // hacer pull de un nivel según el puntaje del jugador 
             if (saved_variables.progreso.FirstLevel)
             {
                 saved_variables.progreso.FirstLevel = false;
@@ -88,11 +89,11 @@ public class Personaje : MonoBehaviour
             choose_level();
         }
         else {
+            //cargar tutorial
             loadtut();
             saved_variables.progreso.Tutorial = false;
         }
         mist = GameObject.Find("Niebla");
-        //levels = new GameObject[30];
         coll = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
         dashTime = startDashTime;
@@ -101,6 +102,7 @@ public class Personaje : MonoBehaviour
 
     void choose_level()
     {
+        //escojer un nivel según el puntaje del jugador(easy,normal,hard), se escojen de forma aleatoria hasta que todos los niveles se cargaron y se reinician
         int indx = -1;
         if (saved_variables.progreso.score <= max_easy_score)
         {
@@ -165,6 +167,7 @@ public class Personaje : MonoBehaviour
         loadscenes(saved_variables.progreso.nivelActual);
     }
 
+    //reiniciar las listas de index de los niveles
     void Buscar_Niveles()
     {
         saved_variables.progreso.index = 0;
@@ -185,6 +188,7 @@ public class Personaje : MonoBehaviour
         }
     }
 
+    //reiniciar variables cuando se quita el juego
     void OnApplicationQuit()
     {
         saved_variables.progreso.score = 0;
@@ -274,7 +278,6 @@ public class Personaje : MonoBehaviour
                 if (dashTime <= 0.0f && !stopDashing)
                 {
                     stopDashing = true;
-                    //rb.velocity = Vector3.zero;
                     dashTime = startDashTime;
                     direction = 0;
                 }
@@ -329,13 +332,7 @@ public class Personaje : MonoBehaviour
                 if (rb){
                     rb.AddForceAtPosition(new Vector3(0f, fallMultiplier * -1, 0f), Vector3.down);
                 }
-                //rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
             }
-
-
-            //rb.AddForceAtPosition(new Vector3(0f, fallMultiplier * -1, 0f), Vector3.down);
-
-            //rb.velocity = vel;
         }
     }
 
@@ -363,6 +360,7 @@ public class Personaje : MonoBehaviour
         }
         rb.velocity = Vector3.up * salto;
     }
+
     public void enemy_bounce()
     {
         transform.position = transform.position + new Vector3(0, 1, 0);
@@ -370,6 +368,7 @@ public class Personaje : MonoBehaviour
         transform.GetChild(5).gameObject.SetActive(true);
         canDash = true;
     }
+
     public void groundPound()
     {
         rb.velocity = Vector3.zero;
@@ -427,7 +426,7 @@ public class Personaje : MonoBehaviour
         {
             groundPound();
         }
-        //Asspull bugfix. If the previous if wasn't true because isGrounded was false, it would go into the else below this statement, multiplying v.normalized (0,0,0) by dashSpeed. Causing the player to freeze in the air for a bit.
+        //bugfix. If the previous if wasn't true because isGrounded was false, it would go into the else below this statement, multiplying v.normalized (0,0,0) by dashSpeed. Causing the player to freeze in the air for a bit.
         else if (v.normalized.x == 0 && v.normalized.y == 0 && v.normalized.z == 0)
         {
 
@@ -458,19 +457,6 @@ public class Personaje : MonoBehaviour
         }
 
     }
-
-    //creates an ugly purple line from p1 to p2
-    /*void CreateLine(Vector3 p1, Vector3 p2)
-    {
-        Destroy(lineRenderer);
-        lineRenderer = new GameObject();
-        lineRenderer.name = "LineRenderer";
-        LineRenderer lr = (LineRenderer)lineRenderer.AddComponent(typeof(LineRenderer));
-        lr.SetVertexCount(2);
-        lr.SetWidth(0.001f, 0.001f);
-        lr.SetPosition(0, p1);
-        lr.SetPosition(1, p2);
-    }*/
 
     //Death
     void OnTriggerEnter(Collider other)
@@ -519,7 +505,6 @@ public class Personaje : MonoBehaviour
 
         rb.velocity = direction * Mathf.Max(speed - (speed * 0.75f));
     }
-
 
     void dead()
     {
@@ -577,6 +562,7 @@ public class Personaje : MonoBehaviour
             mainCamera.alive = true;
         }
     }
+
     public void score_up(int _score) {
         saved_variables.progreso.score += _score;
     }
