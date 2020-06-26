@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class enemytutorial : MonoBehaviour
 {
-    public float slide_speed; //Move speed
     public AudioSource death_sound;
-    RaycastHit hit; //Raycast for floor detection
-    public float distance; // distance to catch floor
-    public bool left; // if it's going to the left
-    Vector3 direction = new Vector3(-1, -1, 0); // downwards direction of raycast
     private Rigidbody rb;
     public ParticleSystem explosion;
-    public GameObject tryagain;
-    public Animator transitionAnim;
+    public GameObject tryagain; 
+    public Animator transitionAnim;// Una animación de transición al momento de morir por este enemigo
 
 
     // Start is called before the first frame update
@@ -23,42 +18,10 @@ public class enemytutorial : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        transform.Translate(Vector3.left * slide_speed * Time.deltaTime); // movement function
-
-        if (Physics.Raycast(transform.position, direction, distance))
-        {
-            ////Uncomment following line for debug line
-            // Debug.DrawRay(transform.position,direction*distance,Color.green);
-        }
-        else
-        {
-            // if moving to left and finds a hole, turns vector and movement direction the opposite way
-            if (left == true)
-            {
-                direction = new Vector3(-1, -1, 0);
-                left = !left;
-            }
-            else
-            {
-                direction = new Vector3(1, -1, 0);
-                left = !left;
-            }
-            slide_speed = slide_speed * -1;
-        }
-
-    }
-
-    public void die()
-    {
-        Destroy(this.gameObject);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("hit_point"))
+        // Si el jugador lo golpea con su hitpoint, manda a llamar el sonido y efectos solamente.
+        if (other.gameObject.CompareTag("hit_point")) 
         {
             explosion.GetComponent<ParticleSystem>().Play();
             other.GetComponent<hitpoint>().player.enemy_bounce();
@@ -67,11 +30,12 @@ public class enemytutorial : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        // Si el jugador colisiona con el enemigo, lo manda a donde esté el objeto tryagain.
         GameObject other = collision.gameObject;
         if (collision.transform.CompareTag("Player"))
         {   
             other.GetComponent<Personaje>().goto_origin();
-            // collision.transform.position = tryagain.transform.position;
+            // muestra una transición a negro cuando el enemigo daña al jugador.
             transitionAnim.SetTrigger("tutorial_fade_out");
         }
     }

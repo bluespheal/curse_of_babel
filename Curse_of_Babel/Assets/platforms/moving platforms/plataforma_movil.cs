@@ -5,29 +5,29 @@ using UnityEngine;
 public class plataforma_movil : MonoBehaviour
 {
     public float speed;
-    public float move_limit;
-    public bool horizontal;
+    public float move_limit; //Declara el límite de movimiento.
+    public bool horizontal; //Declara si se va a mover horizontal o verticalmente.
+    public bool invert; //Declara si primero se moverá a la izquiera o derecha.
 
-    public float start_position;
-    public float current_position;
-    public float true_move_limit;
-    public bool move_back;
+    private float start_position;
+    private float current_position;
+    private float true_move_limit;
+    private bool move_back;
 
-    public bool invert;
 
     // Start is called before the first frame update
     void Start()
     { 
-      start_position = DetermineStartPosition(horizontal);
-      true_move_limit = DetermineStartTrueLimit(invert);
+      start_position = DetermineStartPosition(horizontal); //Declara la posición inicial de movimiento dependiendo si el movimiento es horizontal o vertical
+      true_move_limit = DetermineStartTrueLimit(invert); //Declara la posición final de movimiento dependiendo si el movimiento está invertido
     }
 
     // Update is called once per frame
     void Update()
     {
-      current_position = CalculateCurrentPosition(horizontal);
+      current_position = CalculateCurrentPosition(horizontal); // Calcula y mueve la posición de la plataforma
 
-      if (!invert)
+      if (!invert)// Calcula cuándo la plataforma tendrá que dar la vuelta a su movimiento
       {
         if (current_position > true_move_limit && !move_back || current_position < start_position && move_back)
         {
@@ -52,7 +52,7 @@ public class plataforma_movil : MonoBehaviour
       }  
     }
 
-    private float DetermineStartPosition(bool horizontal)
+    private float DetermineStartPosition(bool horizontal) //Determina la posición inicial de acuerdo con la dirección
     {
       if (horizontal)
       {
@@ -64,7 +64,7 @@ public class plataforma_movil : MonoBehaviour
       } 
     }
 
-    private float CalculateCurrentPosition(bool horizontal)
+    private float CalculateCurrentPosition(bool horizontal) // Calcula y mueve la posición
     {
       if (horizontal)
       {
@@ -76,7 +76,7 @@ public class plataforma_movil : MonoBehaviour
       }
     }
 
-    private float DetermineStartTrueLimit(bool invert)
+    private float DetermineStartTrueLimit(bool invert) //Determina el límite de movimiento real
     {
       if(invert)
       {
@@ -88,7 +88,7 @@ public class plataforma_movil : MonoBehaviour
       }
     }
 
-    private void MoveHorizontal(bool invert)
+    private void MoveHorizontal(bool invert) //Mueve la plataforma de manera horizontal
     {
       if (!invert){
         if (move_back)
@@ -114,7 +114,7 @@ public class plataforma_movil : MonoBehaviour
     }
 
 
-    private void MoveVertical(bool invert)
+    private void MoveVertical(bool invert) //Mueve la plataforma de manera vertical
     {
       if (!invert){
         if (move_back)
@@ -139,25 +139,24 @@ public class plataforma_movil : MonoBehaviour
       }
     }
 
-    private void Move(Vector3 direction)
+    private void Move(Vector3 direction) //Mueve la plataforma de acuerdo a la dirección
     {
       transform.position += direction * Time.deltaTime * speed;
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision) //Hace que el jugador se haga hijo de la plataforma mientras está sobre ella
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            collision.transform.parent = transform;
-            // collision.transform.localScale = new Vector3(1.6f,1f,1f);
-        }
+      if (collision.gameObject.CompareTag("Player"))
+      {
+          collision.transform.parent = transform;
+      }
     }
-    public void OnCollisionExit(Collision collision)
+    public void OnCollisionExit(Collision collision) //Hace que el jugador se deje de ser hijo de la plataforma al dejar de tocarla
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            collision.transform.parent = null;
-            collision.transform.localScale = new Vector3(1.6f,1.6f,1.6f);
-        }
+      if (collision.gameObject.CompareTag("Player"))
+      {
+          collision.transform.parent = null;
+          collision.transform.localScale = new Vector3(1.6f,1.6f,1.6f); //Hace que la escala del jugador se mantenga constante 
+      }
     }
 }

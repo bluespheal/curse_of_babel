@@ -4,27 +4,32 @@ using UnityEngine;
 
 public class patroll_enemy : enemy
 {
-    public float slide_speed; //Move speed
-    RaycastHit hit; //Raycast for floor detection
-    public float distance; // distance to catch floor
-    public bool left; // if it's going to the left
+    public float slide_speed; 
+
+    float distance; // distancia para encontrar el suelo
+    RaycastHit hit; //Raycast para detectar el suelo
+    bool left; // dirección a la que está avanzando
     Vector3 direction = new Vector3(-1, -1, 0); // downwards direction of raycast
 
-    // Update is called once per frame
-     void Update()
+    void Start()
+    {
+        distance = 1; // distancia para encontrar el suelo siempre es 1.
+    }
+
+    void Update()
     {
         if (!stop)
         {
-            transform.Translate(Vector3.left * slide_speed * Time.deltaTime); // movement function
+            transform.Translate(Vector3.left * slide_speed * Time.deltaTime); // Función de movimiento
 
             if (Physics.Raycast(transform.position, direction, distance))
             {
-                ////Uncomment following line for debug line
+                ////Descomentar línea siguiente para ver Raycast para debuggeo.
                 // Debug.DrawRay(transform.position,direction*distance,Color.green);
             }
             else
             {
-                // if moving to left and finds a hole, turns vector and movement direction the opposite way
+                // Si no encuentra suelo enfrente de él, cambia de dirección.
                 if (left == true)
                 {
                     direction = new Vector3(-1, -1, 0);

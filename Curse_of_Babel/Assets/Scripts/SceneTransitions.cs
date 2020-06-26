@@ -5,21 +5,14 @@ using UnityEngine;
 public class SceneTransitions : MonoBehaviour
 {
   public Animator transitionAnim;
-    // Start is called before the first frame update
+
     void Start()
     {
-        StartCoroutine(LoadScene());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-        
+        StartCoroutine(LoadScene()); //starts the transitions after a few seconds
     }
 
     IEnumerator LoadScene(){
-      transitionAnim.SetTrigger("start");
+      transitionAnim.SetTrigger("start"); // plays the star animation after 1 and a half seconds
       yield return new WaitForSeconds(1.5f);
     }
 }
