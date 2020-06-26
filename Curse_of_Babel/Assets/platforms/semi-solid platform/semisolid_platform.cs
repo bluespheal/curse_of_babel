@@ -7,15 +7,13 @@ public class semisolid_platform : MonoBehaviour
 		//public Transform player;
 		public Transform platform;
 
-		private void OnTriggerStay(Collider other)// checks if player has landed
+		private void OnTriggerStay(Collider other)// Revisa si el jugador ya aterrizó
 		{
       platform.transform.GetComponent<Collider>().isTrigger = true;
-			//Physics.IgnoreCollision(player.GetComponent<Collider>(), platform.GetComponent<Collider>());
 		}
 
-		private void OnTriggerExit(Collider other)// checks if player has landed
+		private void OnTriggerExit(Collider other)// Revisa si el jugador ya aterrizó
 		{
       platform.transform.GetComponent<Collider>().isTrigger = false;
-        //Physics.IgnoreCollision(player.GetComponent<Collider>(), platform.GetComponent<Collider>(), false);
 		}
 }

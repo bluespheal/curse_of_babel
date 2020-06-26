@@ -5,30 +5,28 @@ using UnityEngine;
 public class wander_behavior : enemy
 {
   public float speed;
-  public float move_limit;
-  public bool horizontal;
+  public float move_limit; //Declara el límite de movimiento.
+  public bool horizontal; //Declara si se va a mover horizontal o verticalmente.
+  public bool invert; //Declara si primero se moverá a la izquiera o derecha.
 
-  public float start_position;
-  public float current_position;
-  public float true_move_limit;
-  public bool move_back;
+  private float start_position;
+  private float current_position;
+  private float true_move_limit;
+  private bool move_back;
 
-  public bool invert;
 
-  // Start is called before the first frame update
   void Start()
   { 
-    start_position = DetermineStartPosition(horizontal);
-    true_move_limit = DetermineStartTrueLimit(invert);
+    start_position = DetermineStartPosition(horizontal);  //Declara la posición inicial de movimiento dependiendo si el movimiento es horizontal o vertical
+    true_move_limit = DetermineStartTrueLimit(invert); //Declara la posición final de movimiento dependiendo si el movimiento está invertido
   }
 
-  // Update is called once per frame
   void Update()
   {
-    if (!stop){
-      current_position = CalculateCurrentPosition(horizontal);
+    if (!stop){ //mientras el enemigo siga vivo, se moverá
+      current_position = CalculateCurrentPosition(horizontal); // Calcula y mueve la posición del enemigo
 
-      if (!invert)
+      if (!invert)// Calcula cuándo el enemigo tendrá que dar la vuelta a su movimiento
       {
         if (current_position > true_move_limit && !move_back || current_position < start_position && move_back)
         {
@@ -54,7 +52,7 @@ public class wander_behavior : enemy
     }
   }
 
-  private float DetermineStartPosition(bool horizontal)
+  private float DetermineStartPosition(bool horizontal) //Determina la posición inicial de acuerdo con la dirección
   {
     if (horizontal)
     {
@@ -66,7 +64,7 @@ public class wander_behavior : enemy
     } 
   }
 
-  private float CalculateCurrentPosition(bool horizontal)
+  private float CalculateCurrentPosition(bool horizontal) // Calcula y mueve la posición
   {
     if (horizontal)
     {
@@ -78,7 +76,7 @@ public class wander_behavior : enemy
     }
   }
 
-  private float DetermineStartTrueLimit(bool invert)
+  private float DetermineStartTrueLimit(bool invert) //Determina el límite de movimiento real
   {
     if(invert)
     {
@@ -90,7 +88,7 @@ public class wander_behavior : enemy
     }
   }
 
-  private void MoveHorizontal(bool invert)
+  private void MoveHorizontal(bool invert) //Mueve al enemigo de manera horizontal
   {
     if (!invert){
       if (move_back)
@@ -116,7 +114,7 @@ public class wander_behavior : enemy
   }
 
 
-  private void MoveVertical(bool invert)
+  private void MoveVertical(bool invert) //Mueve al enemigo de manera vertical
   {
     if (!invert){
       if (move_back)
@@ -141,7 +139,7 @@ public class wander_behavior : enemy
     }
   }
 
-  private void Move(Vector3 direction)
+  private void Move(Vector3 direction) //Mueve al enemigo a la dirección determinada.
   {
     transform.position += direction * Time.deltaTime * speed;
   }

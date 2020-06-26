@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class bounce : enemy
 {
-    // Start is called before the first frame update
-    private float startY;
     private Rigidbody rigi;
 
     void Awake()
@@ -14,7 +12,6 @@ public class bounce : enemy
         startY = transform.position.y;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!stop)

@@ -79,7 +79,7 @@ public class Personaje : MonoBehaviour
         amortiguador = 0.25f;
         if (!saved_variables.progreso.Tutorial)
         {
-            // hacer pull de un nivel según el puntaje del jugador 
+            // hacer pull de un nivel según el puntaje del jugador
             if (saved_variables.progreso.FirstLevel)
             {
                 saved_variables.progreso.FirstLevel = false;
@@ -336,13 +336,6 @@ public class Personaje : MonoBehaviour
         }
     }
 
-    public void bounce()
-    {
-        jump();
-        transform.GetChild(5).gameObject.SetActive(true);
-        canDash = true;
-    }
-
     public void jump()
     {
         if(canDash) StartCoroutine(turnJumpParticlesOn());
@@ -484,7 +477,7 @@ public class Personaje : MonoBehaviour
         //Al golpear una pared en el aire, rebotas en la direccion opuesta
         if (collision.gameObject.CompareTag("lateral") && !isGrounded)
         {
-            Bounce();
+            Wall_Bounce();
         }
         //Al golpear una plataforma en el aire, rebotas en la direccion opuesta
         if (collision.gameObject.CompareTag("platform") && !isGrounded || collision.gameObject.CompareTag("platform") && velY > 0)
@@ -492,8 +485,9 @@ public class Personaje : MonoBehaviour
             Bounce_Platform(collision.contacts[0].normal);
         }
     }
+
     //Invierte la direccion que tenia el jugador y reduce su velocidad en proporcion a  "amortiguador"
-    private void Bounce()
+    private void Wall_Bounce()
     {
         rb.velocity = new Vector3(-lastFrameVelocity.x * amortiguador, lastFrameVelocity.y, lastFrameVelocity.z);
     }
@@ -516,6 +510,7 @@ public class Personaje : MonoBehaviour
         //Activa la animacion de mierte y evita que otras animaciones se reproduscan
         knight_animation.SetBool("f", true);
         knight_animation.SetTrigger("dead");
+        //Cambia la velocidad del jugador a 0 y lo vuelve kinemático
         rb.velocity = Vector3.zero;
         rb.isKinematic = true;
         saved_variables.progreso.FirstLevel = true;
@@ -524,14 +519,14 @@ public class Personaje : MonoBehaviour
         mainCamera.alive = false;
     }
 
-    public void goto_origin()
+    public void goto_origin() //Función que mueve el personaje al morir en el tutorial
     {
         rb.isKinematic = true;
         particulasDash.gameObject.SetActive(false);
         StartCoroutine("tutorial_spawn");
     }
 
-    void loadtut() {
+    void loadtut() { //Función que carga el tutorial
         Instantiate(tutorial_level);
         if (mainCamera)
         {
@@ -585,7 +580,7 @@ public class Personaje : MonoBehaviour
         particulasJump.gameObject.SetActive(true);
     }
 
-    IEnumerator tutorial_spawn()
+    IEnumerator tutorial_spawn() //Función que hace que el personaje quede congelado unos segundos al morir en el tutorial
     {
         yield return new WaitForSeconds(0.3f);
         rb.isKinematic = false;
@@ -593,14 +588,14 @@ public class Personaje : MonoBehaviour
         particulasDash.gameObject.SetActive(true);
     }
 
-    IEnumerator LoadScene(){
+    IEnumerator LoadScene(){ //Animación y cambio de escena de nivel
       transitionAnim.SetTrigger("fade_out");
       yield return new WaitForSeconds(0.5f);
       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
 
-    IEnumerator LoadGameOver(){
+    IEnumerator LoadGameOver(){ //Animación y cambio de escena a Game Over
       transitionAnim.SetTrigger("fade_out");
     if (!death_sound.isPlaying && !alive)
     {
