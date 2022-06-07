@@ -5,7 +5,7 @@ using UnityEngine;
 public class bounce : enemy
 {
     private Rigidbody rigi;
-
+    private float startY;
     void Awake()
     {
         rigi = transform.GetComponent<Rigidbody>();
