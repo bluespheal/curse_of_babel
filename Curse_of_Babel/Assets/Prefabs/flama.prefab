@@ -4770,7 +4770,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9646,7 +9646,6 @@ GameObject:
   - component: {fileID: 1150200586981450536}
   - component: {fileID: 6758871217227380425}
   - component: {fileID: 6670555988933745421}
-  - component: {fileID: 5881520205718547187}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -9717,19 +9716,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5881520205718547187
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3486435606242773908}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Center: {x: -0.00000019998303, y: -0.000000296487, z: -1.4210855e-14}
 --- !u!1001 &2208605469449997759
 PrefabInstance:
   m_ObjectHideFlags: 0

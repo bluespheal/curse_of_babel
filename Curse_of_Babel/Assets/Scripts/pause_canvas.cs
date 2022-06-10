@@ -10,7 +10,20 @@ public class pause_canvas : MonoBehaviour
     PointerEventData m_PointerEventData;
     EventSystem m_EventSystem;
     public Pause p;
+    private static pause_canvas pcInstance;
+    void Awake()
+    {
+        DontDestroyOnLoad(this);
 
+        if (pcInstance == null)
+        {
+            pcInstance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         //Fetch the Raycaster from the GameObject (the Canvas)

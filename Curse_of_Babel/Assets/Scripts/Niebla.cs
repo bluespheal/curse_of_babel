@@ -6,6 +6,7 @@ public class Niebla : MonoBehaviour
 {
     //bool muevete = false;
     public float velocidad = 0.5f;
+
     void Update()
     {
         //Mueve la niebla de forma vertical a una velocidad constante

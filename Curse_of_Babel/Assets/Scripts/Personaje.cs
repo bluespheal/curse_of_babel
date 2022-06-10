@@ -20,7 +20,6 @@ public class Personaje : MonoBehaviour
     private Vector3 touchEnd;
     private GameObject lineRenderer;
 
-    public GameObject mist;
     private Collider coll;
     private Rigidbody rb;
     public ParticleSystem dashRelease;
@@ -69,6 +68,22 @@ public class Personaje : MonoBehaviour
 
     float speed;
 
+    /*static Personaje instance;
+    public static Personaje Instance
+    {
+        get { return instance; }
+    }
+    private void Awake()
+    {
+        if(instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }*/
+
     void Start()
     {
         alive = true;
@@ -93,7 +108,6 @@ public class Personaje : MonoBehaviour
             loadtut();
             saved_variables.progreso.Tutorial = false;
         }
-        mist = GameObject.Find("Niebla");
         coll = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
         dashTime = startDashTime;
@@ -204,6 +218,7 @@ public class Personaje : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(!isGrounded && canDash && particulasJump.gameObject.activeSelf == false)
         {
             StartCoroutine(turnJumpParticlesOn());
@@ -454,7 +469,7 @@ public class Personaje : MonoBehaviour
     //Death
     void OnTriggerEnter(Collider other)
     {
-        if (other.name == mist.name)
+        if (other.CompareTag("mist"))
         {
             dead();
         }
